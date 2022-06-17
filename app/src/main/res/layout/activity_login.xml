@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.biometricthings.LogInActivity">
+
+    <TextView
+        android:id="@+id/tvLogIn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="100dp"
+        android:text="Log In"
+        android:textSize="38sp" />
+
+    <EditText
+        android:id="@+id/etUserMail"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvLogIn"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="100dp"
+        android:hint="Email"
+        android:textSize="20dp" />
+
+    <EditText
+        android:id="@+id/etUserPassword"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/etUserMail"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:hint="User Pass"
+        android:inputType="textPassword"
+        android:textSize="20dp" />
+
+    <TextView
+        android:id="@+id/tvRegistro"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/etUserPassword"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:gravity="center"
+        android:text=""
+        android:textSize="16sp" />
+
+
+    <Button
+        android:id="@+id/senddata"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tvRegistro"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="75dp"
+        android:text="Login"
+        android:textSize="20dp" />
+
+
+</RelativeLayout>

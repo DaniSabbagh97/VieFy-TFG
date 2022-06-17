@@ -1,0 +1,557 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Test.TestActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="7dp">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:layout_gravity="center">
+                <TextView
+                    android:id="@+id/tvPregunta1"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="7dp"
+                    android:layout_marginTop="25dp"
+                    android:text="1-Reparta números del 1 al 4 en los siguientes aspectos, según tus prioridades personales(ten en cuenta que el 1 indica lo más importante y el 4 lo menos importante):"
+
+                    android:textSize="18dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:orientation="horizontal"
+                android:layout_gravity="center">
+                <TextView
+                    android:id="@+id/tvB2"
+                    android:layout_width="280dp"
+                    android:layout_marginRight="25dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="10dp"
+                    android:text="Tu nivel económico. Los ingresos debidos a tu trabajo." />
+                <EditText
+                    android:id="@+id/etB2"
+                    android:digits="1234"
+                    android:maxLength="1"
+                    android:layout_width="34dp"
+                    android:layout_height="match_parent"
+                    android:textSize="23dp"
+                    android:inputType="phone"
+                    android:hint=""
+                    android:background="@drawable/edit_text_background"
+                    android:layout_margin="1dp"
+                    android:textAlignment="center"
+                    />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:orientation="horizontal"
+                android:layout_gravity="center">
+                <TextView
+                    android:id="@+id/tvB3"
+                    android:layout_width="280dp"
+                    android:layout_marginRight="25dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="10dp"
+
+                    android:text="Tu atuoestima. Cómo te sientes valorado por el resto de tus amigos, familiares y compañeros." />
+                <EditText
+                    android:id="@+id/etB3"
+                    android:layout_width="34dp"
+                    android:layout_height="match_parent"
+                    android:paddingRight="5dp"
+                    android:paddingLeft="5dp"
+                    android:textSize="23dp"
+                    android:maxLength="1"
+                    android:inputType="number"
+                    android:background="@drawable/edit_text_background"
+                    android:layout_margin="1dp"
+                    android:textAlignment="center"
+                    android:hint="" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:orientation="horizontal"
+                android:layout_gravity="center">
+                <TextView
+                    android:id="@+id/tvB4"
+                    android:layout_width="280dp"
+                    android:layout_marginRight="25dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="10dp"
+                    android:text="Tu estado anímico. La manera en que afrontas el día a día. Las ganas que tienes de hacer cosas." />
+                <EditText
+                    android:id="@+id/etB4"
+                    android:layout_width="34dp"
+                    android:layout_height="match_parent"
+                    android:paddingRight="5dp"
+                    android:paddingLeft="5dp"
+                    android:textSize="23dp"
+                    android:maxLength="1"
+                    android:inputType="number"
+                    android:background="@drawable/edit_text_background"
+                    android:layout_margin="1dp"
+                    android:textAlignment="center"
+                    android:hint=""/>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:orientation="horizontal"
+                android:layout_gravity="center">
+                <TextView
+                    android:id="@+id/tvB5"
+                    android:layout_width="280dp"
+                    android:layout_marginRight="25dp"
+                    android:layout_height="match_parent"
+                    
+                    android:gravity="center_vertical"
+                    android:paddingLeft="10dp"
+                    android:text="Tu trabajo. Lo que te gusta tu trabajo y las cosas que quieres hacer en él." />
+                <EditText
+                    android:id="@+id/etB5"
+                    android:layout_width="34dp"
+                    android:layout_height="match_parent"
+                    android:paddingRight="5dp"
+                    android:paddingLeft="5dp"
+                    android:textSize="23dp"
+                    android:maxLength="1"
+                    android:inputType="number"
+                    android:background="@drawable/edit_text_background"
+                    android:layout_margin="1dp"
+                    android:textAlignment="center"
+                    android:hint="" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:layout_gravity="center">
+                    <TextView
+                        android:id="@+id/tvPregunta2"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_margin="7dp"
+                        android:layout_marginTop="25dp"
+                        android:text="2-Reparta 10 puntos sobre los siguientes aspectos de acuerdo a como te gustaría sentirte en el futuro:"
+
+                        android:textSize="18dp" />
+                </LinearLayout>
+
+                <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:orientation="horizontal"
+                android:layout_gravity="center">
+                    <TextView
+                        android:id="@+id/tvC2"
+                        android:layout_width="280dp"
+                    android:layout_marginRight="25dp"
+                        android:layout_height="match_parent"
+                        android:gravity="center_vertical"
+                        android:paddingLeft="10dp"
+                        android:text="Tu nivel económico. Es decir, tus ingresos debidos a tu trabajo." />
+                    <EditText
+                        android:id="@+id/etC2"
+                        android:layout_width="34dp"
+                        android:layout_height="match_parent"
+                        android:paddingRight="5dp"
+                        android:paddingLeft="5dp"
+                        android:textSize="23dp"
+                        android:maxLength="1"
+                        android:inputType="number"
+                        android:background="@drawable/edit_text_background"
+                        android:layout_margin="1dp"
+                    android:textAlignment="center"
+                        android:hint=""
+                        />
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:orientation="horizontal"
+                android:layout_gravity="center">
+                    <TextView
+                        android:id="@+id/tvC3"
+                        android:layout_width="280dp"
+                    android:layout_marginRight="25dp"
+                        android:layout_height="match_parent"
+                        android:gravity="center_vertical"
+                        android:paddingLeft="10dp"
+                        android:text="Tu autoestima. Cómo te gustaría ser valorado, globalmente, por el resto de tus amigos, familiares y compañeros." />
+                    <EditText
+                        android:id="@+id/etC3"
+                        android:layout_width="34dp"
+                        android:layout_height="match_parent"
+                        android:paddingRight="5dp"
+                        android:paddingLeft="5dp"
+                        android:maxLength="1"
+                        android:textSize="23dp"
+                        android:inputType="number"
+                        android:background="@drawable/edit_text_background"
+                        android:layout_margin="1dp"
+                    android:textAlignment="center"
+                        android:hint="" />
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:orientation="horizontal"
+                android:layout_gravity="center">
+                    <TextView
+                        android:id="@+id/tvC4"
+                        android:layout_width="280dp"
+                    android:layout_marginRight="25dp"
+                        android:layout_height="match_parent"
+                        android:gravity="center_vertical"
+                        android:paddingLeft="10dp"
+                        android:text="Tu estado anímico. La manera en que afrontarás el día. Las ganas que tendrás de hacer cosas" />
+                    <EditText
+                        android:id="@+id/etC4"
+                        android:layout_width="34dp"
+                        android:layout_height="match_parent"
+                        android:paddingRight="5dp"
+                        android:paddingLeft="5dp"
+                        android:textSize="23dp"
+                        android:maxLength="1"
+                        android:inputType="number"
+                        android:background="@drawable/edit_text_background"
+                        android:layout_margin="1dp"
+                    android:textAlignment="center"
+                        android:hint="" />
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:orientation="horizontal"
+                android:layout_gravity="center">
+                    <TextView
+                        android:id="@+id/tvC5"
+                        android:layout_width="280dp"
+                    android:layout_marginRight="25dp"
+                        android:layout_height="match_parent"
+                        android:gravity="center_vertical"
+                        android:paddingLeft="10dp"
+                        android:text="Tu trabajo. Lo que te gustará tu trabajo y las cosas que querrás hacer en él." />
+                    <EditText
+                        android:id="@+id/etC5"
+                        android:layout_width="34dp"
+                        android:layout_height="match_parent"
+                        android:paddingRight="5dp"
+                        android:paddingLeft="5dp"
+                        android:textSize="23dp"
+                        android:maxLength="1"
+                        android:inputType="number"
+                        android:background="@drawable/edit_text_background"
+                        android:layout_margin="1dp"
+                    android:textAlignment="center"
+                        android:hint="" />
+
+
+                </LinearLayout>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:layout_gravity="center">
+                    <TextView
+                        android:id="@+id/tvPregunta3"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="7dp"
+                        android:layout_marginTop="25dp"
+                        android:text="3-Reparta 10 puntos sobre los siguientes aspectos de acuerdo a como te sientes actualmente:"
+
+                        android:textSize="18dp" />
+                </LinearLayout>
+
+                <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:orientation="horizontal"
+                android:layout_gravity="center">
+                    <TextView
+                        android:id="@+id/tvB8"
+                        android:layout_width="280dp"
+                    android:layout_marginRight="25dp"
+                        android:layout_height="match_parent"
+                        android:gravity="center_vertical"
+                        android:paddingLeft="10dp"
+                        android:text="Nivel económico" />
+                    <EditText
+                        android:id="@+id/etB8"
+                        android:layout_width="34dp"
+                        android:layout_height="match_parent"
+                        android:paddingRight="5dp"
+                        android:paddingLeft="5dp"
+                        android:textSize="23dp"
+                        android:maxLength="1"
+                        android:inputType="number"
+                        android:background="@drawable/edit_text_background"
+                        android:layout_margin="1dp"
+                    android:textAlignment="center"
+                        android:hint="" />
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:orientation="horizontal"
+                android:layout_gravity="center">
+                    <TextView
+                        android:id="@+id/tvB9"
+                        android:layout_width="280dp"
+                    android:layout_marginRight="25dp"
+                        android:layout_height="match_parent"
+                        android:gravity="center_vertical"
+                        android:paddingLeft="10dp"
+                        android:text="Tu autoestima. Cómo te sientes valorado, globalmente, por el resto de tus amigos, familiares y compañeros. " />
+                    <EditText
+                        android:id="@+id/etB9"
+                        android:layout_width="34dp"
+                        android:layout_height="match_parent"
+                        android:paddingRight="5dp"
+                        android:paddingLeft="5dp"
+                        android:textSize="23dp"
+                        android:maxLength="1"
+                        android:inputType="number"
+                        android:background="@drawable/edit_text_background"
+                        android:layout_margin="1dp"
+                    android:textAlignment="center"
+                        android:hint="" />
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:orientation="horizontal"
+                android:layout_gravity="center">
+                    <TextView
+                        android:id="@+id/tvB10"
+                        android:layout_width="280dp"
+                    android:layout_marginRight="25dp"
+                        android:layout_height="match_parent"
+                        android:gravity="center_vertical"
+                        android:paddingLeft="10dp"
+                        android:text="Tu estado anímico. La manera en que afrontas el día. Las ganas que tienes de hacer cosas" />
+                    <EditText
+                        android:id="@+id/etB10"
+                        android:layout_width="34dp"
+                        android:layout_height="match_parent"
+                        android:paddingRight="5dp"
+                        android:paddingLeft="5dp"
+                        android:textSize="23dp"
+                        android:maxLength="1"
+                        android:inputType="number"
+                        android:background="@drawable/edit_text_background"
+                        android:layout_margin="1dp"
+                    android:textAlignment="center"
+                        android:hint="" />
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:orientation="horizontal"
+                android:layout_gravity="center">
+                    <TextView
+                        android:id="@+id/tvB11"
+                        android:layout_width="280dp"
+                    android:layout_marginRight="25dp"
+                        android:layout_height="match_parent"
+                        android:gravity="center_vertical"
+                        android:paddingLeft="10dp"
+                        android:text="Tu trabajo. Lo que te gusta tu trabajo y las cosas que quieres hacer en él." />
+                    <EditText
+                        android:id="@+id/etB11"
+                        android:layout_width="34dp"
+                        android:layout_height="match_parent"
+                        android:paddingRight="5dp"
+                        android:paddingLeft="5dp"
+                        android:textSize="23dp"
+                        android:inputType="number"
+                        android:maxLength="1"
+                        android:background="@drawable/edit_text_background"
+                        android:layout_margin="1dp"
+                        android:textAlignment="center"
+                        android:hint=""
+                        />
+
+
+                </LinearLayout>
+            </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/tvPregunta4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="7dp"
+                android:layout_marginTop="25dp"
+                android:text="4-Al finalizar la carrera, ¿Cuál te gustaría que fuera tu situación laboral? Elige únicamente una opción:"
+                android:textSize="18dp" />
+
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" >
+
+                <RadioButton
+                    android:id="@+id/rbEmpresario"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Tener tu propia empresa." />
+                <RadioButton
+                    android:id="@+id/rbAsalariado"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Trabajar para una empresa" />
+                <RadioButton
+                    android:id="@+id/rbAutonomo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Ser autónomo" />
+            </RadioGroup>
+        </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <TextView
+                    android:id="@+id/tvPregunta5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="7dp"
+                    android:layout_marginTop="25dp"
+                    android:text="5-¿Como te gustaría que fuera tu estado civil?"
+                    android:textSize="18dp" />
+
+                <RadioGroup
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" >
+
+                    <RadioButton
+                        android:id="@+id/rbSolteroPareja"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Soltero con pareja" />
+                    <RadioButton
+                        android:id="@+id/rbSolteroSinPareja"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Soltero sin pareja" />
+                    <RadioButton
+                        android:id="@+id/rbCasado"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Casado" />
+                </RadioGroup>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <TextView
+                    android:id="@+id/tvPregunta6"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="7dp"
+                    android:layout_marginTop="25dp"
+                    android:text="6-¿Te gustaría tener hijos?"
+                    android:textSize="18dp" />
+
+                <RadioGroup
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" >
+
+                    <RadioButton
+                        android:id="@+id/rbSi"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Sí" />
+                    <RadioButton
+                        android:id="@+id/rbNo"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="No" />
+
+                </RadioGroup>
+            </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/btnEnviar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Enviar" />
+        </LinearLayout>
+
+
+        </LinearLayout>
+
+
+    </ScrollView>
+</RelativeLayout>

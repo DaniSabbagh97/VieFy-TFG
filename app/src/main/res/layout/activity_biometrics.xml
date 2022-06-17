@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".BiometricsActivity">
+
+    <Button
+        android:id="@+id/btnAuth"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="100dp"
+        android:text="Authenticate Now" />
+
+    <TextView
+        android:id="@+id/tvAuthStatus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btnAuth"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="25dp"
+        android:text="Auth Status"
+        android:textSize="16dp" />
+
+    <Button
+        android:id="@+id/btnJWT"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvAuthStatus"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        android:text="Ir a JWT" />
+
+    <Button
+        android:id="@+id/btnTest"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btnJWT"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        android:text="Ir al Test" />
+
+
+    <Button
+        android:id="@+id/btnPreLogSign"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btnAuth"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        android:text="Ir a PreLogin" />
+
+    <Button
+        android:id="@+id/btnRegistro"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ir al Registro"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/btnTest"
+        android:layout_marginTop="5dp"/>
+
+    <Button
+        android:id="@+id/btnNotificacion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btnRegistro"
+        android:layout_centerHorizontal="true"
+        android:text="Notificacion" />
+
+    <Button
+        android:id="@+id/btnPropiedades"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btnNotificacion"
+        android:layout_centerHorizontal="true"
+        android:text="Propiedades" />
+
+
+
+
+</RelativeLayout>

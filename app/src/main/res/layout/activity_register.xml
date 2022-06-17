@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Register.RegisterActivity">
+
+    <TextView
+        android:id="@+id/tvRegistrarse"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:text="Registro"
+        android:textAlignment="center"
+        android:textSize="28dp" />
+
+    <EditText
+        android:id="@+id/etMail"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvRegistrarse"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp"
+        android:hint="Email"
+        android:inputType="textPersonName" />
+
+    <EditText
+        android:id="@+id/etNombre"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/etMail"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:inputType="textPersonName"
+        android:hint="Nombre"/>
+
+    <EditText
+        android:id="@+id/etApellido"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/etNombre"
+        android:layout_marginTop="10dp"
+        android:inputType="textPersonName"
+        android:hint="Apellido"/>
+
+    <EditText
+        android:id="@+id/etTelefono"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/etApellido"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:hint="Teléfono"
+        android:inputType="phone" />
+
+    <EditText
+        android:id="@+id/etNumExpediente"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/etTelefono"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:ems="4"
+        android:hint="Número de Expediente"
+        android:inputType="phone" />
+
+    <EditText
+        android:id="@+id/etCampoCambiar"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/etNumExpediente"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:hint="Campo Cambiar"
+        android:inputType="textPersonName" />
+
+
+    <EditText
+        android:id="@+id/etContrasenia1"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/etCampoCambiar"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:hint="Contraseña"
+        android:inputType="textPassword"
+        />
+
+    <EditText
+        android:id="@+id/etContrasenia2"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/etContrasenia1"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:hint="Repite la contraseña"
+        android:inputType="textPassword" />
+
+
+
+
+    <Button
+        android:id="@+id/btnRegistrarse"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/etContrasenia2"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp"
+        android:text="Registrarse" />
+
+</RelativeLayout>

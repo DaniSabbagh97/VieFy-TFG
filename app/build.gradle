@@ -1,0 +1,85 @@
+plugins {
+    id 'com.android.application'
+}
+
+android {
+    compileSdk 32
+
+    defaultConfig {
+        applicationId "com.example.biometricthings"
+        minSdk 21
+        targetSdk 32
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+dependencies {
+
+}
+
+dependencies {
+
+    implementation 'androidx.appcompat:appcompat:1.4.1'
+    implementation 'com.google.android.material:material:1.5.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.3'
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.3'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+    //Menu
+    //implementation "com.android.support:design:28.0.0"
+    //Biometric
+    implementation "androidx.biometric:biometric:1.1.0"
+    implementation "androidx.biometric:biometric-ktx:1.2.0-alpha04"
+
+    //JWT
+    implementation 'io.jsonwebtoken:jjwt-api:0.11.2'
+    runtimeOnly 'io.jsonwebtoken:jjwt-impl:0.11.2'
+    runtimeOnly 'io.jsonwebtoken:jjwt-jackson:0.11.2'
+    implementation 'org.bouncycastle:bcprov-jdk15on:1.68'
+
+    //JWT_API
+    implementation 'com.google.code.gson:gson:2.8.6'
+    implementation 'com.squareup.retrofit2:retrofit:2.9.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
+    testImplementation 'junit:junit:4.13.2'
+
+    //Picasso ImageView
+    implementation 'com.squareup.picasso:picasso:2.5.2'
+
+
+    //Promesa
+    implementation 'net.sourceforge.streamsupport:android-retrofuture:1.7.1'
+
+    //Recyclerview
+    implementation 'androidx.recyclerview:recyclerview:1.2.1'
+    implementation 'androidx.cardview:cardview:1.0.0'
+
+    //Carousel
+    //implementation 'com.github.denzcoskun:ImageSlideShow:0.0.6'
+
+    //Carousel 2
+    implementation 'com.github.smarteist:autoimageslider:1.3.9'
+    implementation 'com.github.bumptech.glide:glide:4.11.0'
+
+    //Material Design
+    api 'com.google.android.material:material:1.1.0-alpha06'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation 'com.android.volley:volley:1.1.1'
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.3.21"
+    androidTestImplementation 'androidx.test:core:1.1.0'
+    androidTestImplementation 'androidx.test:runner:1.2.0-alpha05'
+
+}
