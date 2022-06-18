@@ -1,5 +1,7 @@
 package com.example.biometricthings.remote;
 
+import com.example.biometricthings.model.Empresa;
+import com.example.biometricthings.model.HistoricoCuentaParticulares;
 import com.example.biometricthings.model.JWTToken;
 import com.example.biometricthings.model.Propiedades;
 import com.example.biometricthings.model.Test;
@@ -34,6 +36,9 @@ public interface APIService {
  @GET("http://192.168.1.10:8080/api/users/profile/test")
  Call<User> userProfileTest(@Header("Authorization") String token);
 
+ @GET("http://192.168.1.10:8080/api/historicoCuentaParticulares/saldo")
+ Call<HistoricoCuentaParticulares> obtenerSaldo(@Header("Authorization") String token);
+
  @HTTP(method = "POST", path = "http://192.168.1.10:8080/api/users/register", hasBody = true)
  Call<Integer> registerUser(@Body User user);
 
@@ -44,8 +49,13 @@ public interface APIService {
  Call<String> registroPropiedad(@Body Propiedades p, @Header("Authorization") String token);//TODO CON TOKEN
 
  @HTTP(method = "GET", path = "http://192.168.1.10:8080/api/propiedades/obtener")
-
  Call<ArrayList<Propiedades>> obtenerPropiedades(@Header("Authorization") String token);
+
+ @HTTP(method = "GET", path = "http://192.168.1.10:8080/api/propiedades/obtenerLocal")
+ Call<ArrayList<Propiedades>> obtenerLocales(@Header("Authorization") String token);
+
+ @HTTP(method = "POST", path = "http://192.168.1.10:8080/api/empresas/insertarEmpresa", hasBody = true)
+ Call<Boolean> insertarEmpresa(@Body Empresa e, @Header("Authorization") String token);
 
 
 }

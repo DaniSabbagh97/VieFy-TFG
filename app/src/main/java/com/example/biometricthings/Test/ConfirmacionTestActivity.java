@@ -95,6 +95,7 @@ public class ConfirmacionTestActivity extends AppCompatActivity {
                                 finish();
                             }else if(conPropiedad==0){
                                 Intent i = new Intent(ConfirmacionTestActivity.this, PropiedadesActivity.class);
+                                i.putExtra("key", 1);
                                 startActivity(i);
                                 finish();                            }
 

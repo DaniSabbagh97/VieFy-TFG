@@ -114,6 +114,7 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
                     i.putExtra("pisicina", mData.get(getAdapterPosition()).getPiscina());
                     i.putExtra("aireAcondicionado", mData.get(getAdapterPosition()).getAireAcondicionado());
                     i.putExtra("parking", mData.get(getAdapterPosition()).getParking());
+                    i.putExtra("tipo", mData.get(getAdapterPosition()).getTipo());
                     v.getContext().startActivity(i);
                 }
             });

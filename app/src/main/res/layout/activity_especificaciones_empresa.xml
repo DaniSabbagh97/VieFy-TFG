@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Roles.EspecificacionesEmpresa">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/tvEspecificaciones"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="30dp"
+                android:textSize="20sp"
+                android:text="Termina las especificaciones de tu empresa:" />
+
+            <EditText
+                android:id="@+id/etNombreEmpresa"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@+id/tvEspecificaciones"
+                android:layout_marginTop="50dp"
+                android:hint="Nombre de su Empresa"
+                android:inputType="textPersonName" />
+
+            <EditText
+                android:id="@+id/etSlogan"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@+id/etNombreEmpresa"
+                android:layout_marginTop="50dp"
+                android:hint="Define un Slogan de tu Empresa"
+                android:inputType="textPersonName" />
+
+            <TextView
+                android:id="@+id/tvAnuncio"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@+id/etSlogan"
+                android:layout_marginTop="50dp"
+                android:textSize="20sp"
+                android:text="Crea un anuncio para la empresa:" />
+
+            <EditText
+                android:id="@+id/etTituloAnuncio"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tvAnuncio"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="50dp"
+                android:hint="Título del anuncio"
+                android:inputType="textPersonName" />
+
+            <TextView
+                android:id="@+id/tvCuerpoAnuncio"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@+id/etTituloAnuncio"
+                android:layout_marginTop="50dp"
+                android:textSize="20sp"
+                android:text="Atrae a tus empleados con una sola frase:" />
+
+            <EditText
+                android:id="@+id/etCuerpoAnuncio"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tvCuerpoAnuncio"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="50dp"
+                android:hint="Frase del Anuncio"
+                android:inputType="textPersonName" />
+
+            <Button
+                android:id="@+id/btnCrearEmpresa"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@+id/etCuerpoAnuncio"
+                android:layout_marginTop="50dp"
+                android:text="Crear Empresa" />
+
+
+        </RelativeLayout>
+    </ScrollView>
+</RelativeLayout>

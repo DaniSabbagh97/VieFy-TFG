@@ -10,6 +10,7 @@ import retrofit2.Response;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 
@@ -28,6 +29,8 @@ public class PropiedadesActivity extends AppCompatActivity {
     private String nombre;
     private double precio;
     private int habitaciones;
+    int f;
+    String nombreEmpresa;
 
 
 
@@ -36,7 +39,17 @@ public class PropiedadesActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_propiedades);
 
-        init();
+        Bundle extras = getIntent().getExtras();
+        f = extras.getInt("key");
+        if(extras.getString("empresa")!=null){
+            nombreEmpresa = extras.getString("empresa");
+        }
+        if(f==1){
+            init();
+        }else if(f==2){
+            init2();
+        }
+
 
     }
 
@@ -88,6 +101,56 @@ public class PropiedadesActivity extends AppCompatActivity {
 
 
 }
+
+
+    public void init2(){
+
+        String token = cargarPreferencias();
+
+        final APIService apiService = RetroClass.getAPIService();
+
+        Call<ArrayList<Propiedades>> p = apiService.obtenerLocales(token);
+
+        p.enqueue(new Callback<ArrayList<Propiedades>>() {
+
+            @Override
+            public void onResponse(@NonNull Call<ArrayList<Propiedades>> call, @NonNull Response<ArrayList<Propiedades>> response) {
+
+
+                pp = response.body();
+
+                ListAdapter listAdapter = new ListAdapter(pp, PropiedadesActivity.this);
+                RecyclerView recyclerView = findViewById(R.id.rvPropiedades);
+                recyclerView.setHasFixedSize(true);
+                recyclerView.setLayoutManager(new LinearLayoutManager(PropiedadesActivity.this));
+                recyclerView.setAdapter(listAdapter);
+
+                     /* for (Propiedades propiedades : pp) {
+
+                          System.out.println(propiedades.getNombre().toString());
+
+
+
+                      }*/
+
+            }
+
+            @Override
+            public void onFailure(@NonNull Call<ArrayList<Propiedades>> call, @NonNull Throwable t) {
+
+                System.out.println("XXXXXXXXXXXXXXXXXXXXXXXXXXXXX");
+                System.out.println(t.getMessage());
+
+            }
+        });
+
+
+
+
+
+
+
+    }
 
     public String cargarPreferencias(){
         SharedPreferences preferences = getSharedPreferences("credenciales", Context.MODE_PRIVATE);

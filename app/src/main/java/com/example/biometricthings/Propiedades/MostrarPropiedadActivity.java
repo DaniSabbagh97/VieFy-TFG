@@ -20,6 +20,7 @@ import com.example.biometricthings.BiometricsActivity;
 import com.example.biometricthings.HomeActivity;
 import com.example.biometricthings.R;
 import com.example.biometricthings.Roles.CreaEmpresaActivity;
+import com.example.biometricthings.Roles.EspecificacionesEmpresa;
 import com.example.biometricthings.Roles.UneteEmpresaActivity;
 import com.example.biometricthings.model.Propiedades;
 import com.example.biometricthings.model.SliderData;
@@ -47,6 +48,7 @@ public class MostrarPropiedadActivity extends AppCompatActivity {
     private String zona;
     private String img2;
     private String img3;
+    private String tipo;
 
     private String rolUsuario;
 
@@ -97,6 +99,7 @@ public class MostrarPropiedadActivity extends AppCompatActivity {
             img1 = extras.getString("img1");
             img2 = extras.getString("img2");
             img3 = extras.getString("img3");
+            tipo = extras.getString("tipo");
             String precioString = String.valueOf(precio);
             tvNombre.setText(nombre);
             tvDescripcion.setText(descripcion);
@@ -123,7 +126,7 @@ public class MostrarPropiedadActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 propiedades = new Propiedades(id);
-                createNewDialog(propiedades);
+                createNewDialog(propiedades, tipo, precio);
 
 
             }
@@ -146,7 +149,7 @@ public class MostrarPropiedadActivity extends AppCompatActivity {
         //slideModels.add(new SlideModel())*/
     }
 
-    public void createNewDialog(Propiedades prop){
+    public void createNewDialog(Propiedades prop, String tipoPropiedad, double precio){
         dialogBuilder = new AlertDialog.Builder(this);
         final View popUpView = getLayoutInflater().inflate(R.layout.popup_confirmacion_propiedad, null);
         tvInfo = (TextView) popUpView.findViewById(R.id.tvInfo);
@@ -162,33 +165,33 @@ public class MostrarPropiedadActivity extends AppCompatActivity {
         btnSi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                if(tipoPropiedad.equals("vivienda")){
                 final APIService apiService = RetroClass.getAPIService();
-                Call<String> registroProp = apiService.registroPropiedad(prop,tokenDevuelto);
+                Call<String> registroProp = apiService.registroPropiedad(prop, tokenDevuelto);
                 registroProp.enqueue(new Callback<String>() {
                     @Override
                     public void onResponse(Call<String> call, Response<String> response) {
-                        if(response.body()!=null){
+                        if (response.body() != null) {
                             rolUsuario = response.body();
                             System.out.println("PPPPPPPPPPPPPPPPPPPP");
 
                             System.out.println(u);
-                            if(rolUsuario.equals("Empresario")){//TODO HACER LA PARTE DE CREAR EMPRESA Y SELECCIONAR LOCAL PARA LA EMPRESA
+                            if (rolUsuario.equals("Empresario")) {//TODO HACER LA PARTE DE CREAR EMPRESA Y SELECCIONAR LOCAL PARA LA EMPRESA
                                 Intent i = new Intent(MostrarPropiedadActivity.this, CreaEmpresaActivity.class);
                                 startActivity(i);
                                 finish();
                                 dialog.dismiss();
-                            }else if(rolUsuario.equals("Asalariado")) {
+                            } else if (rolUsuario.equals("Asalariado")) {
                                 Intent i = new Intent(MostrarPropiedadActivity.this, UneteEmpresaActivity.class);
                                 startActivity(i);
                                 finish();
-                            }else if(rolUsuario.equals("Autonomo")){
+                            } else if (rolUsuario.equals("Autonomo")) {
                                 Intent i = new Intent(MostrarPropiedadActivity.this, HomeActivity.class);
                                 startActivity(i);
                                 finish();
 
                             }
-                        }else {
+                        } else {
                             System.out.println("MAAAAAAAAAAAAAAAL2");
                         }
 
@@ -199,7 +202,12 @@ public class MostrarPropiedadActivity extends AppCompatActivity {
 
                     }
                 });
-
+            }else if(tipoPropiedad.equals("local")){
+                    Intent i = new Intent(MostrarPropiedadActivity.this, EspecificacionesEmpresa.class);
+                    i.putExtra("idProp", prop.getId_propiedades());//TODO ENVIAR MÁS DATOS
+                    i.putExtra("precio", precio);//TODO ENVIAR MÁS DATOS
+                    startActivity(i);
+                }
 
 
 

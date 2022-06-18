@@ -8,22 +8,49 @@
 
 
     <TextView
-        android:id="@+id/tvCreaEmpresa"
+        android:id="@+id/tvInfo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="¡Detalla las características de tu empresa!"
-        android:textSize="20sp"
-        android:layout_centerHorizontal="true"
         android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
         android:layout_marginTop="50dp"
-        />
+        android:text="¡Estás a punto de crear tu propia empresa!"
+        android:textSize="20sp" />
 
-    <EditText
+    <TextView
+        android:id="@+id/tvInfo2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/tvInfo"
+        android:layout_marginTop="10dp"
+        android:text="¡Sigue los pasos para detallar las"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/tvInfo3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/tvInfo2"
+        android:layout_marginTop="10dp"
+        android:text="características de tu empresa!"
+        android:textSize="20sp" />
+    <!--<EditText
         android:id="@+id/etNombreEmpresa"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:layout_below="@id/tvCreaEmpresa"
+        android:layout_below="@id/tvInfo"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="25dp"
-        android:hint="Nombre de la Empresa" />
+        android:hint="Nombre de la Empresa" />-->
+
+    <Button
+        android:id="@+id/btnSiguiente"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/tvInfo3"
+        android:layout_marginTop="50dp"
+        android:text="Siguiente" />
 </RelativeLayout>
