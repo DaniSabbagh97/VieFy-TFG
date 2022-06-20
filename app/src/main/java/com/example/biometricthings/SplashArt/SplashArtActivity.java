@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 
+import com.example.biometricthings.BiometricsActivity;
 import com.example.biometricthings.LogInActivity;
 import com.example.biometricthings.HomeActivity;
 import com.example.biometricthings.R;
@@ -30,7 +31,7 @@ public class SplashArtActivity extends AppCompatActivity {
             @Override
             public void run() {
                 if(!token.equals("NO")) {
-                    Intent i = new Intent(SplashArtActivity.this, LogInActivity.class);//LogInActivity
+                    Intent i = new Intent(SplashArtActivity.this, BiometricsActivity.class);//LogInActivity
                     startActivity(i);
                     finish();
                 }else{

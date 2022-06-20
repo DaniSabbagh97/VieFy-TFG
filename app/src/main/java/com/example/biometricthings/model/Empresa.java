@@ -11,6 +11,9 @@ public class Empresa {
     private String slogan;
     private String anuncio;
     private String cuerpoAnuncio;
+    private byte[] pdf;
+    private byte[] pdfString;
+
 
     public Empresa() {
     }
@@ -118,5 +121,21 @@ public class Empresa {
 
     public void setCuerpoAnuncio(String cuerpoAnuncio) {
         this.cuerpoAnuncio = cuerpoAnuncio;
+    }
+
+    public byte[] getPdf() {
+        return pdf;
+    }
+
+    public void setPdf(byte[] pdf) {
+        this.pdf = pdf;
+    }
+
+    public byte[] getPdfString() {
+        return pdfString;
+    }
+
+    public void setPdfString(byte[] pdfString) {
+        this.pdfString = pdfString;
     }
 }

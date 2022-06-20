@@ -13,6 +13,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.widget.TextView;
 
 import com.example.biometricthings.R;
 import com.example.biometricthings.model.Propiedades;
@@ -25,6 +26,7 @@ import java.util.List;
 public class PropiedadesActivity extends AppCompatActivity {
 
     List<Propiedades> elements;
+    private TextView tvPropiedades;
     private ArrayList<Propiedades> pp;
     private String nombre;
     private double precio;
@@ -38,7 +40,7 @@ public class PropiedadesActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_propiedades);
-
+        tvPropiedades = (TextView) findViewById(R.id.tvPropiedades);
         Bundle extras = getIntent().getExtras();
         f = extras.getInt("key");
         if(extras.getString("empresa")!=null){
@@ -46,8 +48,10 @@ public class PropiedadesActivity extends AppCompatActivity {
         }
         if(f==1){
             init();
+            tvPropiedades.setText("Seleccione una vivienda: ");
         }else if(f==2){
             init2();
+            tvPropiedades.setText("Seleccione un local: ");
         }
 
 

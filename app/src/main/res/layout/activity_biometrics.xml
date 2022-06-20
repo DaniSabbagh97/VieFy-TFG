@@ -32,7 +32,7 @@
         android:layout_below="@+id/tvAuthStatus"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="50dp"
-        android:text="Ir a JWT" />
+        android:text="LOG IN" />
 
     <Button
         android:id="@+id/btnTest"
@@ -51,7 +51,7 @@
         android:layout_below="@+id/btnAuth"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="50dp"
-        android:text="Ir a PreLogin" />
+        android:text="LOAD PDF" />
 
     <Button
         android:id="@+id/btnRegistro"
@@ -76,7 +76,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/btnNotificacion"
         android:layout_centerHorizontal="true"
-        android:text="Propiedades" />
+        android:text="LEER PDF" />
 
 
 

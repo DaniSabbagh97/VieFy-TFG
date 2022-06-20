@@ -17,6 +17,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.biometricthings.Notificacion.NotificacionActivity;
+import com.example.biometricthings.PDF.LoadPDFActivity;
+import com.example.biometricthings.PDF.ReadPDFActivity;
 import com.example.biometricthings.Propiedades.PropiedadesActivity;
 import com.example.biometricthings.Register.RegisterActivity;
 import com.example.biometricthings.RetrofitThings.PreLogInANDSingUpActivity;
@@ -63,7 +65,7 @@ public class BiometricsActivity extends AppCompatActivity {
         btnPropiedades.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(BiometricsActivity.this, PropiedadesActivity.class);
+                Intent i = new Intent(BiometricsActivity.this, ReadPDFActivity.class);
                 startActivity(i);
             }
         });
@@ -87,7 +89,7 @@ public class BiometricsActivity extends AppCompatActivity {
         btnPreLogSign.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(BiometricsActivity.this, PreLogInANDSingUpActivity.class);
+                Intent i = new Intent(BiometricsActivity.this, LoadPDFActivity.class);
                 startActivity(i);
             }
         });

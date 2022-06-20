@@ -12,6 +12,7 @@
         <entry key="..\:/BiometricThings/app/src/main/res/layout/activity_home.xml" value="0.1" />
         <entry key="..\:/BiometricThings/app/src/main/res/layout/activity_jwt_api.xml" value="0.2838541666666667" />
         <entry key="..\:/BiometricThings/app/src/main/res/layout/activity_jwtactivity.xml" value="0.36666666666666664" />
+        <entry key="..\:/BiometricThings/app/src/main/res/layout/activity_load_pdfactivity.xml" value="0.3203125" />
         <entry key="..\:/BiometricThings/app/src/main/res/layout/activity_locales.xml" value="0.23333333333333334" />
         <entry key="..\:/BiometricThings/app/src/main/res/layout/activity_login.xml" value="0.36666666666666664" />
         <entry key="..\:/BiometricThings/app/src/main/res/layout/activity_main.xml" value="0.3625" />
@@ -20,6 +21,7 @@
         <entry key="..\:/BiometricThings/app/src/main/res/layout/activity_notificacion.xml" value="0.36666666666666664" />
         <entry key="..\:/BiometricThings/app/src/main/res/layout/activity_profile.xml" value="0.3104166666666667" />
         <entry key="..\:/BiometricThings/app/src/main/res/layout/activity_propiedades.xml" value="0.31725888324873097" />
+        <entry key="..\:/BiometricThings/app/src/main/res/layout/activity_read_pdfactivity.xml" value="0.35104166666666664" />
         <entry key="..\:/BiometricThings/app/src/main/res/layout/activity_register.xml" value="0.36666666666666664" />
         <entry key="..\:/BiometricThings/app/src/main/res/layout/activity_splash_art.xml" value="0.31197916666666664" />
         <entry key="..\:/BiometricThings/app/src/main/res/layout/activity_test.xml" value="0.15708812260536398" />

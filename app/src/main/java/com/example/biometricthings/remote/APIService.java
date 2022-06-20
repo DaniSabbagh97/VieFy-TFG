@@ -56,6 +56,12 @@ public interface APIService {
 
  @HTTP(method = "POST", path = "http://192.168.1.10:8080/api/empresas/insertarEmpresa", hasBody = true)
  Call<Boolean> insertarEmpresa(@Body Empresa e, @Header("Authorization") String token);
+//todo https://www.youtube.com/watch?v=hCz_aHnt3j8
 
+ @HTTP(method = "POST", path = "http://192.168.1.10:8080/api/empresas/pdf", hasBody = true)
+ Call<Boolean> subirPDF(@Body byte[] b, @Header("Authorization") String token);//TODO CON TOKEN
+
+ @HTTP(method = "GET", path = "http://192.168.1.10:8080/api/empresas/getPdf")
+ Call<Empresa> obtenerPdf(@Header("Authorization") String token);
 
 }
