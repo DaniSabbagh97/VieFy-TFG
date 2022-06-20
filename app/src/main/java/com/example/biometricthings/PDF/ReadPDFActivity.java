@@ -48,7 +48,6 @@ public class ReadPDFActivity extends AppCompatActivity {
 
                       @Override
                       public void onFailure(Call<Empresa> call, Throwable t) {
-                          System.out.println("AITORPUTA");
                           System.out.println(t.getMessage());
 
                       }

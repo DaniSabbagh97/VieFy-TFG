@@ -64,4 +64,7 @@ public interface APIService {
  @HTTP(method = "GET", path = "http://192.168.1.10:8080/api/empresas/getPdf")
  Call<Empresa> obtenerPdf(@Header("Authorization") String token);
 
+ @HTTP(method = "GET", path = "http://192.168.1.10:8080/api/empresas/obtenerEmpresa")
+ Call<ArrayList<Empresa>> obtenerEmpresas(@Header("Authorization") String token);
+
 }

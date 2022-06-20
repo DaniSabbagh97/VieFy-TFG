@@ -16,6 +16,7 @@ import android.os.Bundle;
 import android.widget.TextView;
 
 import com.example.biometricthings.R;
+import com.example.biometricthings.model.Empresa;
 import com.example.biometricthings.model.Propiedades;
 import com.example.biometricthings.remote.APIService;
 import com.example.biometricthings.remote.RetroClass;
@@ -28,6 +29,7 @@ public class PropiedadesActivity extends AppCompatActivity {
     List<Propiedades> elements;
     private TextView tvPropiedades;
     private ArrayList<Propiedades> pp;
+    private ArrayList<Empresa> ee;
     private String nombre;
     private double precio;
     private int habitaciones;
@@ -52,6 +54,9 @@ public class PropiedadesActivity extends AppCompatActivity {
         }else if(f==2){
             init2();
             tvPropiedades.setText("Seleccione un local: ");
+        }else if(f==3){
+            init3();
+            tvPropiedades.setText("Solicitar trabajo en: ");
         }
 
 
@@ -141,6 +146,55 @@ public class PropiedadesActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(@NonNull Call<ArrayList<Propiedades>> call, @NonNull Throwable t) {
+
+                System.out.println("XXXXXXXXXXXXXXXXXXXXXXXXXXXXX");
+                System.out.println(t.getMessage());
+
+            }
+        });
+
+
+
+
+
+
+
+    }
+
+    public void init3(){
+
+        String token = cargarPreferencias();
+
+        final APIService apiService = RetroClass.getAPIService();
+
+        Call<ArrayList<Empresa>> p = apiService.obtenerEmpresas(token);
+
+        p.enqueue(new Callback<ArrayList<Empresa>>() {
+
+            @Override
+            public void onResponse(@NonNull Call<ArrayList<Empresa>> call, @NonNull Response<ArrayList<Empresa>> response) {
+
+
+                ee = response.body();
+
+               /* ListAdapter listAdapter = new ListAdapter(ee, PropiedadesActivity.this);//FIXME CREAR OTRO ADAPTER O BUSCAR LA MANERA DE METERLO AQUI PERO PARECE IMPOSIBLEEE
+                RecyclerView recyclerView = findViewById(R.id.rvPropiedades);
+                recyclerView.setHasFixedSize(true);
+                recyclerView.setLayoutManager(new LinearLayoutManager(PropiedadesActivity.this));
+                recyclerView.setAdapter(listAdapter);*/
+
+                     /* for (Propiedades propiedades : pp) {
+
+                          System.out.println(propiedades.getNombre().toString());
+
+
+
+                      }*/
+
+            }
+
+            @Override
+            public void onFailure(@NonNull Call<ArrayList<Empresa>> call, @NonNull Throwable t) {
 
                 System.out.println("XXXXXXXXXXXXXXXXXXXXXXXXXXXXX");
                 System.out.println(t.getMessage());
