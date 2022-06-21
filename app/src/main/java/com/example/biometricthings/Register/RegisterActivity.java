@@ -37,6 +37,7 @@ public class RegisterActivity extends AppCompatActivity {
     private int isProfeInt;
     private boolean acceptPrivacity = false;
     private int idUserObtained;
+    private String rol;
 
 
     private int numExp;
@@ -75,12 +76,14 @@ public class RegisterActivity extends AppCompatActivity {
                 final APIService apiService = RetroClass.getAPIService();
                 if(isProfe){
                     isProfeInt=1;
+                    rol = "Profesor";
                 }else{
                     isProfeInt=0;
+                    rol = "Alumno";
                 }
 
-
-                User u = new User(numExp, nombre, apellido, mail, telf, psw, isProfeInt);
+                //TODO FIXME isProfeInt va a 0 idk why
+                User u = new User(numExp, nombre, apellido, mail, telf, psw, isProfeInt, rol);
 
                 Call<Integer> registro = apiService.registerUser(u);
                 registro.enqueue(new Callback<Integer>() {

@@ -102,6 +102,7 @@ public class LogInActivity extends AppCompatActivity {
 
                         int activo = u.getIsActive();
                         int propiedad = u.getId_propiedades();
+                        String rol = u.getRol();
                         idUser = u.getId_user();
 
                         /*System.out.println(TOKEN);
@@ -110,29 +111,31 @@ public class LogInActivity extends AppCompatActivity {
                         System.out.println(u.getIsActive());
                         System.out.println("VVVVVVVVVVVVVVVVV");*/
 
+                    if(rol.equals("Profesor")){
+                        Toast.makeText(LogInActivity.this, "Eres UN PUTO PROFESOR HIJODEPUTA", Toast.LENGTH_SHORT).show();
+                    }else if(rol.equals("Alumno")) {
 
-
-                        if(activo == 1 && propiedad!=0) {
+                        if (activo == 1 && propiedad != 0) {
                             Intent i = new Intent(LogInActivity.this, HomeActivity.class);//TODO COMPROBAR QUE HAYA HECHO O NO EL TEST
                             startActivity(i);
                             finish();
 
-                        }else if(activo == 0){
+                        } else if (activo == 0) {
                             Intent i = new Intent(LogInActivity.this, TestActivity.class);//TODO Ya hizo el test
                             startActivity(i);
                             finish();
 
-                        }else if(propiedad==0){
+                        } else if (propiedad == 0) {
                             Intent i = new Intent(LogInActivity.this, PropiedadesActivity.class);//TODO Ya hizo el test
                             startActivity(i);
                             finish();
 
-                        }else{
+                        } else {
                             Intent i = new Intent(LogInActivity.this, BiometricsActivity.class);
                             startActivity(i);
                             finish();
                         }
-
+                    }
                         
                 }
 

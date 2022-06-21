@@ -85,7 +85,8 @@ public class User implements Serializable {
                 String email,
                 String telefono,
                 String contrasenia,
-                int isProfe) {
+                int isProfe,
+                String rol) {
         this.expediente = expediente;
         this.nombre = nombre;
         this.apellidos = apellidos;
@@ -93,6 +94,7 @@ public class User implements Serializable {
         this.telefono = telefono;
         this.contrasenia = contrasenia;
         this.isProfe = isProfe;
+        this.rol= rol;
     }
 
     public String getNombre() {
