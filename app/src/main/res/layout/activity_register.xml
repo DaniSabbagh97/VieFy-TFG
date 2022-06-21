@@ -68,22 +68,13 @@
         android:hint="Número de Expediente"
         android:inputType="phone" />
 
-    <EditText
-        android:id="@+id/etCampoCambiar"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/etNumExpediente"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="10dp"
-        android:hint="Campo Cambiar"
-        android:inputType="textPersonName" />
 
 
     <EditText
         android:id="@+id/etContrasenia1"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/etCampoCambiar"
+        android:layout_below="@+id/etNumExpediente"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="10dp"
         android:hint="Contraseña"
@@ -99,7 +90,28 @@
         android:layout_marginTop="10dp"
         android:hint="Repite la contraseña"
         android:inputType="textPassword" />
+    <LinearLayout
+        android:id="@+id/llChecks"
+        android:orientation="vertical"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/btnRegistrarse"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <CheckBox android:id="@+id/cbProfe"
+            android:layout_width="wrap_content"
+            android:textSize="10sp"
+            android:layout_height="wrap_content"
+            android:onClick="onCheckboxClicked"
+            android:text="Soy Profesor"
 
+            />
+        <CheckBox android:id="@+id/cbPrivacidad"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onCheckboxClicked"
+            android:textSize="10sp"
+            android:text="Acepto los terminos de Servicio y la Política de privacidad" />
+    </LinearLayout>
 
 
 

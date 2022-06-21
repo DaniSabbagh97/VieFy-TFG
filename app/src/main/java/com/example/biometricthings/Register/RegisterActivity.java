@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -32,6 +33,9 @@ public class RegisterActivity extends AppCompatActivity {
 
     private String nombre, mail, psw, apellido, telf, psw2;
     private boolean finished;
+    private boolean isProfe = false;
+    private int isProfeInt;
+    private boolean acceptPrivacity = false;
     private int idUserObtained;
 
 
@@ -66,9 +70,17 @@ public class RegisterActivity extends AppCompatActivity {
                 psw2 = etConfirmaContrasenia.getText().toString().trim();
                 numExp = Integer.parseInt(etNumExpediente.getText().toString().trim());
 
-                final APIService apiService = RetroClass.getAPIService();
 
-                User u = new User(numExp, nombre, apellido, mail, telf, psw);
+
+                final APIService apiService = RetroClass.getAPIService();
+                if(isProfe){
+                    isProfeInt=1;
+                }else{
+                    isProfeInt=0;
+                }
+
+
+                User u = new User(numExp, nombre, apellido, mail, telf, psw, isProfeInt);
 
                 Call<Integer> registro = apiService.registerUser(u);
                 registro.enqueue(new Callback<Integer>() {
@@ -81,11 +93,23 @@ public class RegisterActivity extends AppCompatActivity {
                             System.out.println("PPPPPPPPPPPPPPPPPP");
                             System.out.println(idUserObtained);
                             if(idUserObtained>0){
-                                Intent i = new Intent(RegisterActivity.this, LogInActivity.class);//TODO CAMBIAR AL LOGIN PARA QUE INICIE SESION
-                               // i.putExtra("idUserObtained",idUserObtained);
-                                i.putExtra("mail",u.getEmail());
-                                startActivity(i);
-                                finish();
+                                if(acceptPrivacity) {
+                                    if(isProfeInt==1){
+                                        Intent i = new Intent(RegisterActivity.this, ConfirmacionProfesorActivity.class);
+                                        i.putExtra("id", idUserObtained);
+                                        i.putExtra("mail", u.getEmail());
+                                        startActivity(i);
+                                        finish();
+                                    }else {
+                                        Intent i = new Intent(RegisterActivity.this, LogInActivity.class);//TODO CAMBIAR AL LOGIN PARA QUE INICIE SESION
+                                        // i.putExtra("idUserObtained",idUserObtained);
+                                        i.putExtra("mail", u.getEmail());
+                                        startActivity(i);
+                                        finish();
+                                    }
+                                }else{
+                                    Toast.makeText(RegisterActivity.this, "Debes aceptar la política de privacidad", Toast.LENGTH_SHORT).show();
+                                }
                             }else{
                                 Toast.makeText(RegisterActivity.this, "No se pudo realizar el registro.", Toast.LENGTH_SHORT).show();
                             }
@@ -114,5 +138,27 @@ public class RegisterActivity extends AppCompatActivity {
         });
 
 
+    }
+
+    public void onCheckboxClicked(View view) {
+
+        boolean checked = ((CheckBox) view).isChecked();
+        switch(view.getId()) {
+            case R.id.cbProfe:
+                if (checked){
+                    isProfe = true;
+                }else {
+
+                    break;
+                }
+            case R.id.cbPrivacidad:
+                if (checked) {
+                    acceptPrivacity = true;
+                }else {
+
+                    break;
+                }
+
+        }
     }
 }

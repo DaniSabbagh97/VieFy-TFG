@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Roles.MostrarEmpresaIndividualActivity">
+
+
+    <TextView
+        android:id="@+id/tvTituloEmpresa"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="50dp"
+        android:textSize="20sp"
+        />
+    <TextView
+        android:id="@+id/tvSloganEmpresa"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/tvTituloEmpresa"
+        android:textSize="20sp"
+        android:layout_marginTop="25dp"
+        />
+    <TextView
+        android:id="@+id/tvAnuncioEmpresa"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/tvSloganEmpresa"
+        android:textSize="20sp"
+        android:layout_marginTop="25dp"
+        />
+    <TextView
+        android:id="@+id/tvInformacion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/tvAnuncioEmpresa"
+        android:textSize="20sp"
+        android:gravity="center"
+        android:text="Rellena la información para solicitar un puesto de trabajo"
+        android:layout_marginTop="25dp"
+        />
+    <EditText
+        android:id="@+id/etMensaje"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/tvInformacion"
+        android:layout_marginTop="25dp"
+        android:hint="Mensaje para el empresario"/>
+
+
+    <Button
+        android:id="@+id/btnAdjuntarPDF"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="25dp"
+        android:layout_below="@id/etMensaje"
+        android:text="Adjuntar CV"/>
+
+    <TextView
+        android:id="@+id/tvAdjunto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/btnAdjuntarPDF"
+        android:textSize="16sp"
+        android:gravity="center"
+        android:text=""
+        android:layout_marginTop="5dp"
+        />
+
+    <Button
+        android:id="@+id/btnEnviarSolicitud"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="75dp"
+        android:layout_below="@id/tvAdjunto"
+        android:text="Enviar Solicitud"/>
+    
+    
+</RelativeLayout>

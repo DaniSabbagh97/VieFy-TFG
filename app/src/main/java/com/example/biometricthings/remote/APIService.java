@@ -1,9 +1,11 @@
 package com.example.biometricthings.remote;
 
 import com.example.biometricthings.model.Empresa;
+import com.example.biometricthings.model.Empresaa;
 import com.example.biometricthings.model.HistoricoCuentaParticulares;
 import com.example.biometricthings.model.JWTToken;
 import com.example.biometricthings.model.Propiedades;
+import com.example.biometricthings.model.Solicitud;
 import com.example.biometricthings.model.Test;
 import com.example.biometricthings.model.TestResult;
 import com.example.biometricthings.model.User;
@@ -58,13 +60,19 @@ public interface APIService {
  Call<Boolean> insertarEmpresa(@Body Empresa e, @Header("Authorization") String token);
 //todo https://www.youtube.com/watch?v=hCz_aHnt3j8
 
- @HTTP(method = "POST", path = "http://192.168.1.10:8080/api/empresas/pdf", hasBody = true)
+ @HTTP(method = "POST", path = "http://192.168.1.10:8080/api/users/pdf", hasBody = true)
  Call<Boolean> subirPDF(@Body byte[] b, @Header("Authorization") String token);//TODO CON TOKEN
 
  @HTTP(method = "GET", path = "http://192.168.1.10:8080/api/empresas/getPdf")
  Call<Empresa> obtenerPdf(@Header("Authorization") String token);
 
  @HTTP(method = "GET", path = "http://192.168.1.10:8080/api/empresas/obtenerEmpresa")
- Call<ArrayList<Empresa>> obtenerEmpresas(@Header("Authorization") String token);
+ Call<ArrayList<Empresaa>> obtenerEmpresas(@Header("Authorization") String token);
+
+ @HTTP(method = "POST", path = "http://192.168.1.10:8080/api/solicitudes/addPdf", hasBody = true)
+ Call<Boolean> addPdf(@Body Solicitud s, @Header("Authorization") String token);//TODO CON TOKEN
+
+ @HTTP(method = "DELETE", path = "http://192.168.1.10:8080/api/users/borrar", hasBody = true)
+ Call<Boolean> borrar(@Body User u);
 
 }

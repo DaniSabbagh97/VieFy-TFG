@@ -1,6 +1,6 @@
 package com.example.biometricthings.model;
 
-public class Empresa {
+public class Empresaa {
     private int id_empresa;
     private String nombre;
     private int dueño;
@@ -12,13 +12,13 @@ public class Empresa {
     private String anuncio;
     private String cuerpoAnuncio;
     private String pdf;
-    private byte[] pdfString;
+    private String pdfString;
 
 
-    public Empresa() {
+    public Empresaa() {
     }
 
-    public Empresa(String nombre, int dueño, int saldoInicial, int saldoActual, double pagoLocal, int id_propiedad, String slogan, String anuncio, String cuerpoAnuncio) {
+    public Empresaa(String nombre, int dueño, int saldoInicial, int saldoActual, double pagoLocal, int id_propiedad, String slogan, String anuncio, String cuerpoAnuncio) {
         this.nombre = nombre;
         this.dueño = dueño;
         SaldoInicial = saldoInicial;
@@ -30,7 +30,7 @@ public class Empresa {
         this.cuerpoAnuncio = cuerpoAnuncio;
     }
 
-    public Empresa(int id_empresa, String nombre, int dueño, int saldoInicial, int saldoActual, double pagoLocal, int id_propiedad, String slogan, String anuncio, String cuerpoAnuncio) {
+    public Empresaa(int id_empresa, String nombre, int dueño, int saldoInicial, int saldoActual, double pagoLocal, int id_propiedad, String slogan, String anuncio, String cuerpoAnuncio) {
         this.id_empresa = id_empresa;
         this.nombre = nombre;
         this.dueño = dueño;
@@ -131,11 +131,11 @@ public class Empresa {
         this.pdf = pdf;
     }
 
-    public byte[] getPdfString() {
+    public String getPdfString() {
         return pdfString;
     }
 
-    public void setPdfString(byte[] pdfString) {
+    public void setPdfString(String pdfString) {
         this.pdfString = pdfString;
     }
 }

@@ -20,10 +20,15 @@ public class User implements Serializable {
     private String contrasenia;
     private int isActive;
     private int id_propiedades;
+    private int isProfe;
 
     public User(String email, String contrasenia) {
         this.email = email;
         this.contrasenia = contrasenia;
+    }
+
+    public User(int id_user) {
+        this.id_user = id_user;
     }
 
     public User(int id_user, String nombre, String apellidos, String email) {
@@ -79,13 +84,15 @@ public class User implements Serializable {
                 String apellidos,
                 String email,
                 String telefono,
-                String contrasenia) {
+                String contrasenia,
+                int isProfe) {
         this.expediente = expediente;
         this.nombre = nombre;
         this.apellidos = apellidos;
         this.email = email;
         this.telefono = telefono;
         this.contrasenia = contrasenia;
+        this.isProfe = isProfe;
     }
 
     public String getNombre() {
@@ -230,5 +237,13 @@ public class User implements Serializable {
 
     public void setId_propiedades(int id_propiedades) {
         this.id_propiedades = id_propiedades;
+    }
+
+    public int getIsProfe() {
+        return isProfe;
+    }
+
+    public void setIsProfe(int isProfe) {
+        this.isProfe = isProfe;
     }
 }

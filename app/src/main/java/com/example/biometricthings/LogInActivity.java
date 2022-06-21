@@ -39,6 +39,7 @@ public class LogInActivity extends AppCompatActivity {
     private TokenManager tokenManager;
 
     private String mail;
+    private int idUser;
 
     private boolean test;
     private boolean active = false;
@@ -101,6 +102,7 @@ public class LogInActivity extends AppCompatActivity {
 
                         int activo = u.getIsActive();
                         int propiedad = u.getId_propiedades();
+                        idUser = u.getId_user();
 
                         /*System.out.println(TOKEN);
 
@@ -156,6 +158,7 @@ public class LogInActivity extends AppCompatActivity {
 
         SharedPreferences.Editor editor = preferences.edit();
         editor.putString("token",token);
+        editor.putInt("idUser",idUser);
         editor.commit();
 
     }

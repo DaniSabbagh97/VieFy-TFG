@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_vertical"
+    tools:context=".Register.ConfirmacionProfesorActivity">
+
+
+    <TextView
+        android:id="@+id/tvPregunta"
+        android:layout_width="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentTop="true"
+        android:layout_height="wrap_content"
+        android:text="Debes Introdcuri el código de profesor para continuar." />
+    <TextView
+        android:id="@+id/tvPregunta2"
+        android:layout_width="wrap_content"
+        android:layout_below="@id/tvPregunta"
+        android:layout_centerHorizontal="true"
+        android:layout_height="wrap_content"
+        android:text="Si se introduce un código incorrecto" />
+
+    <TextView
+        android:id="@+id/tvPregunta3"
+        android:layout_width="wrap_content"
+        android:layout_below="@id/tvPregunta2"
+        android:layout_centerHorizontal="true"
+        android:layout_height="wrap_content"
+        android:text="se tendrá que repetir todo el proceso" />
+
+
+    <EditText
+        android:id="@+id/etCodProfesor"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/tvPregunta3"
+        android:inputType="textPersonName"
+        android:hint="Código Profesor" />
+
+
+    <Button
+        android:id="@+id/btnComprobar"
+        android:layout_centerHorizontal="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/etCodProfesor"
+        android:layout_marginTop="25dp"
+        android:text="Comprobar" />
+
+
+
+</RelativeLayout>

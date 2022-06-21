@@ -173,9 +173,7 @@ public class MostrarPropiedadActivity extends AppCompatActivity {
                     public void onResponse(Call<String> call, Response<String> response) {
                         if (response.body() != null) {
                             rolUsuario = response.body();
-                            System.out.println("PPPPPPPPPPPPPPPPPPPP");
 
-                            System.out.println(u);
                             if (rolUsuario.equals("Empresario")) {//TODO HACER LA PARTE DE CREAR EMPRESA Y SELECCIONAR LOCAL PARA LA EMPRESA
                                 Intent i = new Intent(MostrarPropiedadActivity.this, CreaEmpresaActivity.class);
                                 startActivity(i);
@@ -185,10 +183,12 @@ public class MostrarPropiedadActivity extends AppCompatActivity {
                                 Intent i = new Intent(MostrarPropiedadActivity.this, UneteEmpresaActivity.class);
                                 startActivity(i);
                                 finish();
+                                dialog.dismiss();
                             } else if (rolUsuario.equals("Autonomo")) {
                                 Intent i = new Intent(MostrarPropiedadActivity.this, HomeActivity.class);
                                 startActivity(i);
                                 finish();
+                                dialog.dismiss();
 
                             }
                         } else {

@@ -29,7 +29,8 @@ public class PropiedadesActivity extends AppCompatActivity {
     List<Propiedades> elements;
     private TextView tvPropiedades;
     private ArrayList<Propiedades> pp;
-    private ArrayList<Empresa> ee;
+    private int idUser;
+
     private String nombre;
     private double precio;
     private int habitaciones;
@@ -45,6 +46,7 @@ public class PropiedadesActivity extends AppCompatActivity {
         tvPropiedades = (TextView) findViewById(R.id.tvPropiedades);
         Bundle extras = getIntent().getExtras();
         f = extras.getInt("key");
+        idUser = extras.getInt("idUser");
         if(extras.getString("empresa")!=null){
             nombreEmpresa = extras.getString("empresa");
         }
@@ -54,11 +56,7 @@ public class PropiedadesActivity extends AppCompatActivity {
         }else if(f==2){
             init2();
             tvPropiedades.setText("Seleccione un local: ");
-        }else if(f==3){
-            init3();
-            tvPropiedades.setText("Solicitar trabajo en: ");
         }
-
 
     }
 
@@ -161,54 +159,7 @@ public class PropiedadesActivity extends AppCompatActivity {
 
     }
 
-    public void init3(){
 
-        String token = cargarPreferencias();
-
-        final APIService apiService = RetroClass.getAPIService();
-
-        Call<ArrayList<Empresa>> p = apiService.obtenerEmpresas(token);
-
-        p.enqueue(new Callback<ArrayList<Empresa>>() {
-
-            @Override
-            public void onResponse(@NonNull Call<ArrayList<Empresa>> call, @NonNull Response<ArrayList<Empresa>> response) {
-
-
-                ee = response.body();
-
-               /* ListAdapter listAdapter = new ListAdapter(ee, PropiedadesActivity.this);//FIXME CREAR OTRO ADAPTER O BUSCAR LA MANERA DE METERLO AQUI PERO PARECE IMPOSIBLEEE
-                RecyclerView recyclerView = findViewById(R.id.rvPropiedades);
-                recyclerView.setHasFixedSize(true);
-                recyclerView.setLayoutManager(new LinearLayoutManager(PropiedadesActivity.this));
-                recyclerView.setAdapter(listAdapter);*/
-
-                     /* for (Propiedades propiedades : pp) {
-
-                          System.out.println(propiedades.getNombre().toString());
-
-
-
-                      }*/
-
-            }
-
-            @Override
-            public void onFailure(@NonNull Call<ArrayList<Empresa>> call, @NonNull Throwable t) {
-
-                System.out.println("XXXXXXXXXXXXXXXXXXXXXXXXXXXXX");
-                System.out.println(t.getMessage());
-
-            }
-        });
-
-
-
-
-
-
-
-    }
 
     public String cargarPreferencias(){
         SharedPreferences preferences = getSharedPreferences("credenciales", Context.MODE_PRIVATE);
