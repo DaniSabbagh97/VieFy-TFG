@@ -12,8 +12,8 @@ public class User implements Serializable {
     private String telefono;
     private String rol;
     private String rol_juego;
-    private String id_clase;
-    private String id_empresa;
+    private int id_clase;
+    private int id_empresa;
     private int salario;
     private int salarioEmpresario;
     private int confirmado;
@@ -21,6 +21,8 @@ public class User implements Serializable {
     private int isActive;
     private int id_propiedades;
     private int isProfe;
+    private byte[] imagen;
+    //private String imagen;
 
     public User(String email, String contrasenia) {
         this.email = email;
@@ -51,8 +53,8 @@ public class User implements Serializable {
                 String telefono,
                 String rol,
                 String rol_juego,
-                String id_clase,
-                String id_empresa,
+                int id_clase,
+                int id_empresa,
                 int salario,
                 int salarioEmpresario,
                 int confirmado,
@@ -95,6 +97,25 @@ public class User implements Serializable {
         this.contrasenia = contrasenia;
         this.isProfe = isProfe;
         this.rol= rol;
+    }
+    public User(int expediente,
+                String nombre,
+                String apellidos,
+                String email,
+                String telefono,
+                String contrasenia,
+                int isProfe,
+                String rol,
+                byte[] imagen) {
+        this.expediente = expediente;
+        this.nombre = nombre;
+        this.apellidos = apellidos;
+        this.email = email;
+        this.telefono = telefono;
+        this.contrasenia = contrasenia;
+        this.isProfe = isProfe;
+        this.rol= rol;
+        this.imagen= imagen;
     }
 
     public String getNombre() {
@@ -161,19 +182,19 @@ public class User implements Serializable {
         this.rol_juego = rol_juego;
     }
 
-    public String getId_clase() {
+    public int getId_clase() {
         return id_clase;
     }
 
-    public void setId_clase(String id_clase) {
+    public void setId_clase(int id_clase) {
         this.id_clase = id_clase;
     }
 
-    public String getId_empresa() {
+    public int getId_empresa() {
         return id_empresa;
     }
 
-    public void setId_empresa(String id_empresa) {
+    public void setId_empresa(int id_empresa) {
         this.id_empresa = id_empresa;
     }
 
@@ -248,4 +269,20 @@ public class User implements Serializable {
     public void setIsProfe(int isProfe) {
         this.isProfe = isProfe;
     }
+
+    public byte[] getImagen() {
+        return imagen;
+    }
+
+    public void setImagen(byte[] imagen) {
+        this.imagen = imagen;
+    }
+
+    /*public String getImagen() {
+        return imagen;
+    }
+
+    public void setImagen(String imagen) {
+        this.imagen = imagen;
+    }*/
 }

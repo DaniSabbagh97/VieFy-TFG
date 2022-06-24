@@ -16,7 +16,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 
+import com.example.biometricthings.Profesor.SeleccionaClaseActivity;
 import com.example.biometricthings.Propiedades.PropiedadesActivity;
+import com.example.biometricthings.Register.EntrarClaseActivity;
 import com.example.biometricthings.Register.RegisterActivity;
 import com.example.biometricthings.Test.TestActivity;
 import com.example.biometricthings.model.JWTToken;
@@ -51,8 +53,10 @@ public class LogInActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        Intent i = getIntent();
-        mail = i.getStringExtra("mail");
+        Bundle extras = getIntent().getExtras();
+        if(extras!=null){
+            mail = extras.getString("mail");
+        }
 
 
         etUserMail = (EditText) findViewById(R.id.etUserMail);
@@ -62,7 +66,8 @@ public class LogInActivity extends AppCompatActivity {
         content.setSpan(new UnderlineSpan(), 0, content.length(), 0);
         tvRegistro.setText(content);
         senddata = (Button) findViewById(R.id.senddata);
-
+        System.out.println("YYYYYYYYYYYYYYYYYYYYYYYY");
+        System.out.println(mail);
         etUserMail.setText(mail);
 
         tokenManager = new TokenManager(getApplicationContext());
@@ -71,7 +76,9 @@ public class LogInActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent i = new Intent(LogInActivity.this, RegisterActivity.class);
+                i.putExtra("mail", mail);
                 startActivity(i);
+
                 finish();
             }
         });
@@ -87,8 +94,7 @@ public class LogInActivity extends AppCompatActivity {
 
                 user = new User(usernameval,userpassval);
                 Call<JWTToken> jwtTokenCall = apiService.userlogin(user);
-                showToast(usernameval);
-                showToast(userpassval);
+
                 jwtTokenCall.enqueue(new Callback<JWTToken>() {
                     @Override
                     public void onResponse(Call<JWTToken> call, Response<JWTToken> response) {
@@ -102,6 +108,7 @@ public class LogInActivity extends AppCompatActivity {
 
                         int activo = u.getIsActive();
                         int propiedad = u.getId_propiedades();
+                        int idClase = u.getId_clase();
                         String rol = u.getRol();
                         idUser = u.getId_user();
 
@@ -112,29 +119,40 @@ public class LogInActivity extends AppCompatActivity {
                         System.out.println("VVVVVVVVVVVVVVVVV");*/
 
                     if(rol.equals("Profesor")){
-                        Toast.makeText(LogInActivity.this, "Eres UN PUTO PROFESOR HIJODEPUTA", Toast.LENGTH_SHORT).show();
+                        Intent i = new Intent(LogInActivity.this, SeleccionaClaseActivity.class);
+                        startActivity(i);
                     }else if(rol.equals("Alumno")) {
-
-                        if (activo == 1 && propiedad != 0) {
-                            Intent i = new Intent(LogInActivity.this, HomeActivity.class);//TODO COMPROBAR QUE HAYA HECHO O NO EL TEST
+                        if(idClase==0){
+                            Intent i = new Intent(LogInActivity.this, EntrarClaseActivity.class);
+                            i.putExtra("mail", mail);
                             startActivity(i);
                             finish();
 
-                        } else if (activo == 0) {
-                            Intent i = new Intent(LogInActivity.this, TestActivity.class);//TODO Ya hizo el test
-                            startActivity(i);
-                            finish();
+                        }else{
+                            if (activo == 1 && propiedad != 0) {
+                                Intent i = new Intent(LogInActivity.this, HomeActivity.class);//TODO COMPROBAR QUE HAYA HECHO O NO EL TEST
+                                startActivity(i);
+                                finish();
 
-                        } else if (propiedad == 0) {
-                            Intent i = new Intent(LogInActivity.this, PropiedadesActivity.class);//TODO Ya hizo el test
-                            startActivity(i);
-                            finish();
+                            } else if (activo == 0) {
+                                Intent i = new Intent(LogInActivity.this, TestActivity.class);//TODO Ya hizo el test
+                                startActivity(i);
+                                finish();
 
-                        } else {
-                            Intent i = new Intent(LogInActivity.this, BiometricsActivity.class);
-                            startActivity(i);
-                            finish();
+                            } else if (propiedad == 0) {
+                                Intent i = new Intent(LogInActivity.this, PropiedadesActivity.class);//TODO Ya hizo el test
+                                startActivity(i);
+                                finish();
+
+                            } else {
+                                Intent i = new Intent(LogInActivity.this, BiometricsActivity.class);
+                                startActivity(i);
+                                finish();
+                            }
+
                         }
+
+
                     }
                         
                 }
@@ -142,7 +160,7 @@ public class LogInActivity extends AppCompatActivity {
                     @Override
                     public void onFailure(Call<JWTToken> call, Throwable t) {
 
-                        showToast(""+t.getMessage());
+                        showToast("POlla"+t.getMessage());
                     }
                 });
             }

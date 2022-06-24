@@ -6,6 +6,16 @@
     android:layout_height="match_parent"
     tools:context=".Register.RegisterActivity">
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/sv">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center">
+
     <TextView
         android:id="@+id/tvRegistrarse"
         android:layout_width="300dp"
@@ -17,15 +27,33 @@
         android:textAlignment="center"
         android:textSize="28dp" />
 
-    <EditText
-        android:id="@+id/etMail"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/tvRegistrarse"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="15dp"
-        android:hint="Email"
-        android:inputType="textPersonName" />
+        <ImageView
+            android:id="@+id/ivPerfil"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_marginTop="50dp"
+            android:background="@drawable/border"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/tvRegistrarse"/>
+
+        <Button
+            android:id="@+id/btnSeleccionarFoto"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/ivPerfil"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="15dp"
+            android:text="Seleccionar Foto" />
+
+        <EditText
+            android:id="@+id/etMail"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/btnPonerFoto"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="15dp"
+            android:hint="Email"
+            android:inputType="textPersonName" />
 
     <EditText
         android:id="@+id/etNombre"
@@ -47,15 +75,15 @@
         android:inputType="textPersonName"
         android:hint="Apellido"/>
 
-    <EditText
-        android:id="@+id/etTelefono"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/etApellido"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="10dp"
-        android:hint="Teléfono"
-        android:inputType="phone" />
+        <EditText
+            android:id="@+id/etTelefono"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/etApellido"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:hint="Teléfono"
+            android:inputType="phone" />
 
     <EditText
         android:id="@+id/etNumExpediente"
@@ -90,30 +118,6 @@
         android:layout_marginTop="10dp"
         android:hint="Repite la contraseña"
         android:inputType="textPassword" />
-    <LinearLayout
-        android:id="@+id/llChecks"
-        android:orientation="vertical"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@+id/btnRegistrarse"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
-        <CheckBox android:id="@+id/cbProfe"
-            android:layout_width="wrap_content"
-            android:textSize="10sp"
-            android:layout_height="wrap_content"
-            android:onClick="onCheckboxClicked"
-            android:text="Soy Profesor"
-
-            />
-        <CheckBox android:id="@+id/cbPrivacidad"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:onClick="onCheckboxClicked"
-            android:textSize="10sp"
-            android:text="Acepto los terminos de Servicio y la Política de privacidad" />
-    </LinearLayout>
-
-
 
     <Button
         android:id="@+id/btnRegistrarse"
@@ -123,5 +127,38 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="15dp"
         android:text="Registrarse" />
+
+    <LinearLayout
+        android:id="@+id/llChecks"
+        android:orientation="vertical"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/btnRegistrarse"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <CheckBox
+            android:id="@+id/cbProfe"
+            android:layout_width="wrap_content"
+            android:textSize="10sp"
+            android:layout_height="wrap_content"
+            android:onClick="onCheckboxClicked"
+            android:text="Soy Profesor"
+
+            />
+        <CheckBox
+            android:id="@+id/cbPrivacidad"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onCheckboxClicked"
+            android:textSize="10sp"
+            android:text="Acepto los terminos de Servicio y la Política de privacidad" />
+    </LinearLayout>
+
+
+
+
+
+
+        </LinearLayout>
+    </ScrollView>
 
 </RelativeLayout>

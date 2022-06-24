@@ -31,7 +31,7 @@ public class SplashArtActivity extends AppCompatActivity {
             @Override
             public void run() {
                 if(!token.equals("NO")) {
-                    Intent i = new Intent(SplashArtActivity.this, BiometricsActivity.class);//LogInActivity
+                    Intent i = new Intent(SplashArtActivity.this, LogInActivity.class);//LogInActivity
                     startActivity(i);
                     finish();
                 }else{

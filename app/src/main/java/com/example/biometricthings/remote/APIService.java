@@ -1,5 +1,6 @@
 package com.example.biometricthings.remote;
 
+import com.example.biometricthings.model.Clase;
 import com.example.biometricthings.model.Empresa;
 import com.example.biometricthings.model.Empresaa;
 import com.example.biometricthings.model.HistoricoCuentaParticulares;
@@ -74,5 +75,15 @@ public interface APIService {
 
  @HTTP(method = "DELETE", path = "http://192.168.1.10:8080/api/users/borrar", hasBody = true)
  Call<Boolean> borrar(@Body User u);
+
+ @HTTP(method = "GET", path = "http://192.168.1.10:8080/api/clases/getClases")
+ Call<ArrayList<Clase>> obtenerClases(@Header("Authorization") String token);//TODO CON TOKEN
+
+ @HTTP(method = "POST", path = "http://192.168.1.10:8080/api/clases/crearClases", hasBody = true)
+ Call<Boolean> crearClases(@Body Clase c, @Header("Authorization") String token);//TODO CON TOKEN
+
+ @HTTP(method = "POST", path = "http://192.168.1.10:8080/api/users/putIdclase", hasBody = true)
+ Call<Boolean> putIdClase(@Body Clase cls, @Header("Authorization") String token);//TODO CON TOKEN
+
 
 }

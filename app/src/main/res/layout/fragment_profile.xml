@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Fragments.ProfileFragment">
+
+
 
     <TextView
         android:id="@+id/tvPerfil"
@@ -11,17 +14,25 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="150dp"
+        android:layout_marginTop="50dp"
         android:text="Perfil"
         android:textSize="25dp"/>
+
+    <ImageView
+        android:id="@+id/ivPerfilPerfil"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_marginTop="30dp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/tvPerfil" />
 
     <TextView
         android:id="@+id/tvNombre"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/tvPerfil"
+        android:layout_below="@+id/ivPerfilPerfil"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="65dp" />
+        android:layout_marginTop="50dp" />
 
     <TextView
         android:id="@+id/tvApellido"
@@ -47,5 +58,7 @@
         android:layout_below="@+id/tvEmail"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="45dp"/>
+
+
 
 </RelativeLayout>

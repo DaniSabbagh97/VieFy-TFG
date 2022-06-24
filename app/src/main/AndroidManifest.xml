@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.example.biometricthings">
 
     <application
@@ -8,8 +9,20 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
+        android:largeHeap="true"
+        tools:ignore="GoogleAppIndexingWarning"
+        android:hardwareAccelerated="true"
         android:theme="@style/Theme.BiometricThings"
         android:usesCleartextTraffic="true">
+        <activity
+            android:name=".Register.EntrarClaseActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Profesor.CrearClaseActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Profesor.SeleccionaClaseActivity"
+            android:exported="false" />
         <activity
             android:name=".Register.ConfirmacionProfesorActivity"
             android:exported="false" />
@@ -79,10 +92,10 @@
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
     </application>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
 </manifest>

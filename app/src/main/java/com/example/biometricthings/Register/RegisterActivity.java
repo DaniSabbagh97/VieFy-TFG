@@ -1,25 +1,42 @@
 package com.example.biometricthings.Register;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
+import android.Manifest;
+import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.net.Uri;
 import android.os.Bundle;
+import android.util.Base64;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.example.biometricthings.BiometricsActivity;
+import com.example.biometricthings.Image.Utils;
 import com.example.biometricthings.LogInActivity;
+import com.example.biometricthings.PDF.LoadPDFActivity;
 import com.example.biometricthings.R;
 import com.example.biometricthings.Test.TestActivity;
 import com.example.biometricthings.model.User;
 import com.example.biometricthings.remote.APIService;
 import com.example.biometricthings.remote.RetroClass;
+
+import java.io.ByteArrayOutputStream;
+import java.io.FileNotFoundException;
+import java.io.InputStream;
+import java.nio.charset.StandardCharsets;
 
 public class RegisterActivity extends AppCompatActivity {
 
@@ -30,9 +47,19 @@ public class RegisterActivity extends AppCompatActivity {
     private EditText etNumExpediente;
     private EditText etContrasenia;
     private EditText etConfirmaContrasenia;
+    private ImageView ivPerfil;
+
+    private int SELECT_IMAGE = 200;
+    private Uri selectedImage;
+    private byte[] inputData;
+    private byte[] fotoSubir;
+    private String encodedImage;
+    private String imagenString;
+    private String uriString;
+
 
     private String nombre, mail, psw, apellido, telf, psw2;
-    private boolean finished;
+
     private boolean isProfe = false;
     private int isProfeInt;
     private boolean acceptPrivacity = false;
@@ -44,6 +71,7 @@ public class RegisterActivity extends AppCompatActivity {
 
 
     private Button btnRegistrarse;
+    private Button btnSeleccionarFoto;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,8 +85,24 @@ public class RegisterActivity extends AppCompatActivity {
         etContrasenia = (EditText) findViewById(R.id.etContrasenia1);
         etConfirmaContrasenia = (EditText) findViewById(R.id.etContrasenia2);
         etNumExpediente = (EditText) findViewById(R.id.etNumExpediente);
+        ivPerfil = (ImageView) findViewById(R.id.ivPerfil);
 
         btnRegistrarse = (Button) findViewById(R.id.btnRegistrarse);
+        btnSeleccionarFoto = (Button) findViewById(R.id.btnSeleccionarFoto);
+
+        btnSeleccionarFoto.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(hasStoragePermission(RegisterActivity.this)){
+                    imageChooser();
+
+                }else{
+                    ActivityCompat.requestPermissions(((AppCompatActivity) RegisterActivity.this), new String[]{Manifest.permission.READ_EXTERNAL_STORAGE,
+                            Manifest.permission.WRITE_EXTERNAL_STORAGE}, 200);
+                }
+
+            }
+        });
 
         btnRegistrarse.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -82,9 +126,20 @@ public class RegisterActivity extends AppCompatActivity {
                     rol = "Alumno";
                 }
 
-                //TODO FIXME isProfeInt va a 0 idk why
-                User u = new User(numExp, nombre, apellido, mail, telf, psw, isProfeInt, rol);
 
+                //FIXME PETA AQUÍ
+                //imagenString = new String(fotoSubir);
+                //fotoSubir = decodificador(selectedImage);
+               /* try {
+                    InputStream iStream = getContentResolver().openInputStream(selectedImage);
+                    inputData = Utils.getBytes(iStream);
+                }catch (Exception e){
+                    System.out.println(e);
+
+                }*/
+                if(acceptPrivacity && selectedImage!=null){
+
+                User u = new User(numExp, nombre, apellido, mail, telf, psw, isProfeInt, rol, inputData);
                 Call<Integer> registro = apiService.registerUser(u);
                 registro.enqueue(new Callback<Integer>() {
                     @Override
@@ -92,11 +147,11 @@ public class RegisterActivity extends AppCompatActivity {
                         if(response!=null){
                             //finished = response.body();
                             //System.out.println("aaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
-                            idUserObtained = response.body();
+                            idUserObtained = response.body();//FIXME PETA PORQUE HACE DEMASIADO
                             System.out.println("PPPPPPPPPPPPPPPPPP");
                             System.out.println(idUserObtained);
                             if(idUserObtained>0){
-                                if(acceptPrivacity) {
+
                                     if(isProfeInt==1){
                                         Intent i = new Intent(RegisterActivity.this, ConfirmacionProfesorActivity.class);
                                         i.putExtra("id", idUserObtained);
@@ -110,30 +165,27 @@ public class RegisterActivity extends AppCompatActivity {
                                         startActivity(i);
                                         finish();
                                     }
-                                }else{
-                                    Toast.makeText(RegisterActivity.this, "Debes aceptar la política de privacidad", Toast.LENGTH_SHORT).show();
-                                }
+
                             }else{
                                 Toast.makeText(RegisterActivity.this, "No se pudo realizar el registro.", Toast.LENGTH_SHORT).show();
                             }
 
                         }else{
-                            finished = false;
+                            Toast.makeText(RegisterActivity.this, "Error en la Base de Datos", Toast.LENGTH_SHORT).show();
                         }
                     }
 
                     @Override
                     public void onFailure(Call<Integer> call, Throwable t) {
-                        finished = false;
+                        
                         Toast.makeText(RegisterActivity.this, "La base de datos no respondió.", Toast.LENGTH_SHORT).show();
 
                     }
                 });
-
-                if(finished){
-                    Intent i = new Intent(RegisterActivity.this, BiometricsActivity.class);
-                    startActivity(i);
+                }else{
+                    Toast.makeText(RegisterActivity.this, "Debes Aceptar la Política de Privacidad o seleccionar una imagen", Toast.LENGTH_SHORT).show();
                 }
+                
 
 
 
@@ -151,17 +203,75 @@ public class RegisterActivity extends AppCompatActivity {
                 if (checked){
                     isProfe = true;
                 }else {
-
+                    isProfe = false;
                     break;
                 }
             case R.id.cbPrivacidad:
                 if (checked) {
                     acceptPrivacity = true;
                 }else {
-
+                    acceptPrivacity = false;
                     break;
                 }
 
         }
+    }
+    private boolean hasStoragePermission(Context context) {
+        int read = ContextCompat.checkSelfPermission(context, Manifest.permission.READ_EXTERNAL_STORAGE);
+        return read == PackageManager.PERMISSION_GRANTED;
+    }
+
+
+    public void imageChooser() {
+
+        Intent i = new Intent();
+        i.setType("image/*");
+        i.setAction(Intent.ACTION_GET_CONTENT);
+        startActivityForResult(Intent.createChooser(i, "Elige una imagen"), SELECT_IMAGE);
+
+    }
+
+    public void onActivityResult(int requestCode, int resultCode, Intent data){
+        super.onActivityResult(requestCode,resultCode,data);
+
+        if(resultCode == RESULT_OK){
+            if(requestCode == SELECT_IMAGE){
+                selectedImage = data.getData();
+                Uri selectedUri = data.getData();
+                if(selectedImage != null){
+                    ivPerfil.setImageURI(selectedImage);
+                    uriString = selectedUri.toString();
+                   /* final InputStream imageStream;
+                    try {
+                        imageStream = getContentResolver().openInputStream(selectedImage);
+                        final Bitmap selectedImage = BitmapFactory.decodeStream(imageStream);
+                        encodeImage(selectedImage);
+                    } catch (FileNotFoundException e) {
+                        e.printStackTrace();
+                    }*/
+
+                }
+            }
+
+        }
+    }
+   /* private void encodeImage(Bitmap bm)
+    {
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        bm.compress(Bitmap.CompressFormat.JPEG,100,baos);
+        byte[] b = baos.toByteArray();
+        encImage = Base64.encodeToString(b, Base64.DEFAULT);
+
+    }*/
+
+    private byte[] decodificador(Uri selectedUri){
+        try {
+            InputStream iStream = getContentResolver().openInputStream(selectedUri);
+            inputData = Utils.getBytes(iStream);
+        }catch (Exception e){
+            System.out.println(e);
+            return null;
+        }
+        return inputData;
     }
 }

@@ -2,6 +2,8 @@ package com.example.biometricthings.Fragments;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.media.Image;
+import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -13,12 +15,16 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.biometricthings.R;
 import com.example.biometricthings.model.User;
 import com.example.biometricthings.remote.APIService;
 import com.example.biometricthings.remote.RetroClass;
+import com.squareup.picasso.Picasso;
+
+import java.io.UnsupportedEncodingException;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -29,6 +35,8 @@ public class ProfileFragment extends Fragment {
     private TextView tvNombre;
     private TextView tvEmail;
     private TextView tvApellido;
+
+    private ImageView ivPerfilPerfil;
 
     private Button btnBtn;
     private View view;
@@ -103,9 +111,25 @@ public class ProfileFragment extends Fragment {
                 user = response.body();
                 System.out.println(response.body());
                 System.out.println(user.getNombre());
+                System.out.println(user.getImagen());
                 tvNombre.setText(user.getNombre());
                 tvEmail.setText(user.getEmail());
                 tvApellido.setText(user.getapellidos());
+                //Uri uri = Uri.parse(user.getImagen());
+
+               // ivPerfilPerfil.setImageURI(uri);
+               /* byte[] byteArrray = user.getImagen().getBytes();
+                String s = "";
+                try {
+                    s = new String(byteArrray, "UTF-8");
+                    Uri uri = Uri.parse(s);
+                    Picasso.with(getActivity().getBaseContext()).load(uri).into(ivPerfilPerfil);
+                } catch (UnsupportedEncodingException e) {
+                    e.printStackTrace();
+                }*/
+
+
+
 
             }
 

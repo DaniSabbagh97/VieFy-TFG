@@ -14,7 +14,7 @@
         android:layout_centerHorizontal="true"
         android:layout_alignParentTop="true"
         android:layout_height="wrap_content"
-        android:text="Debes Introdcuri el código de profesor para continuar." />
+        android:text="Debes Introducir el código de profesor para continuar." />
     <TextView
         android:id="@+id/tvPregunta2"
         android:layout_width="wrap_content"
