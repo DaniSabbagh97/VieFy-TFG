@@ -4,12 +4,16 @@ package com.example.biometricthings.Profesor;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.util.Base64;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.biometricthings.HomeActivity;
 import com.example.biometricthings.Propiedades.ListAdapter;
@@ -17,6 +21,7 @@ import com.example.biometricthings.Propiedades.MostrarPropiedadActivity;
 import com.example.biometricthings.R;
 import com.example.biometricthings.model.Clase;
 import com.example.biometricthings.model.Propiedades;
+import com.example.biometricthings.model.User;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
@@ -24,16 +29,21 @@ import java.util.List;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-public class ListAdapterClases extends RecyclerView.Adapter<ListAdapterClases.ViewHolder> {
+public class ListAdapterListaAlumnos extends RecyclerView.Adapter<ListAdapterListaAlumnos.ViewHolder> {
 
-    private List<Clase> mData;
+    private List<User> mData;
     private Context context;
-    private String clase;
-    private int alumnos;
+    private String nombre;
+    private String imagen;
+    private String apellido;
+    private String rol;
+    private int expediente;
+    private String expedienteString;
+    //private int alumnos;
 
 
 
-    public ListAdapterClases(List<Clase> mData, Context context) {
+    public ListAdapterListaAlumnos(List<User> mData, Context context) {
         this.mData = mData;
         this.context = context;
     }
@@ -43,26 +53,32 @@ public class ListAdapterClases extends RecyclerView.Adapter<ListAdapterClases.Vi
 
     @NonNull
     @Override
-    public ListAdapterClases.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int position) {
-        View view= LayoutInflater.from(context).inflate(R.layout.list_element_clases, parent, false);
+    public ListAdapterListaAlumnos.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int position) {
+        View view= LayoutInflater.from(context).inflate(R.layout.list_element_alumnos, parent, false);
 
-        return new ListAdapterClases.ViewHolder(view);
+        return new ListAdapterListaAlumnos.ViewHolder(view);
     }
     public class ViewHolder extends RecyclerView.ViewHolder{
-        TextView tvClase,tvAlumno;
-        Button btnAcceder;
+        TextView tvNombreApellidoAlumno,tvTipoRol, tvExpedienteAlumno;
+        ImageView ivImagenAlumno;
+        Button btnVerAlumno;
 
         ViewHolder(View itemView){
             super(itemView);
-            tvClase = itemView.findViewById(R.id.tvClase);
-            tvAlumno = itemView.findViewById(R.id.tvAlumnos);
-            btnAcceder = itemView.findViewById(R.id.btnAcceder);
-            btnAcceder.setOnClickListener(new View.OnClickListener() {
+            tvNombreApellidoAlumno = itemView.findViewById(R.id.tvNombreApellidoAlumno);
+            tvTipoRol = itemView.findViewById(R.id.tvTipoRol);
+            tvExpedienteAlumno = itemView.findViewById(R.id.tvExpedienteAlumno);
+            ivImagenAlumno = itemView.findViewById(R.id.ivImagenAlumno);
+
+            btnVerAlumno = itemView.findViewById(R.id.btnVerAlumno);
+
+            btnVerAlumno.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Intent i = new Intent(view.getContext(), HomeActivity.class);
-                    i.putExtra("idClase", mData.get(getAdapterPosition()).getId_clase());
-                    view.getContext().startActivity(i);
+                   /* Intent i = new Intent(view.getContext(), HomeActivity.class);//TODO VER ALUMNO
+
+                    view.getContext().startActivity(i);*/
+                    Toast.makeText(view.getContext(), "Proximamente", Toast.LENGTH_SHORT).show();
                 }
             });
 
@@ -93,29 +109,41 @@ public class ListAdapterClases extends RecyclerView.Adapter<ListAdapterClases.Vi
 
         }
 
-        void bindData(final Clase item){
+        void bindData(final User item){
 
         }
 
 
     }
     @Override
-    public void onBindViewHolder(final ListAdapterClases.ViewHolder holder, final int position) {
+    public void onBindViewHolder(final ListAdapterListaAlumnos.ViewHolder holder, final int position) {
         holder.bindData(mData.get(position));
 
-        clase = mData.get(position).getNombre();
-        alumnos = mData.get(position).getNumero_de_usos();
+        nombre = mData.get(position).getNombre();
+        apellido = mData.get(position).getApellidos();
+        rol = mData.get(position).getRol_juego();
+        imagen = mData.get(position).getImagen();
+        expediente = mData.get(position).getExpediente();
+        expedienteString = String.valueOf(expediente);
 
 
+        byte[] bytes= Base64.decode(imagen,Base64.DEFAULT);
 
-        holder.tvClase.setText(clase);
-        holder.tvAlumno.setText(alumnos+"");
+        Bitmap bitmap= BitmapFactory.decodeByteArray(bytes,0,bytes.length);
+
+
+        holder.ivImagenAlumno.setImageBitmap(bitmap);
+
+        holder.tvNombreApellidoAlumno.setText(nombre+" "+apellido);
+        holder.tvTipoRol.setText(rol);
+        holder.tvExpedienteAlumno.setText(expedienteString);
+
 
 
 
 
     }
-    public void setItems(List<Clase> items){ mData = items; }
+    public void setItems(List<User> items){ mData = items; }
 
 
 }

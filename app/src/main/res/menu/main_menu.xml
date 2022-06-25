@@ -5,17 +5,46 @@
 
 
         <item
-            android:id="@+id/nav_2"
+            android:id="@+id/nav_principal"
             android:icon="@drawable/icon_home"
             android:title="Principal" />
         <item
-            android:id="@+id/nav_3"
+            android:id="@+id/nav_empresa"
+            android:icon="@drawable/ic_baseline_empresa_center_24"
+            android:title="Ver Empresa" />
+        <item
+            android:id="@+id/nav_personal"
+            android:icon="@drawable/ic_baseline_personal_24"
+            android:title="Cuenta Personal" />
+
+        <item
+            android:id="@+id/nav_cambiarClase"
+            android:icon="@drawable/ic_baseline_change_circle_24"
+            android:title="Cambiar Clase" />
+        <item
+            android:id="@+id/nav_banco"
             android:icon="@drawable/icon_banco"
             android:title="Banco" />
+
         <item
-            android:id="@+id/nav_4"
+            android:id="@+id/nav_listaAlumnos"
+            android:icon="@drawable/ic_baseline_search_24"
+            android:title="Lista Alumnos" />
+
+        <item
+            android:id="@+id/nav_trabajo"
             android:icon="@drawable/icon_trabajo"
             android:title="Trabajo" />
+
+        <item
+            android:id="@+id/nav_practicas"
+            android:icon="@drawable/ic_baseline_bookmark_24"
+            android:title="Prácticas" />
+
+        <item
+            android:id="@+id/nav_mensajes"
+            android:icon="@drawable/ic_baseline_mensaje_24"
+            android:title="Mensajes" />
 
     </group>
 

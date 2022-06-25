@@ -20,35 +20,44 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.util.Base64;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
 
 import com.example.biometricthings.Fragments.HomeFragment;
+import com.example.biometricthings.Fragments.ListaUsuarioFragment;
 import com.example.biometricthings.Fragments.ProfileFragment;
 import com.example.biometricthings.Fragments.WorkFragment;
 import com.example.biometricthings.PDF.LoadPDFActivity;
 import com.example.biometricthings.PDF.ReadPDFActivity;
+import com.example.biometricthings.Profesor.SeleccionaClaseActivity;
 import com.example.biometricthings.SplashArt.SplashArtActivity;
 import com.example.biometricthings.model.User;
 import com.example.biometricthings.remote.APIService;
 import com.example.biometricthings.remote.RetroClass;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
+import com.ismaeldivita.chipnavigation.ChipNavigationBar;
 
 public class HomeActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     ProfileFragment profileFragment = new ProfileFragment();
     HomeFragment homeFragment = new HomeFragment();
     WorkFragment workFragment = new WorkFragment();
+    ListaUsuarioFragment listaUsuarioFragment = new ListaUsuarioFragment();
     DrawerLayout drawerLayout;
     NavigationView navigationView;
 
     private CircleImageView ivUserPerfil;
     private String imagenRecibida;
     private TextView tvPrueba;
+    private int isProfesor;
+    private String rol;
     Toolbar toolbar;
+    private int idClase;
+    ChipNavigationBar chipNavigationBar;
 
     User user;
 //TODO https://www.youtube.com/watch?v=m1RV0HPuBWo&list=PL5jb9EteFAOD8dlG1Il3fCiaVNPD_P7gh&index=2
@@ -64,6 +73,10 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         ivUserPerfil = (CircleImageView) headerView.findViewById(R.id.ivUserPerfil);
 
 
+        Bundle extras = getIntent().getExtras();
+        if(extras!=null) {
+            idClase = extras.getInt("idClase");
+        }
         tvPrueba = headerView.findViewById(R.id.tvPrueba);
 
 
@@ -76,10 +89,11 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         toggle.syncState();
         navigationView.setNavigationItemSelectedListener(this);
 
-        BottomNavigationView navigation = findViewById(R.id.bottom_nav);
-        navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
-
-
+        //BottomNavigationView navigation = findViewById(R.id.bottom_nav);
+        //navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+        chipNavigationBar = findViewById(R.id.chipBottomBar);
+        bottomMenu();
+        loadFragment(profileFragment);
 
         String token2 = cargarPreferencias();
 
@@ -98,14 +112,51 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
                 System.out.println("bbbbbbbbbbbbbbbbb");
                 System.out.println(user.getNombre());
                 imagenRecibida = user.getImagen();
+
                 byte[] bytes= Base64.decode(imagenRecibida,Base64.DEFAULT);
 
                 Bitmap bitmap= BitmapFactory.decodeByteArray(bytes,0,bytes.length);
 
-                String prueba = Base64.encodeToString(bytes, Base64.DEFAULT);
+                //String prueba = Base64.encodeToString(bytes, Base64.DEFAULT);
                 ivUserPerfil.setImageBitmap(bitmap);
 
                 tvPrueba.setText(user.getNombre() + " "+user.getapellidos());
+                isProfesor = user.getIsProfe();
+                rol = user.getRol_juego();
+                Menu menu = navigationView.getMenu();
+                if(isProfesor==1){
+                    //TODO ES PROFESOR
+
+                    menu.findItem(R.id.nav_banco).setVisible(false);
+                    menu.findItem(R.id.nav_trabajo).setVisible(false);
+                    menu.findItem(R.id.nav_principal).setVisible(false);
+                    menu.findItem(R.id.nav_empresa).setVisible(false);
+                    menu.findItem(R.id.nav_personal).setVisible(false);
+
+                }else if(isProfesor==0){
+
+                    //TODO ES ALUMNO
+                    menu.findItem(R.id.nav_listaAlumnos).setVisible(false);
+                    menu.findItem(R.id.nav_practicas).setVisible(false);
+                    menu.findItem(R.id.nav_cambiarClase).setVisible(false);
+                    menu.findItem(R.id.nav_mensajes).setVisible(false);
+                    if(rol.equals("Empresario")){
+                        //  TODO MENÚ DE EMPRESARIO
+                        menu.findItem(R.id.nav_principal).setVisible(false);
+
+                    }else if(rol.equals("Asalariado")){
+                        //TODO MENÚ DE ASALARAIDO
+                        menu.findItem(R.id.nav_empresa).setVisible(false);
+                        menu.findItem(R.id.nav_personal).setVisible(false);
+
+                    }else if(rol.equals("Autonomo")){
+                        //TODO MENÚ DE AUTONOMO
+                        menu.findItem(R.id.nav_empresa).setVisible(false);
+                        menu.findItem(R.id.nav_personal).setVisible(false);
+
+                    }
+
+                }
                 /*tvNombre.setText(user.getNombre());
                 tvEmail.setText(user.getEmail());
                 tvApellido.setText(user.getapellidos());*/
@@ -128,6 +179,33 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
 
     }
 
+    private void bottomMenu() {
+
+        chipNavigationBar.setOnItemSelectedListener(new ChipNavigationBar.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(int i) {
+                switch (i){
+                    case R.id.profileFragment:
+                        loadFragment(profileFragment);
+                        break;
+                    case R.id.homeFragment:
+                        loadFragment(listaUsuarioFragment);
+                        Bundle bundle = new Bundle();
+                        bundle.putInt("idClase", idClase);
+                        listaUsuarioFragment.setArguments(bundle);
+                        break;
+
+                    case R.id.workFragment:
+                        loadFragment(workFragment);
+                        break;
+
+
+
+                }
+            }
+        });
+    }
+
     @Override
     public void onBackPressed() {
 
@@ -140,7 +218,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
     }
 
 
-    private final BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener = new BottomNavigationView.OnNavigationItemSelectedListener() {
+   /* private final BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener = new BottomNavigationView.OnNavigationItemSelectedListener() {
         @Override
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {//Gestión del menú del usuario normal
             switch (item.getItemId()){
@@ -162,7 +240,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
 
             return false;
         }
-    };
+    };*/
 
     public void loadFragment(Fragment fragment){//Metodo para cargar los fragments
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
@@ -185,12 +263,12 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
 
         switch (item.getItemId()){
-            case R.id.nav_2:
+            case R.id.nav_principal:
                 loadFragment(profileFragment);
                 /*Intent i = new Intent(HomeActivity.this, ReadPDFActivity.class);
                 startActivity(i);*/
                 break;
-            case R.id.nav_3:
+            case R.id.nav_banco:
                 loadFragment(homeFragment);
                 /*Intent i2 = new Intent(HomeActivity.this, LoadPDFActivity.class);
                 startActivity(i2);*/
@@ -199,6 +277,13 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
                 limpiarPreferencias();
                 Intent i = new Intent(HomeActivity.this, SplashArtActivity.class);
                 startActivity(i);
+                finish();
+                /*Intent i2 = new Intent(HomeActivity.this, LoadPDFActivity.class);
+                startActivity(i2);*/
+                break;
+            case R.id.nav_cambiarClase:
+                Intent i2 = new Intent(HomeActivity.this, SeleccionaClaseActivity.class);
+                startActivity(i2);
                 finish();
                 /*Intent i2 = new Intent(HomeActivity.this, LoadPDFActivity.class);
                 startActivity(i2);*/

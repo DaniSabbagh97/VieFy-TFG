@@ -1,5 +1,6 @@
 package com.example.biometricthings.Register;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -28,6 +29,9 @@ public class EntrarClaseActivity extends AppCompatActivity {
 
     private String clave, token, mail;
     private Clase c;
+    private Clase c2;
+    private Clase c3;
+    private int usos;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,27 +55,62 @@ public class EntrarClaseActivity extends AppCompatActivity {
 
                 final APIService apiService = RetroClass.getAPIService();
 
-                Call<Boolean> p = apiService.putIdClase(c, token);
+                Call<Clase> p = apiService.putIdClase(c, token);
 
-                p.enqueue(new Callback<Boolean>() {
+                p.enqueue(new Callback<Clase>() {
                     @Override
-                    public void onResponse(Call<Boolean> call, Response<Boolean> response) {
-                        if(response.body()){//FIXME ARREGLAR SI FALLA AL PONER EL CÓDIGO
-                            Intent i = new Intent(EntrarClaseActivity.this, LogInActivity.class);
-                            i.putExtra("mail", mail);
-                            startActivity(i);
-                            finish();
+                    public void onResponse(Call<Clase> call, @NonNull Response<Clase> response) {
+                        if(response.body()!=null) {
+                            c2 = response.body();
+                            usos = c2.getNumero_de_usos();
+                            if (usos <= 0) {
 
-                        }else{
-                            Toast.makeText(EntrarClaseActivity.this, "La clave es incorrecta", Toast.LENGTH_SHORT).show();
-                            Intent i = new Intent(EntrarClaseActivity.this, LogInActivity.class);
-                            startActivity(i);
-                            finish();
-                        }
+                                Toast.makeText(EntrarClaseActivity.this, "No queda hueco en esta clase", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(EntrarClaseActivity.this, "Contacta con tu profesor", Toast.LENGTH_LONG).show();
+                                Intent i = new Intent(EntrarClaseActivity.this, LogInActivity.class);
+                                startActivity(i);
+                                finish();
+
+                            } else {
+                                usos = usos - 1;
+                                c3 = new Clase(c2.getId_clase(), usos);
+                                final APIService apiService = RetroClass.getAPIService();
+
+                                Call<Boolean> s = apiService.updateUsos(c3, token);
+
+                                s.enqueue(new Callback<Boolean>() {
+                                    @Override
+                                    public void onResponse(Call<Boolean> call, @NonNull Response<Boolean> response) {
+                                        if(response.body()){
+                                            Intent i = new Intent(EntrarClaseActivity.this, LogInActivity.class);
+                                            i.putExtra("mail", mail);
+                                            startActivity(i);
+                                            finish();
+                                        }
+
+                                    }
+
+                                    @Override
+                                    public void onFailure(Call<Boolean> call, Throwable t) {
+
+                                        System.out.println(t.getMessage());
+
+                                    }
+                                });
+
+
+                            }
+                            }else{
+                                Toast.makeText(EntrarClaseActivity.this, "La clave es incorrecta", Toast.LENGTH_SHORT).show();
+                                Intent i = new Intent(EntrarClaseActivity.this, LogInActivity.class);
+                                startActivity(i);
+                                finish();
+                            }
+
                     }
 
                     @Override
-                    public void onFailure(Call<Boolean> call, Throwable t) {
+                    public void onFailure(Call<Clase> call, Throwable t) {
 
                     }
                 });

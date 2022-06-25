@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="200dp"
     android:orientation="vertical"
-    android:background="@color/teal_700"
+    android:background="@drawable/redondea_esquinas_verde"
     android:gravity="bottom"
     android:padding="20dp">
 

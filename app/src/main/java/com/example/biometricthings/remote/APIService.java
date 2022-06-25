@@ -83,7 +83,13 @@ public interface APIService {
  Call<Boolean> crearClases(@Body Clase c, @Header("Authorization") String token);//TODO CON TOKEN
 
  @HTTP(method = "POST", path = "http://192.168.1.10:8080/api/users/putIdclase", hasBody = true)
- Call<Boolean> putIdClase(@Body Clase cls, @Header("Authorization") String token);//TODO CON TOKEN
+ Call<Clase> putIdClase(@Body Clase cls, @Header("Authorization") String token);//TODO CON TOKEN
+
+ @HTTP(method = "POST", path = "http://192.168.1.10:8080/api/users/getListUsers", hasBody = true)
+ Call<ArrayList<User>> getListaUsers(@Body Clase c, @Header("Authorization") String token);//TODO CON TOKEN
+
+ @HTTP(method = "POST", path = "http://192.168.1.10:8080/api/clases/updateUsos", hasBody = true)
+ Call<Boolean> updateUsos(@Body Clase cl, @Header("Authorization") String token);//TODO CON TOKEN
 
 
 }

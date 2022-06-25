@@ -115,34 +115,18 @@ public class ProfileFragment extends Fragment {
             @Override
             public void onResponse(Call<User> call, Response<User> response) {
                 user = response.body();
-                /*System.out.println(response.body());
-                System.out.println(user.getNombre());
-                System.out.println(user.getImagen());*/
                 tvNombre.setText(user.getNombre());
                 tvEmail.setText(user.getEmail());
                 tvApellido.setText(user.getapellidos());
-                //Uri uri = Uri.parse(user.getImagen());
+
                 imagenRecibida = user.getImagen();
-               /* System.out.println("AAAAAAAAAAAAAAA");
-                System.out.println(imagenRecibida);
-                System.out.println(imagenRecibida);*/
+
                 byte[] bytes= Base64.decode(imagenRecibida,Base64.DEFAULT);
-                // Initialize bitmap
+
                 Bitmap bitmap= BitmapFactory.decodeByteArray(bytes,0,bytes.length);
-                // set bitmap on imageView
+
                 ivPerfilPerfil.setImageBitmap(bitmap);
 
-
-               // ivPerfilPerfil.setImageURI(uri);
-               /* byte[] byteArrray = user.getImagen().getBytes();
-                String s = "";
-                try {
-                    s = new String(byteArrray, "UTF-8");
-                    Uri uri = Uri.parse(s);
-                    Picasso.with(getActivity().getBaseContext()).load(uri).into(ivPerfilPerfil);
-                } catch (UnsupportedEncodingException e) {
-                    e.printStackTrace();
-                }*/
 
 
 
@@ -151,7 +135,7 @@ public class ProfileFragment extends Fragment {
 
             @Override
             public void onFailure(Call<User> call, Throwable t) {
-                System.out.println("NO FUNCIONÓ");
+                System.out.println(t.getMessage());
             }
         });
 

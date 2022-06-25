@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/tvAlumnos"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:animateLayoutChanges="true"
+    app:cardCornerRadius="20dp"
+    app:cardElevation="4dp"
+    app:cardUseCompatPadding="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:animateLayoutChanges="true"
+        android:orientation="vertical">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="6dp">
+
+            <ImageView
+                android:id="@+id/ivImagenAlumno"
+                android:layout_width="150dp"
+                android:layout_height="125dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:layout_gravity="center"
+                app:srcCompat="@drawable/ic_baseline_ac_unit_24" />
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="4dp"
+                android:layout_marginTop="2dp"
+                android:layout_toEndOf="@+id/ivImagenAlumno"
+                android:orientation="vertical"
+                android:layout_marginLeft="4dp"
+                android:layout_toRightOf="@id/ivImagenAlumno">
+
+                <TextView
+                    android:id="@+id/tvNombreApellidoAlumno"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="2dp"
+                    android:textColor="@color/black"
+                    android:textSize="18sp"
+                    android:textStyle="bold"/>
+                <TextView
+                    android:id="@+id/tvTipoRol"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="12sp"/>
+                <TextView
+                    android:id="@+id/tvExpedienteAlumno"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="12sp"/>
+
+
+            </LinearLayout>
+
+
+            <Button
+                android:id="@+id/btnVerAlumno"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="75dp"
+                android:layout_marginEnd="6dp"
+                android:layout_marginRight="6dp"
+                android:text="Ver" />
+
+
+        </RelativeLayout>
+
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>
