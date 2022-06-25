@@ -8,6 +8,7 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
+import de.hdodenhof.circleimageview.CircleImageView;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -15,8 +16,13 @@ import retrofit2.Response;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.util.Base64;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.TextView;
 
 
 import com.example.biometricthings.Fragments.HomeFragment;
@@ -24,6 +30,7 @@ import com.example.biometricthings.Fragments.ProfileFragment;
 import com.example.biometricthings.Fragments.WorkFragment;
 import com.example.biometricthings.PDF.LoadPDFActivity;
 import com.example.biometricthings.PDF.ReadPDFActivity;
+import com.example.biometricthings.SplashArt.SplashArtActivity;
 import com.example.biometricthings.model.User;
 import com.example.biometricthings.remote.APIService;
 import com.example.biometricthings.remote.RetroClass;
@@ -37,6 +44,10 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
     WorkFragment workFragment = new WorkFragment();
     DrawerLayout drawerLayout;
     NavigationView navigationView;
+
+    private CircleImageView ivUserPerfil;
+    private String imagenRecibida;
+    private TextView tvPrueba;
     Toolbar toolbar;
 
     User user;
@@ -48,7 +59,14 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         setContentView(R.layout.activity_home);
         drawerLayout = findViewById(R.id.drawer_layout);
         navigationView = findViewById(R.id.nav_view);
+        View headerView = navigationView.getHeaderView(0);
         toolbar = findViewById(R.id.toolbar);
+        ivUserPerfil = (CircleImageView) headerView.findViewById(R.id.ivUserPerfil);
+
+
+        tvPrueba = headerView.findViewById(R.id.tvPrueba);
+
+
 
         setSupportActionBar(toolbar);
 
@@ -79,6 +97,15 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
                 System.out.println(response.body());
                 System.out.println("bbbbbbbbbbbbbbbbb");
                 System.out.println(user.getNombre());
+                imagenRecibida = user.getImagen();
+                byte[] bytes= Base64.decode(imagenRecibida,Base64.DEFAULT);
+
+                Bitmap bitmap= BitmapFactory.decodeByteArray(bytes,0,bytes.length);
+
+                String prueba = Base64.encodeToString(bytes, Base64.DEFAULT);
+                ivUserPerfil.setImageBitmap(bitmap);
+
+                tvPrueba.setText(user.getNombre() + " "+user.getapellidos());
                 /*tvNombre.setText(user.getNombre());
                 tvEmail.setText(user.getEmail());
                 tvApellido.setText(user.getapellidos());*/
@@ -168,8 +195,27 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
                 /*Intent i2 = new Intent(HomeActivity.this, LoadPDFActivity.class);
                 startActivity(i2);*/
                 break;
+            case R.id.nav_logout:
+                limpiarPreferencias();
+                Intent i = new Intent(HomeActivity.this, SplashArtActivity.class);
+                startActivity(i);
+                finish();
+                /*Intent i2 = new Intent(HomeActivity.this, LoadPDFActivity.class);
+                startActivity(i2);*/
+                break;
         }
         drawerLayout.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    public void limpiarPreferencias(){
+
+        SharedPreferences preferences = getSharedPreferences("credenciales", Context.MODE_PRIVATE);
+
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.putString("token","NO");
+        editor.putInt("idUser",0);
+        editor.commit();
+
     }
 }

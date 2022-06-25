@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/llHeader"
     android:layout_width="match_parent"
     android:layout_height="200dp"
     android:orientation="vertical"
@@ -7,26 +8,42 @@
     android:gravity="bottom"
     android:padding="20dp">
 
-    <ImageView
-        android:id="@+id/ivPerfil"
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/ivUserPerfil"
         android:layout_width="85dp"
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="0dp"
         android:layout_height="85dp"
-        android:src="@drawable/yo2"/>
+
+        android:src="@drawable/yo"/>
+    <TextView
+        android:id="@+id/tvPrueba"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="14sp"
+        android:text="" />
+
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="70dp"
+        android:layout_marginTop="0dp"
+        android:layout_height="30dp"
+
+        android:src="@drawable/viefy_blanco"/>
 
 
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:paddingLeft="8dp"
-            android:textColor="@color/colorTit"
-            android:fontFamily="@font/alata"
-            android:gravity="center_horizontal"
-            android:text="VieFy"
+    <!--<TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:paddingLeft="8dp"
+        android:textColor="@color/colorTit"
+        android:fontFamily="@font/alata"
+        android:gravity="center_horizontal"
+        android:text="VieFy"
 
-            android:textSize="32sp" />
+        android:textSize="32sp" />-->
 
 
 
