@@ -82,7 +82,6 @@
             </LinearLayout>
 
 
-
             <Button
                 android:id="@+id/btnVer"
                 android:layout_width="wrap_content"

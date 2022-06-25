@@ -13,12 +13,17 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.MenuItem;
 
 
+import com.example.biometricthings.Fragments.HomeFragment;
 import com.example.biometricthings.Fragments.ProfileFragment;
+import com.example.biometricthings.Fragments.WorkFragment;
+import com.example.biometricthings.PDF.LoadPDFActivity;
+import com.example.biometricthings.PDF.ReadPDFActivity;
 import com.example.biometricthings.model.User;
 import com.example.biometricthings.remote.APIService;
 import com.example.biometricthings.remote.RetroClass;
@@ -28,8 +33,8 @@ import com.google.android.material.navigation.NavigationView;
 public class HomeActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     ProfileFragment profileFragment = new ProfileFragment();
-   /*SecondFragment secondFragment = new SecondFragment();
-    ThirdFragment thirdFragment = new ThirdFragment();*/
+    HomeFragment homeFragment = new HomeFragment();
+    WorkFragment workFragment = new WorkFragment();
     DrawerLayout drawerLayout;
     NavigationView navigationView;
     Toolbar toolbar;
@@ -107,6 +112,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
 
     }
 
+
     private final BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener = new BottomNavigationView.OnNavigationItemSelectedListener() {
         @Override
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {//Gestión del menú del usuario normal
@@ -114,13 +120,15 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
                 case R.id.profileFragment:
                     loadFragment(profileFragment);
                     return true;
-                /*case R.id.secondFragment:
-                    loadFragment(secondFragment);
+                case R.id.homeFragment:
+                    loadFragment(homeFragment);
                     return true;
 
-                case R.id.thirdFragment:
-                    loadFragment(thirdFragment);
-                    return true;*/
+                case R.id.workFragment:
+                    loadFragment(workFragment);
+                    return true;
+
+
 
             }
 
@@ -148,6 +156,20 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+
+        switch (item.getItemId()){
+            case R.id.nav_2:
+                loadFragment(profileFragment);
+                /*Intent i = new Intent(HomeActivity.this, ReadPDFActivity.class);
+                startActivity(i);*/
+                break;
+            case R.id.nav_3:
+                loadFragment(homeFragment);
+                /*Intent i2 = new Intent(HomeActivity.this, LoadPDFActivity.class);
+                startActivity(i2);*/
+                break;
+        }
+        drawerLayout.closeDrawer(GravityCompat.START);
         return true;
     }
 }

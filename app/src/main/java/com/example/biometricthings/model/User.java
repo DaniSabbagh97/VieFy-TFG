@@ -21,8 +21,8 @@ public class User implements Serializable {
     private int isActive;
     private int id_propiedades;
     private int isProfe;
-    private byte[] imagen;
-    //private String imagen;
+    //private byte[] imagen;
+    private String imagen;
 
     public User(String email, String contrasenia) {
         this.email = email;
@@ -106,7 +106,7 @@ public class User implements Serializable {
                 String contrasenia,
                 int isProfe,
                 String rol,
-                byte[] imagen) {
+                String imagen) {
         this.expediente = expediente;
         this.nombre = nombre;
         this.apellidos = apellidos;
@@ -270,19 +270,19 @@ public class User implements Serializable {
         this.isProfe = isProfe;
     }
 
-    public byte[] getImagen() {
+    /*public byte[] getImagen() {
         return imagen;
     }
 
     public void setImagen(byte[] imagen) {
         this.imagen = imagen;
-    }
+    }*/
 
-    /*public String getImagen() {
+    public String getImagen() {
         return imagen;
     }
 
     public void setImagen(String imagen) {
         this.imagen = imagen;
-    }*/
+    }
 }

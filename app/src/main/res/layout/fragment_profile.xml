@@ -14,9 +14,9 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="70dp"
         android:text="Perfil"
-        android:textSize="25dp"/>
+        android:textSize="50dp"/>
 
     <ImageView
         android:id="@+id/ivPerfilPerfil"
@@ -32,7 +32,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/ivPerfilPerfil"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="50dp" />
+        android:layout_marginTop="25dp" />
 
     <TextView
         android:id="@+id/tvApellido"

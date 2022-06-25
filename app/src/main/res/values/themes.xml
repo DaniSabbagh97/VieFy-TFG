@@ -2,23 +2,24 @@
     <!-- Base application theme. -->
     <style name="Theme.BiometricThings" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/scala6</item>
-        <item name="colorPrimaryVariant">@color/scala2</item>
+        <item name="android:windowBackground">#f0f1f5</item>
+        <item name="colorPrimary">@color/scala1</item>
+        <item name="colorPrimaryVariant">@color/scala1</item>
         <item name="colorOnPrimary">@color/white</item>
         <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/teal_200</item>
         <item name="colorSecondaryVariant">@color/teal_700</item>
-        <item name="colorOnSecondary">@color/black</item>
+        <item name="colorOnSecondary">#f0f1f5</item>
         <!-- Status bar color. -->
-        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+        <item name="android:statusBarColor" tools:targetApi="l">#54B89C</item>
         <!-- Customize your theme here. -->
 
     </style>
 
 
     <style name="BottomNavigation">
-        <item name="android:background">@color/scala1</item>
-        <item name="itemIconTint">@color/scala4</item>
-        <item name="itemTextColor">@color/scala4</item>
+        <item name="android:background">@color/white</item>
+        <item name="itemIconTint">#54B89C</item>
+        <item name="itemTextColor">#54B89C</item>
     </style>
 </resources>

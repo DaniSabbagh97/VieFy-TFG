@@ -5,6 +5,6 @@
     android:layout_height="wrap_content"
     android:background="@color/scala4"
     android:elevation="4dp"
-    app:navigationIcon="@drawable/icon_menu_dropdown">
+    app:navigationIcon="@drawable/icon_banco">
 
 </androidx.appcompat.widget.Toolbar>

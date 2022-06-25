@@ -2,6 +2,8 @@ package com.example.biometricthings.Fragments;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.media.Image;
 import android.net.Uri;
 import android.os.Bundle;
@@ -11,6 +13,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
+import android.util.Base64;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -40,6 +43,8 @@ public class ProfileFragment extends Fragment {
 
     private Button btnBtn;
     private View view;
+
+    private String imagenRecibida;
 
 
 
@@ -95,6 +100,7 @@ public class ProfileFragment extends Fragment {
         tvEmail = (TextView) view.findViewById(R.id.tvEmail);
         tvApellido = (TextView) view.findViewById(R.id.tvApellido);
         btnBtn = (Button) view.findViewById(R.id.btnBtn);
+        ivPerfilPerfil = (ImageView) view.findViewById(R.id.ivPerfilPerfil);
 
         String token2 = cargarPreferencias();
 
@@ -109,13 +115,23 @@ public class ProfileFragment extends Fragment {
             @Override
             public void onResponse(Call<User> call, Response<User> response) {
                 user = response.body();
-                System.out.println(response.body());
+                /*System.out.println(response.body());
                 System.out.println(user.getNombre());
-                System.out.println(user.getImagen());
+                System.out.println(user.getImagen());*/
                 tvNombre.setText(user.getNombre());
                 tvEmail.setText(user.getEmail());
                 tvApellido.setText(user.getapellidos());
                 //Uri uri = Uri.parse(user.getImagen());
+                imagenRecibida = user.getImagen();
+               /* System.out.println("AAAAAAAAAAAAAAA");
+                System.out.println(imagenRecibida);
+                System.out.println(imagenRecibida);*/
+                byte[] bytes= Base64.decode(imagenRecibida,Base64.DEFAULT);
+                // Initialize bitmap
+                Bitmap bitmap= BitmapFactory.decodeByteArray(bytes,0,bytes.length);
+                // set bitmap on imageView
+                ivPerfilPerfil.setImageBitmap(bitmap);
+
 
                // ivPerfilPerfil.setImageURI(uri);
                /* byte[] byteArrray = user.getImagen().getBytes();

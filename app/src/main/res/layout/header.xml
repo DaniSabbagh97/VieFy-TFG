@@ -3,29 +3,32 @@
     android:layout_width="match_parent"
     android:layout_height="200dp"
     android:orientation="vertical"
-    android:background="@color/scala2"
+    android:background="@color/teal_700"
     android:gravity="bottom"
     android:padding="20dp">
 
     <ImageView
         android:id="@+id/ivPerfil"
-        android:layout_width="75dp"
-        android:layout_marginTop="25dp"
-        android:layout_height="75dp"
+        android:layout_width="85dp"
+        android:layout_marginTop="5dp"
+        android:layout_height="85dp"
         android:src="@drawable/yo2"/>
 
-    <ImageView
-        android:layout_width="75dp"
-        android:layout_height="75dp"
-        android:src="@drawable/vuefy"/>
 
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/alata"
-        android:text="Descripcion"
-        android:textSize="24sp" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:paddingLeft="8dp"
+            android:textColor="@color/colorTit"
+            android:fontFamily="@font/alata"
+            android:gravity="center_horizontal"
+            android:text="VieFy"
+
+            android:textSize="32sp" />
+
+
 
 
 

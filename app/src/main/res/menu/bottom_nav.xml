@@ -3,16 +3,16 @@
     <item
         android:id="@+id/profileFragment"
         android:icon="@drawable/ic_baseline_person_24"
-        android:title="Primero"/>
+        android:title="Perfil"/>
 
     <item
-        android:id="@+id/secondFragment"
-        android:icon="@android:drawable/alert_dark_frame"
-        android:title="Segundo"/>
+        android:id="@+id/homeFragment"
+        android:icon="@drawable/icon_home"
+        android:title="Home"/>
 
     <item
-        android:id="@+id/thirdFragment"
-        android:icon="@android:drawable/alert_dark_frame"
-        android:title="Tercero"/>
+        android:id="@+id/workFragment"
+        android:icon="@drawable/icon_trabajo"
+        android:title="Trabajo"/>
 
 </menu>

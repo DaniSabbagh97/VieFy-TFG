@@ -130,7 +130,7 @@ public class RegisterActivity extends AppCompatActivity {
                 //FIXME PETA AQUÍ
                 //imagenString = new String(fotoSubir);
                 //fotoSubir = decodificador(selectedImage);
-               /* try {
+                /*try {
                     InputStream iStream = getContentResolver().openInputStream(selectedImage);
                     inputData = Utils.getBytes(iStream);
                 }catch (Exception e){
@@ -139,7 +139,7 @@ public class RegisterActivity extends AppCompatActivity {
                 }*/
                 if(acceptPrivacity && selectedImage!=null){
 
-                User u = new User(numExp, nombre, apellido, mail, telf, psw, isProfeInt, rol, inputData);
+                User u = new User(numExp, nombre, apellido, mail, telf, psw, isProfeInt, rol, encodedImage);
                 Call<Integer> registro = apiService.registerUser(u);
                 registro.enqueue(new Callback<Integer>() {
                     @Override
@@ -241,28 +241,32 @@ public class RegisterActivity extends AppCompatActivity {
                 if(selectedImage != null){
                     ivPerfil.setImageURI(selectedImage);
                     uriString = selectedUri.toString();
-                   /* final InputStream imageStream;
+                    final InputStream imageStream;
                     try {
                         imageStream = getContentResolver().openInputStream(selectedImage);
                         final Bitmap selectedImage = BitmapFactory.decodeStream(imageStream);
                         encodeImage(selectedImage);
                     } catch (FileNotFoundException e) {
                         e.printStackTrace();
-                    }*/
+                    }
 
                 }
             }
 
         }
     }
-   /* private void encodeImage(Bitmap bm)
+    private void encodeImage(Bitmap bm)
     {
-        ByteArrayOutputStream baos = new ByteArrayOutputStream();
-        bm.compress(Bitmap.CompressFormat.JPEG,100,baos);
-        byte[] b = baos.toByteArray();
-        encImage = Base64.encodeToString(b, Base64.DEFAULT);
 
-    }*/
+
+
+
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        bm.compress(Bitmap.CompressFormat.PNG,100,baos);
+        byte[] b = baos.toByteArray();
+        encodedImage = Base64.encodeToString(b, Base64.DEFAULT);
+
+    }
 
     private byte[] decodificador(Uri selectedUri){
         try {
