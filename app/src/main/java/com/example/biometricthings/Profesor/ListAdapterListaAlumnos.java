@@ -75,9 +75,21 @@ public class ListAdapterListaAlumnos extends RecyclerView.Adapter<ListAdapterLis
             btnVerAlumno.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                   /* Intent i = new Intent(view.getContext(), HomeActivity.class);//TODO VER ALUMNO
+                    Intent i = new Intent(view.getContext(), MostrarAlumnoIndividualActivity.class);//TODO VER ALUMNO
 
-                    view.getContext().startActivity(i);*/
+                    i.putExtra("id", mData.get(getAdapterPosition()).getId_user());//FIXME
+                    i.putExtra("nombre", mData.get(getAdapterPosition()).getNombre());
+                    i.putExtra("apellido", mData.get(getAdapterPosition()).getApellidos());
+                    i.putExtra("rol", mData.get(getAdapterPosition()).getRol_juego());
+                    i.putExtra("expediente", mData.get(getAdapterPosition()).getExpediente());
+                    i.putExtra("correo", mData.get(getAdapterPosition()).getEmail());
+                    i.putExtra("img", mData.get(getAdapterPosition()).getImagen());
+
+
+                    view.getContext().startActivity(i);
+
+
+
                     Toast.makeText(view.getContext(), "Proximamente", Toast.LENGTH_SHORT).show();
                 }
             });

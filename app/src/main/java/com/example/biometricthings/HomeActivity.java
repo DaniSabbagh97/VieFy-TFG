@@ -28,11 +28,13 @@ import android.widget.TextView;
 
 import com.example.biometricthings.Fragments.HomeFragment;
 import com.example.biometricthings.Fragments.ListaUsuarioFragment;
+import com.example.biometricthings.Fragments.PracticasProfesorFragment;
 import com.example.biometricthings.Fragments.ProfileFragment;
 import com.example.biometricthings.Fragments.WorkFragment;
 import com.example.biometricthings.PDF.LoadPDFActivity;
 import com.example.biometricthings.PDF.ReadPDFActivity;
 import com.example.biometricthings.Profesor.SeleccionaClaseActivity;
+import com.example.biometricthings.Profesor.SubidaPracticas;
 import com.example.biometricthings.SplashArt.SplashArtActivity;
 import com.example.biometricthings.model.User;
 import com.example.biometricthings.remote.APIService;
@@ -47,6 +49,8 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
     HomeFragment homeFragment = new HomeFragment();
     WorkFragment workFragment = new WorkFragment();
     ListaUsuarioFragment listaUsuarioFragment = new ListaUsuarioFragment();
+    PracticasProfesorFragment practicasProfesorFragment = new PracticasProfesorFragment();
+
     DrawerLayout drawerLayout;
     NavigationView navigationView;
 
@@ -189,10 +193,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
                         loadFragment(profileFragment);
                         break;
                     case R.id.homeFragment:
-                        loadFragment(listaUsuarioFragment);
-                        Bundle bundle = new Bundle();
-                        bundle.putInt("idClase", idClase);
-                        listaUsuarioFragment.setArguments(bundle);
+
                         break;
 
                     case R.id.workFragment:
@@ -268,10 +269,11 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
                 /*Intent i = new Intent(HomeActivity.this, ReadPDFActivity.class);
                 startActivity(i);*/
                 break;
-            case R.id.nav_banco:
-                loadFragment(homeFragment);
-                /*Intent i2 = new Intent(HomeActivity.this, LoadPDFActivity.class);
-                startActivity(i2);*/
+            case R.id.nav_listaAlumnos:
+                loadFragment(listaUsuarioFragment);
+                Bundle bundle = new Bundle();
+                bundle.putInt("idClase", idClase);
+                listaUsuarioFragment.setArguments(bundle);
                 break;
             case R.id.nav_logout:
                 limpiarPreferencias();
@@ -287,6 +289,14 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
                 finish();
                 /*Intent i2 = new Intent(HomeActivity.this, LoadPDFActivity.class);
                 startActivity(i2);*/
+                break;
+            case R.id.nav_practicas:
+
+                Intent i3 = new Intent(HomeActivity.this, SubidaPracticas.class);
+                i3.putExtra("idClase", idClase);
+                System.out.println("IDCLASE");
+                System.out.println(idClase);
+                startActivity(i3);
                 break;
         }
         drawerLayout.closeDrawer(GravityCompat.START);

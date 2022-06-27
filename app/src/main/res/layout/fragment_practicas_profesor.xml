@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Fragments.PracticasProfesorFragment">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+            <TextView
+                android:id="@+id/tvInfo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:fontFamily="@font/alata"
+                android:layout_centerInParent="true"
+                android:layout_marginTop="50dp"
+                android:text="Adjunta una práctica, para subirla a la clase"
+                android:textSize="20sp" />
+
+            <Button
+                android:id="@+id/btnAdjuntarPDF"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tvInfo"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="50dp"
+                android:fontFamily="@font/alata"
+                android:text="Adjuntar PDF" />
+
+            <TextView
+                android:id="@+id/tvArchivo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/btnAdjuntarPDF"
+                android:fontFamily="@font/alata"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="2dp"
+                android:text="Nombre: "
+                android:textSize="14sp" />
+
+            <Button
+                android:id="@+id/btnPrevisualizacion"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tvArchivo"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="25dp"
+                android:fontFamily="@font/alata"
+                android:text="Previsualizacion" />
+
+            <TextView
+                android:id="@+id/tvInfoPractica"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/btnPrevisualizacion"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="25dp"
+                android:fontFamily="@font/alata"
+                android:text="Detalla la información de la práctica"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/etNombrePractica"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tvInfoPractica"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="25dp"
+                android:ems="10"
+                android:fontFamily="@font/alata"
+                android:hint="Nombre de la Práctica"
+                android:inputType="textPersonName" />
+
+            <EditText
+                android:id="@+id/etValorPractica"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/etNombrePractica"
+                android:layout_centerHorizontal="true"
+                android:fontFamily="@font/alata"
+                android:layout_marginTop="25dp"
+                android:ems="10"
+                android:hint="Valor en Euros"
+                android:inputType="number" />
+
+            <EditText
+                android:id="@+id/etCantidadEjercicios"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/etValorPractica"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="25dp"
+                android:fontFamily="@font/alata"
+                android:ems="10"
+                android:hint="¿Cúantos ejercicios tiene?"
+                android:inputType="number" />
+
+            <EditText
+                android:id="@+id/etFechaEntrega"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/etCantidadEjercicios"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="25dp"
+                android:ems="10"
+                android:fontFamily="@font/alata"
+                android:hint="Fecha de entrega"
+                android:inputType="number" />
+
+            <Button
+                android:id="@+id/btnSubirPractica"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/etFechaEntrega"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="25dp"
+                android:fontFamily="@font/alata"
+                android:text="Subir" />
+
+
+        </RelativeLayout>
+    </ScrollView>
+
+
+</RelativeLayout>
+

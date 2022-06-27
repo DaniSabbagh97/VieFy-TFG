@@ -5,6 +5,7 @@ import com.example.biometricthings.model.Empresa;
 import com.example.biometricthings.model.Empresaa;
 import com.example.biometricthings.model.HistoricoCuentaParticulares;
 import com.example.biometricthings.model.JWTToken;
+import com.example.biometricthings.model.Practicas;
 import com.example.biometricthings.model.Propiedades;
 import com.example.biometricthings.model.Solicitud;
 import com.example.biometricthings.model.Test;
@@ -90,6 +91,10 @@ public interface APIService {
 
  @HTTP(method = "POST", path = "http://192.168.1.10:8080/api/clases/updateUsos", hasBody = true)
  Call<Boolean> updateUsos(@Body Clase cl, @Header("Authorization") String token);//TODO CON TOKEN
+
+ @HTTP(method = "POST", path = "http://192.168.1.10:8080/api/practicas/subirPractica", hasBody = true)
+ Call<Boolean> subirPractica(@Body Practicas p, @Header("Authorization") String token);//TODO CON TOKEN
+
 
 
 }
