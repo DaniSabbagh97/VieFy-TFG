@@ -8,6 +8,7 @@ import com.example.biometricthings.model.JWTToken;
 import com.example.biometricthings.model.Practicas;
 import com.example.biometricthings.model.Propiedades;
 import com.example.biometricthings.model.Solicitud;
+import com.example.biometricthings.model.SolicitudAceptada;
 import com.example.biometricthings.model.Test;
 import com.example.biometricthings.model.TestResult;
 import com.example.biometricthings.model.User;
@@ -95,6 +96,17 @@ public interface APIService {
  @HTTP(method = "POST", path = "http://192.168.1.10:8080/api/practicas/subirPractica", hasBody = true)
  Call<Boolean> subirPractica(@Body Practicas p, @Header("Authorization") String token);//TODO CON TOKEN
 
+ @HTTP(method = "GET", path = "http://192.168.1.10:8080/api/solicitudes/getListaSolicitudes")
+ Call<Empresa> getListaSolicitudes(@Header("Authorization") String token);//TODO CON TOKEN
 
 
+ @HTTP(method = "POST", path = "http://192.168.1.10:8080/api/solicitudes/contratar", hasBody = true)
+ Call<Boolean> contratarAsalariado(@Body SolicitudAceptada sa, @Header("Authorization") String token);//TODO CON TOKEN
+
+ @HTTP(method = "POST", path = "http://192.168.1.10:8080/api/solicitudes/borrarSolicitud", hasBody = true)
+ Call<Boolean> borrarSolicitud(@Body SolicitudAceptada sa, @Header("Authorization") String token);//TODO CON TOKEN
+
+//TODO TIENE QUE BUSCAR EL ID DE LAS EMPRESAS QUE ESTÉN EN SU CLASE
+
+//todo tiene que buscar los usuarios que tengan el mismo id_clase que él y sean empresarios
 }

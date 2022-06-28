@@ -4,24 +4,24 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".Fragments.ListaUsuarioFragment">
+    tools:context=".Fragments.SolicitudesTrabajoActivity">
 
     <TextView
         android:id="@+id/tvTitulo"
-        android:text="Clase: "
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="150dp"
+        android:layout_marginStart="112dp"
         android:layout_marginTop="60dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-
         android:fontFamily="@font/alata"
         android:gravity="center"
-        android:textSize="34dp" />
+        android:text="Solicitudes: "
+
+        android:textSize="34dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvListaAlumnos"
+        android:id="@+id/rvListaSolicitudes"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="1dp"

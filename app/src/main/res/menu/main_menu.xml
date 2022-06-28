@@ -27,6 +27,11 @@
             android:title="Banco" />
 
         <item
+            android:id="@+id/nav_solicitudes"
+            android:icon="@drawable/ic_baseline_mensaje_24"
+            android:title="Solicitudes" />
+
+        <item
             android:id="@+id/nav_listaAlumnos"
             android:icon="@drawable/ic_baseline_search_24"
             android:title="Lista Alumnos" />

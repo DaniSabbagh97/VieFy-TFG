@@ -13,21 +13,23 @@
         android:padding="20dp"
         android:background="#54B89C">
 
-        <ImageView
+        <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/imagenPerfil"
             android:layout_width="110dp"
             android:layout_height="110dp"
-            android:layout_centerVertical="true" />
+            android:layout_marginTop="25dp" />
 
         <TextView
             android:id="@+id/tvNombreCompleto"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
             android:layout_marginLeft="10dp"
+            android:layout_marginTop="60dp"
             android:layout_toRightOf="@id/imagenPerfil"
             android:fontFamily="@font/alata"
-            android:textColor="#000"
+            android:textColor="#FEFEFE"
+
+            android:textFontWeight="600"
             android:textSize="20sp" />
 
         <TextView
@@ -35,10 +37,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/tvNombreCompleto"
-            android:layout_centerVertical="true"
             android:layout_marginLeft="10dp"
             android:layout_toRightOf="@id/imagenPerfil"
             android:fontFamily="@font/alata"
+            android:textColor="#FEFEFE"
             android:includeFontPadding="false"
             android:textSize="14sp" />
 
@@ -63,21 +65,19 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
-                <ImageView
-                    android:layout_marginTop="5dp"
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    android:layout_centerHorizontal="true"
-                    android:src="@drawable/icon_home" />
 
                 <TextView
                     android:id="@+id/tvDineroEmpresa"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
                     android:layout_centerInParent="true"
+                    android:layout_marginTop="32dp"
                     android:fontFamily="@font/alata"
                     android:includeFontPadding="false"
-                    android:textSize="20sp" />
+                    android:text="12.000€"
+                    android:textColor="#FEFEFE"
+                    android:textSize="25sp" />
 
                 <TextView
                     android:id="@+id/tv4"
@@ -87,6 +87,7 @@
                     android:layout_centerInParent="true"
                     android:fontFamily="@font/alata"
                     android:text="Saldo Empresa"
+                    android:textColor="#FEFEFE"
                     android:textSize="14sp" />
 
 
@@ -105,21 +106,20 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
-                <ImageView
-                    android:layout_marginTop="5dp"
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    android:layout_centerHorizontal="true"
-                    android:src="@drawable/icon_banco" />
+
 
                 <TextView
                     android:id="@+id/tvDineroPersonal"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:text="12.000€"
+                    android:textColor="#FEFEFE"
+                    android:layout_alignParentTop="true"
                     android:layout_centerInParent="true"
+                    android:layout_marginTop="32dp"
                     android:fontFamily="@font/alata"
                     android:includeFontPadding="false"
-                    android:textSize="20sp" />
+                    android:textSize="25sp" />
 
                 <TextView
                     android:id="@+id/tv2"
@@ -128,6 +128,7 @@
                     android:layout_below="@id/tvDineroPersonal"
                     android:layout_centerInParent="true"
                     android:fontFamily="@font/alata"
+                    android:textColor="#FEFEFE"
                     android:text="Saldo Personal"
                     android:textSize="14sp" />
 
@@ -150,6 +151,7 @@
             android:layout_height="wrap_content"
             android:padding="20dp"
             android:hint="Correo"
+            android:enabled="false"
             android:drawablePadding="10dp"
             android:layout_marginBottom="10dp"
 
@@ -161,6 +163,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="20dp"
+            android:enabled="false"
             android:hint="Nº Expediente"
             android:drawablePadding="10dp"
             android:layout_marginBottom="10dp"

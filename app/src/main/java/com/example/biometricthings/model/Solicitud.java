@@ -1,12 +1,14 @@
 package com.example.biometricthings.model;
 
 public class Solicitud {
-
+    // TODO RECIBE TODO ESTO PERO NECESITO SACAR SOLO LOS DATOS DE LA SOLICITUD
     private int id_solicitud;
     private int id_empresa;
     private int id_user;
     private String mensaje;
     private byte[] pdf;
+    private User user;
+    private Empresa empresa;
 
     public Solicitud() {
     }
@@ -64,5 +66,21 @@ public class Solicitud {
 
     public void setPdf(byte[] pdf) {
         this.pdf = pdf;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public Empresa getEmpresa() {
+        return empresa;
+    }
+
+    public void setEmpresa(Empresa empresa) {
+        this.empresa = empresa;
     }
 }

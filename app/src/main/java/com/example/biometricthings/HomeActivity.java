@@ -30,6 +30,7 @@ import com.example.biometricthings.Fragments.HomeFragment;
 import com.example.biometricthings.Fragments.ListaUsuarioFragment;
 import com.example.biometricthings.Fragments.PracticasProfesorFragment;
 import com.example.biometricthings.Fragments.ProfileFragment;
+import com.example.biometricthings.Fragments.SolicitudesTrabajoActivity;
 import com.example.biometricthings.Fragments.WorkFragment;
 import com.example.biometricthings.PDF.LoadPDFActivity;
 import com.example.biometricthings.PDF.ReadPDFActivity;
@@ -50,6 +51,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
     WorkFragment workFragment = new WorkFragment();
     ListaUsuarioFragment listaUsuarioFragment = new ListaUsuarioFragment();
     PracticasProfesorFragment practicasProfesorFragment = new PracticasProfesorFragment();
+    SolicitudesTrabajoActivity solicitudesTrabajoActivity = new SolicitudesTrabajoActivity();
 
     DrawerLayout drawerLayout;
     NavigationView navigationView;
@@ -136,6 +138,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
                     menu.findItem(R.id.nav_principal).setVisible(false);
                     menu.findItem(R.id.nav_empresa).setVisible(false);
                     menu.findItem(R.id.nav_personal).setVisible(false);
+                    menu.findItem(R.id.nav_solicitudes).setVisible(false);
 
                 }else if(isProfesor==0){
 
@@ -152,6 +155,8 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
                         //TODO MENÚ DE ASALARAIDO
                         menu.findItem(R.id.nav_empresa).setVisible(false);
                         menu.findItem(R.id.nav_personal).setVisible(false);
+                        menu.findItem(R.id.nav_solicitudes).setVisible(false);
+
 
                     }else if(rol.equals("Autonomo")){
                         //TODO MENÚ DE AUTONOMO
@@ -297,6 +302,9 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
                 System.out.println("IDCLASE");
                 System.out.println(idClase);
                 startActivity(i3);
+                break;
+            case R.id.nav_solicitudes:
+                loadFragment(solicitudesTrabajoActivity);
                 break;
         }
         drawerLayout.closeDrawer(GravityCompat.START);

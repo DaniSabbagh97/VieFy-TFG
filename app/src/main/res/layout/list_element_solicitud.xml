@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/cvSolicitud"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:animateLayoutChanges="true"
+    app:cardCornerRadius="20dp"
+    app:cardElevation="11dp"
+    app:cardUseCompatPadding="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:animateLayoutChanges="true"
+        android:orientation="vertical">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="6dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="4dp"
+                android:layout_marginLeft="4dp"
+                android:layout_marginTop="30dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tvMensaje"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="IVAN GUISADO es muy guapo"
+                    android:layout_marginBottom="2dp"
+                    android:gravity="center_vertical"
+                    android:textColor="#505050"
+                    android:textSize="18sp" />
+
+
+            </LinearLayout>
+
+
+            <Button
+                android:id="@+id/btnVerCV"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="75dp"
+                android:layout_marginEnd="250dp"
+                android:layout_marginRight="6dp"
+                android:text="Ver CV"
+                android:textSize="11sp" />
+
+            <Button
+                android:id="@+id/btnAcpetarAlumno"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginLeft="141dp"
+                android:layout_marginTop="75dp"
+                android:layout_marginEnd="134dp"
+                android:layout_marginRight="6dp"
+                android:text="Aceptar"
+                android:textSize="11sp" />
+
+            <Button
+                android:id="@+id/btnRechazarAlumno"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginLeft="249dp"
+                android:layout_marginTop="75dp"
+                android:layout_marginEnd="15dp"
+                android:layout_marginRight="6dp"
+                android:text="Rechazar"
+                android:textSize="11sp" />
+
+
+        </RelativeLayout>
+
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

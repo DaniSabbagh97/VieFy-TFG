@@ -1,5 +1,7 @@
 package com.example.biometricthings.model;
 
+import java.util.ArrayList;
+
 public class Empresa {
     private int id_empresa;
     private String nombre;
@@ -13,6 +15,7 @@ public class Empresa {
     private String cuerpoAnuncio;
     private String pdf;
     private byte[] pdfString;
+    private ArrayList<Solicitud> solicitudes;
 
 
     public Empresa() {
@@ -137,5 +140,13 @@ public class Empresa {
 
     public void setPdfString(byte[] pdfString) {
         this.pdfString = pdfString;
+    }
+
+    public ArrayList<Solicitud> getSolicitudes() {
+        return solicitudes;
+    }
+
+    public void setSolicitudes(ArrayList<Solicitud> solicitudes) {
+        this.solicitudes = solicitudes;
     }
 }
