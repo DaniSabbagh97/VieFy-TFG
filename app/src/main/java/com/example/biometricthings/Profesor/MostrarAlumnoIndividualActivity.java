@@ -34,7 +34,7 @@ public class MostrarAlumnoIndividualActivity extends AppCompatActivity {
     private Button btnGuardar;
 
     private String nombre, apellido, rol, correo, imagen, expedienteString;
-    private int expediente, id;
+    private int expediente, id, saldo, idEmpresa;
 
 
     @Override
@@ -65,6 +65,8 @@ public class MostrarAlumnoIndividualActivity extends AppCompatActivity {
             rol = extras.getString("rol");
             expediente = extras.getInt("expediente");
             imagen = extras.getString("imagen");
+            saldo = extras.getInt("saldo");
+            idEmpresa = extras.getInt("idEmpresa");
 
             expedienteString = String.valueOf(expediente);
 
@@ -76,7 +78,7 @@ public class MostrarAlumnoIndividualActivity extends AppCompatActivity {
             Bitmap bitmap= BitmapFactory.decodeByteArray(bytes,0,bytes.length);
 
             imagenPerfil.setImageBitmap(bitmap);
-
+            tvDineroPersonal.setText(idEmpresa+"");
             tvNombreCompleto.setText(nombre+" "+apellido);
             tvRolJuego.setText(rol);
             etCorreo.setText(correo);

@@ -23,15 +23,25 @@ public class User implements Serializable {
     private int isProfe;
     //private byte[] imagen;
     private String imagen;
+    private float saldoActual;
 
     public User(String email, String contrasenia) {
         this.email = email;
         this.contrasenia = contrasenia;
     }
 
+    public User(int id_user, int salario) {
+        this.id_user = id_user;
+        this.salario = salario;
+    }
+
     public User(int id_user) {
         this.id_user = id_user;
     }
+
+
+
+
 
     public User(int id_user, String nombre, String apellidos, String email) {
         this.id_user = id_user;
@@ -284,5 +294,13 @@ public class User implements Serializable {
 
     public void setImagen(String imagen) {
         this.imagen = imagen;
+    }
+
+    public float getSaldoActual() {
+        return saldoActual;
+    }
+
+    public void setSaldoActual(float saldoActual) {
+        this.saldoActual = saldoActual;
     }
 }

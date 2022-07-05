@@ -7,6 +7,7 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import de.hdodenhof.circleimageview.CircleImageView;
 import retrofit2.Call;
@@ -24,34 +25,42 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
-import com.example.biometricthings.Fragments.HomeFragment;
+import com.example.biometricthings.Fragments.EmpresaFragment;
 import com.example.biometricthings.Fragments.ListaUsuarioFragment;
+import com.example.biometricthings.Fragments.PerfilFragment;
 import com.example.biometricthings.Fragments.PracticasProfesorFragment;
 import com.example.biometricthings.Fragments.ProfileFragment;
+import com.example.biometricthings.Fragments.SalarioEmpresarioFragment;
 import com.example.biometricthings.Fragments.SolicitudesTrabajoActivity;
 import com.example.biometricthings.Fragments.WorkFragment;
-import com.example.biometricthings.PDF.LoadPDFActivity;
-import com.example.biometricthings.PDF.ReadPDFActivity;
+import com.example.biometricthings.Profesor.AnualActivity;
+import com.example.biometricthings.Profesor.HaciendaActivity;
 import com.example.biometricthings.Profesor.SeleccionaClaseActivity;
 import com.example.biometricthings.Profesor.SubidaPracticas;
+import com.example.biometricthings.Profesor.TrimestralActivity;
+import com.example.biometricthings.Roles.EntregaPracticasActivity;
+import com.example.biometricthings.Roles.ListaPracticasDisponibles;
 import com.example.biometricthings.SplashArt.SplashArtActivity;
 import com.example.biometricthings.model.User;
 import com.example.biometricthings.remote.APIService;
 import com.example.biometricthings.remote.RetroClass;
-import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
 import com.ismaeldivita.chipnavigation.ChipNavigationBar;
 
 public class HomeActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     ProfileFragment profileFragment = new ProfileFragment();
-    HomeFragment homeFragment = new HomeFragment();
-    WorkFragment workFragment = new WorkFragment();
+    PerfilFragment perfilFragment = new PerfilFragment();
+    EmpresaFragment empresaFragment = new EmpresaFragment();
+
     ListaUsuarioFragment listaUsuarioFragment = new ListaUsuarioFragment();
     PracticasProfesorFragment practicasProfesorFragment = new PracticasProfesorFragment();
     SolicitudesTrabajoActivity solicitudesTrabajoActivity = new SolicitudesTrabajoActivity();
+
+    SalarioEmpresarioFragment salarioEmpresarioFragment = new SalarioEmpresarioFragment();
 
     DrawerLayout drawerLayout;
     NavigationView navigationView;
@@ -63,6 +72,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
     private String rol;
     Toolbar toolbar;
     private int idClase;
+    private FragmentManager fragmentManager;
     ChipNavigationBar chipNavigationBar;
 
     User user;
@@ -100,6 +110,14 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         chipNavigationBar = findViewById(R.id.chipBottomBar);
         bottomMenu();
         loadFragment(profileFragment);
+       /* System.out.println("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
+        System.out.println(chipNavigationBar.getSelectedItemId());
+        System.out.println("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");*/
+        chipNavigationBar.setItemSelected(2131362287, true);
+
+        //chipNavigationBar.setItemSelected(R.id.chipBottomBar, true);
+
+
 
         String token2 = cargarPreferencias();
 
@@ -113,55 +131,65 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         u.enqueue(new Callback<User>() {
             @Override
             public void onResponse(Call<User> call, Response<User> response) {
-                user = response.body();
+                if (response.body() != null){
+                    user = response.body();
                 System.out.println(response.body());
                 System.out.println("bbbbbbbbbbbbbbbbb");
                 System.out.println(user.getNombre());
                 imagenRecibida = user.getImagen();
 
-                byte[] bytes= Base64.decode(imagenRecibida,Base64.DEFAULT);
+                byte[] bytes = Base64.decode(imagenRecibida, Base64.DEFAULT);
 
-                Bitmap bitmap= BitmapFactory.decodeByteArray(bytes,0,bytes.length);
+                Bitmap bitmap = BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
 
                 //String prueba = Base64.encodeToString(bytes, Base64.DEFAULT);
                 ivUserPerfil.setImageBitmap(bitmap);
 
-                tvPrueba.setText(user.getNombre() + " "+user.getapellidos());
+                tvPrueba.setText(user.getNombre() + " " + user.getapellidos());
                 isProfesor = user.getIsProfe();
                 rol = user.getRol_juego();
                 Menu menu = navigationView.getMenu();
-                if(isProfesor==1){
+                if (isProfesor == 1) {
                     //TODO ES PROFESOR
 
-                    menu.findItem(R.id.nav_banco).setVisible(false);
-                    menu.findItem(R.id.nav_trabajo).setVisible(false);
+                    menu.findItem(R.id.nav_trimestral).setVisible(false);
+                    menu.findItem(R.id.nav_practicasDisponibles).setVisible(false);
                     menu.findItem(R.id.nav_principal).setVisible(false);
-                    menu.findItem(R.id.nav_empresa).setVisible(false);
-                    menu.findItem(R.id.nav_personal).setVisible(false);
+                    //menu.findItem(R.id.nav_empresa).setVisible(false);
+                    //menu.findItem(R.id.nav_personal).setVisible(false);
                     menu.findItem(R.id.nav_solicitudes).setVisible(false);
+                    menu.findItem(R.id.nav_anual).setVisible(false);
+                    menu.findItem(R.id.nav_entregaPracticas).setVisible(false);
 
-                }else if(isProfesor==0){
+                } else if (isProfesor == 0) {
 
                     //TODO ES ALUMNO
                     menu.findItem(R.id.nav_listaAlumnos).setVisible(false);
                     menu.findItem(R.id.nav_practicas).setVisible(false);
                     menu.findItem(R.id.nav_cambiarClase).setVisible(false);
                     menu.findItem(R.id.nav_mensajes).setVisible(false);
-                    if(rol.equals("Empresario")){
+                    menu.findItem(R.id.nav_hacienda).setVisible(false);
+                    menu.findItem(R.id.nav_principal).setVisible(false);
+
+                    if (rol.equals("Empresario")) {
                         //  TODO MENÚ DE EMPRESARIO
                         menu.findItem(R.id.nav_principal).setVisible(false);
 
-                    }else if(rol.equals("Asalariado")){
+                    } else if (rol.equals("Asalariado")) {
                         //TODO MENÚ DE ASALARAIDO
-                        menu.findItem(R.id.nav_empresa).setVisible(false);
-                        menu.findItem(R.id.nav_personal).setVisible(false);
+                        // menu.findItem(R.id.nav_empresa).setVisible(false);
+                        //menu.findItem(R.id.nav_personal).setVisible(false);
                         menu.findItem(R.id.nav_solicitudes).setVisible(false);
+                        menu.findItem(R.id.nav_trimestral).setVisible(false);
+                        menu.findItem(R.id.nav_entregaPracticas).setVisible(false);
+                        menu.findItem(R.id.nav_practicasDisponibles).setVisible(false);
 
 
-                    }else if(rol.equals("Autonomo")){
+                    } else if (rol.equals("Autonomo")) {
                         //TODO MENÚ DE AUTONOMO
-                        menu.findItem(R.id.nav_empresa).setVisible(false);
-                        menu.findItem(R.id.nav_personal).setVisible(false);
+                        // menu.findItem(R.id.nav_empresa).setVisible(false);
+//                        menu.findItem(R.id.nav_personal).setVisible(false);
+
 
                     }
 
@@ -170,6 +198,10 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
                 tvEmail.setText(user.getEmail());
                 tvApellido.setText(user.getapellidos());*/
 
+
+            }else{
+                    Toast.makeText(HomeActivity.this, "No se pudo cargar el menu", Toast.LENGTH_SHORT).show();
+                }
             }
 
             @Override
@@ -195,15 +227,17 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
             public void onItemSelected(int i) {
                 switch (i){
                     case R.id.profileFragment:
-                        loadFragment(profileFragment);
+                        System.out.println("AAAAAAAAAAAA");
+                        System.out.println(i);
+                        loadFragment(perfilFragment);
                         break;
-                    case R.id.homeFragment:
+                    case R.id.empresaFragment:
+                        loadFragment(empresaFragment);
+                        /*Bundle bundle = new Bundle();
+                        bundle.putInt("rolJuego", "idClase");
+                        empresaFragment.setArguments(bundle);*/
+                        break;
 
-                        break;
-
-                    case R.id.workFragment:
-                        loadFragment(workFragment);
-                        break;
 
 
 
@@ -305,6 +339,46 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
                 break;
             case R.id.nav_solicitudes:
                 loadFragment(solicitudesTrabajoActivity);
+                break;
+
+            case R.id.nav_trimestral:
+                Intent i4 = new Intent(HomeActivity.this, TrimestralActivity.class);
+                i4.putExtra("idClase", idClase);
+
+                startActivity(i4);
+                break;
+            case R.id.nav_anual:
+                Intent i5 = new Intent(HomeActivity.this, AnualActivity.class);
+                i5.putExtra("idClase", idClase);
+
+                startActivity(i5);
+                break;
+            case R.id.nav_hacienda:
+                Intent i6 = new Intent(HomeActivity.this, HaciendaActivity.class);
+                i6.putExtra("idClase", idClase);
+
+                startActivity(i6);
+                break;
+            case R.id.nav_entregaPracticas:
+                Intent i7 = new Intent(HomeActivity.this, EntregaPracticasActivity.class);
+                i7.putExtra("idClase", idClase);
+
+                startActivity(i7);
+                break;
+            case R.id.nav_practicasDisponibles:
+                Intent i8 = new Intent(HomeActivity.this, ListaPracticasDisponibles.class);
+                i8.putExtra("idClase", idClase);
+
+                startActivity(i8);
+                break;
+            case R.id.nav_perfil:
+                loadFragment(profileFragment);
+                break;
+
+            case R.id.nav_sueldo:
+                loadFragment(salarioEmpresarioFragment);
+
+
                 break;
         }
         drawerLayout.closeDrawer(GravityCompat.START);

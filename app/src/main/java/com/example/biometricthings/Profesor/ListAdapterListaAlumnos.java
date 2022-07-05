@@ -11,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -21,13 +22,20 @@ import com.example.biometricthings.Propiedades.MostrarPropiedadActivity;
 import com.example.biometricthings.R;
 import com.example.biometricthings.model.Clase;
 import com.example.biometricthings.model.Propiedades;
+import com.example.biometricthings.model.SolicitudAceptada;
 import com.example.biometricthings.model.User;
+import com.example.biometricthings.remote.APIService;
+import com.example.biometricthings.remote.RetroClass;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.recyclerview.widget.RecyclerView;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class ListAdapterListaAlumnos extends RecyclerView.Adapter<ListAdapterListaAlumnos.ViewHolder> {
 
@@ -39,8 +47,18 @@ public class ListAdapterListaAlumnos extends RecyclerView.Adapter<ListAdapterLis
     private String rol;
     private int expediente;
     private String expedienteString;
+    private String motivo;
+    private int multa;
+
     //private int alumnos;
 
+
+    private TextView tvInfo;
+    private EditText etMulta;
+    private EditText etMotivoMulta;
+    private Button btnSi, btnNo;
+    private AlertDialog.Builder dialogBuilder;
+    private AlertDialog dialog;
 
 
     public ListAdapterListaAlumnos(List<User> mData, Context context) {
@@ -62,6 +80,7 @@ public class ListAdapterListaAlumnos extends RecyclerView.Adapter<ListAdapterLis
         TextView tvNombreApellidoAlumno,tvTipoRol, tvExpedienteAlumno;
         ImageView ivImagenAlumno;
         Button btnVerAlumno;
+        Button btnMultarAlumno;
 
         ViewHolder(View itemView){
             super(itemView);
@@ -71,6 +90,7 @@ public class ListAdapterListaAlumnos extends RecyclerView.Adapter<ListAdapterLis
             ivImagenAlumno = itemView.findViewById(R.id.ivImagenAlumno);
 
             btnVerAlumno = itemView.findViewById(R.id.btnVerAlumno);
+            btnMultarAlumno = itemView.findViewById(R.id.btnMultarAlumno);
 
             btnVerAlumno.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -84,6 +104,9 @@ public class ListAdapterListaAlumnos extends RecyclerView.Adapter<ListAdapterLis
                     i.putExtra("expediente", mData.get(getAdapterPosition()).getExpediente());
                     i.putExtra("correo", mData.get(getAdapterPosition()).getEmail());
                     i.putExtra("img", mData.get(getAdapterPosition()).getImagen());
+                    i.putExtra("saldo", mData.get(getAdapterPosition()).getSaldoActual());
+                    i.putExtra("idEmpresa", mData.get(getAdapterPosition()).getId_empresa());
+
 
 
                     view.getContext().startActivity(i);
@@ -91,6 +114,18 @@ public class ListAdapterListaAlumnos extends RecyclerView.Adapter<ListAdapterLis
 
 
                     Toast.makeText(view.getContext(), "Proximamente", Toast.LENGTH_SHORT).show();
+                }
+            });
+
+            btnMultarAlumno.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+
+                    createNewDialogAceptar(itemView,
+                            mData.get(getAdapterPosition()).getRol_juego(),
+                            mData.get(getAdapterPosition()).getId_user(),
+                            mData.get(getAdapterPosition()).getId_empresa());
+
                 }
             });
 
@@ -156,6 +191,86 @@ public class ListAdapterListaAlumnos extends RecyclerView.Adapter<ListAdapterLis
 
     }
     public void setItems(List<User> items){ mData = items; }
+
+
+    public void createNewDialogAceptar(View v, String rolUsuario, int idUser, int idEmpresa){//TODO POSIBLEMENTE TENGA QUE RECIBIR EL ID_USER O ID_EMPRESA
+        dialogBuilder = new AlertDialog.Builder(v.getContext());
+        LayoutInflater li = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        final View popUpView = li.inflate(R.layout.popup_multa, null);
+        tvInfo = (TextView) popUpView.findViewById(R.id.tvInfo);
+
+        etMulta = (EditText) popUpView.findViewById(R.id.etMulta);
+        etMotivoMulta = (EditText) popUpView.findViewById(R.id.etMotivoMulta);
+        btnSi = (Button) popUpView.findViewById(R.id.btnSi);
+        btnNo = (Button) popUpView.findViewById(R.id.btnNo);
+
+        tvInfo.setText("Señale el motivo y la cantidad de la multa en €");
+
+
+
+        dialogBuilder.setView(popUpView);
+        dialog = dialogBuilder.create();
+        dialog.show();
+
+        btnSi.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View view) {
+
+                motivo = etMotivoMulta.getText().toString().trim();
+                multa = Integer.parseInt(etMulta.getText().toString().trim());
+
+                if(rolUsuario.equals("Empresario")){
+
+                    //TODO MULTAR EN LA CUENTA DE EMPRESA (HistoricoCuentaEmpresa)
+
+                }else if(rolUsuario.equals("Asalariado")){
+
+                    //TODO MULTAR EN LA CUENTA PERSONAL (HistoricoCuentaParticulares)
+
+                }else if(rolUsuario.equals("Autonomo")){
+
+                    //TODO MULTAR EN LA CUENTA PERSONAL (HistoricoCuentaParticulares)
+
+                }
+
+
+
+
+                /*final APIService apiService = RetroClass.getAPIService();
+
+                Call<Boolean> si = apiService.contratarAsalariado(sa,token);
+                si.enqueue(new Callback<Boolean>() {
+                    @Override
+                    public void onResponse(Call<Boolean> call, Response<Boolean> response) {
+
+
+                        if(response.body()){
+                            Intent i = new Intent(v.getContext(), HomeActivity.class);
+                            v.getContext().startActivity(i);
+                            Toast.makeText(context, "Contratado!!", Toast.LENGTH_SHORT).show();
+                        }
+
+                    }
+
+                    @Override
+                    public void onFailure(Call<Boolean> call, Throwable t) {
+                        System.out.println(t.getMessage());
+
+                    }
+                });*/
+
+
+            }
+        });
+
+        btnNo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dialog.dismiss();
+            }
+        });
+    }
 
 
 }

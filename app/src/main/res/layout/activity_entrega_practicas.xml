@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Roles.EntregaPracticasActivity">
+
+
+    <TextView
+        android:id="@+id/tvInfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="60dp"
+        android:fontFamily="@font/alata"
+        android:text="Detalla la entrega de la Práctica"
+        android:textSize="24sp" />
+
+    <View
+        android:id="@+id/linea"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@+id/tvInfo"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp"
+        android:background="@android:color/darker_gray" />
+
+    <Spinner
+        android:id="@+id/spNombrePractica"
+        style="@style/Widget.AppCompat.Spinner.DropDown"
+        android:layout_width="300dp"
+        android:layout_height="40dp"
+        android:layout_below="@+id/linea"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        android:dropDownWidth="match_parent"
+        android:gravity="left"
+        android:textSize="20sp" />
+
+
+
+   <!-- <EditText
+        android:id="@+id/etNombrePractica"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/linea"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        android:fontFamily="@font/alata"
+        android:hint="Nombre de la Práctica"
+        android:inputType="textPersonName"
+        android:textSize="20sp" />-->
+
+    <EditText
+        android:id="@+id/etMensajeAlProfe"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/spNombrePractica"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="40dp"
+        android:fontFamily="@font/alata"
+        android:hint="Mensaje, no obligatorio"
+        android:inputType="textPersonName"
+        android:textSize="20sp" />
+
+    <LinearLayout
+        android:id="@+id/llButons"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/etMensajeAlProfe"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="58dp"
+        android:layout_marginTop="40dp"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btnEnviarPractica"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="5dp"
+            android:fontFamily="@font/alata"
+            android:backgroundTint="@color/scala3"
+            android:text="Enviar" />
+
+        <Button
+            style="@style/Widget.MaterialComponents.Button.Icon"
+            app:icon="@android:drawable/ic_menu_upload_you_tube"
+            android:id="@+id/btnAdjuntarPDF"
+            android:layout_width="100dp"
+            android:fontFamily="@font/alata"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+
+            android:text="PDF" />
+
+
+
+
+
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tvNombreArchivo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/llButons"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="140dp"
+        android:fontFamily="@font/alata"
+        android:textSize="14sp"/>
+
+
+</RelativeLayout>

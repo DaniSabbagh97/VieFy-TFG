@@ -20,6 +20,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.biometricthings.R;
 import com.example.biometricthings.model.User;
@@ -114,18 +115,22 @@ public class ProfileFragment extends Fragment {
         u.enqueue(new Callback<User>() {
             @Override
             public void onResponse(Call<User> call, Response<User> response) {
-                user = response.body();
-                tvNombre.setText(user.getNombre());
-                tvEmail.setText(user.getEmail());
-                tvApellido.setText(user.getapellidos());
+                if(user!=null) {
+                    user = response.body();
+                    tvNombre.setText(user.getNombre());
+                    tvEmail.setText(user.getEmail());
+                    tvApellido.setText(user.getapellidos());
 
-                imagenRecibida = user.getImagen();
+                    imagenRecibida = user.getImagen();
 
-                byte[] bytes= Base64.decode(imagenRecibida,Base64.DEFAULT);
+                    byte[] bytes = Base64.decode(imagenRecibida, Base64.DEFAULT);
 
-                Bitmap bitmap= BitmapFactory.decodeByteArray(bytes,0,bytes.length);
+                    Bitmap bitmap = BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
 
-                ivPerfilPerfil.setImageBitmap(bitmap);
+                    ivPerfilPerfil.setImageBitmap(bitmap);
+                }else{
+                    Toast.makeText(view.getContext(), "No se pudo cargar el perfil", Toast.LENGTH_SHORT).show();
+                }
 
 
 

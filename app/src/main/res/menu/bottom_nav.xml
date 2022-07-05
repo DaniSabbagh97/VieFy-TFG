@@ -6,13 +6,9 @@
         android:title="Perfil"/>
 
     <item
-        android:id="@+id/homeFragment"
+        android:id="@+id/empresaFragment"
         android:icon="@drawable/icon_home"
         android:title="Home"/>
 
-    <item
-        android:id="@+id/workFragment"
-        android:icon="@drawable/icon_trabajo"
-        android:title="Trabajo"/>
 
 </menu>

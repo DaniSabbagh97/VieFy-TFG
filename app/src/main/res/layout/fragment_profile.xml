@@ -18,13 +18,13 @@
         android:text="Perfil"
         android:textSize="50dp"/>
 
-    <ImageView
+    <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/ivPerfilPerfil"
         android:layout_width="120dp"
         android:layout_height="120dp"
-        android:layout_marginTop="30dp"
+        android:layout_below="@id/tvPerfil"
         android:layout_centerHorizontal="true"
-        android:layout_below="@id/tvPerfil" />
+        android:layout_marginTop="30dp" />
 
     <TextView
         android:id="@+id/tvNombre"

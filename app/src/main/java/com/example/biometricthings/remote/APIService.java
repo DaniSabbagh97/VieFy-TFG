@@ -1,5 +1,7 @@
 package com.example.biometricthings.remote;
 
+import com.example.biometricthings.model.Antales;
+import com.example.biometricthings.model.Anual;
 import com.example.biometricthings.model.Clase;
 import com.example.biometricthings.model.Empresa;
 import com.example.biometricthings.model.Empresaa;
@@ -11,6 +13,7 @@ import com.example.biometricthings.model.Solicitud;
 import com.example.biometricthings.model.SolicitudAceptada;
 import com.example.biometricthings.model.Test;
 import com.example.biometricthings.model.TestResult;
+import com.example.biometricthings.model.Trimestral;
 import com.example.biometricthings.model.User;
 
 
@@ -105,6 +108,31 @@ public interface APIService {
 
  @HTTP(method = "POST", path = "http://192.168.1.10:8080/api/solicitudes/borrarSolicitud", hasBody = true)
  Call<Boolean> borrarSolicitud(@Body SolicitudAceptada sa, @Header("Authorization") String token);//TODO CON TOKEN
+
+
+ @HTTP(method = "GET", path = "http://192.168.1.10:8080/api/users/getSalario")
+ Call<User> getSalario(@Header("Authorization") String token);//TODO CON TOKEN
+
+ @HTTP(method = "POST", path = "http://192.168.1.10:8080/api/users/setSalario", hasBody = true)
+ Call<Boolean> setSalario(@Body User usr, @Header("Authorization") String token);//TODO CON TOKEN
+
+
+
+
+ @HTTP(method = "POST", path = "http://192.168.1.10:8080/api/antales/get", hasBody = true)
+ Call<ArrayList<Antales>> obtenerAntales(@Body Clase c, @Header("Authorization") String token);//TODO CON TOKEN
+
+ @HTTP(method = "POST", path = "http://192.168.1.10:8080/api/antales/", hasBody = true)
+ Call<Boolean> crearAntales(@Body Anual an, @Header("Authorization") String token);//TODO CON TOKEN
+
+ @HTTP(method = "POST", path = "http://192.168.1.10:8080/api/antales/", hasBody = true)
+ Call<Boolean> crearAntales2(@Body Trimestral tri, @Header("Authorization") String token);//TODO CON TOKEN
+
+ @HTTP(method = "GET", path = "http://192.168.1.10:8080/api/practicas/")
+ Call<ArrayList<Practicas>> obtenerPracticas(@Header("Authorization") String token);//TODO CON TOKEN
+
+
+
 
 //TODO TIENE QUE BUSCAR EL ID DE LAS EMPRESAS QUE ESTÉN EN SU CLASE
 

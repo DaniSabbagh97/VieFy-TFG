@@ -8,23 +8,25 @@
             android:id="@+id/nav_principal"
             android:icon="@drawable/icon_home"
             android:title="Principal" />
+
         <item
-            android:id="@+id/nav_empresa"
-            android:icon="@drawable/ic_baseline_empresa_center_24"
-            android:title="Ver Empresa" />
-        <item
-            android:id="@+id/nav_personal"
-            android:icon="@drawable/ic_baseline_personal_24"
-            android:title="Cuenta Personal" />
+            android:id="@+id/nav_entregaPracticas"
+            android:icon="@drawable/ic_baseline_bookmark_24"
+            android:title="Entregar Prácticas" />
 
         <item
             android:id="@+id/nav_cambiarClase"
             android:icon="@drawable/ic_baseline_change_circle_24"
             android:title="Cambiar Clase" />
         <item
-            android:id="@+id/nav_banco"
+            android:id="@+id/nav_trimestral"
             android:icon="@drawable/icon_banco"
-            android:title="Banco" />
+            android:title="Trimestral" />
+
+        <item
+            android:id="@+id/nav_anual"
+            android:icon="@drawable/icon_banco"
+            android:title="Anual" />
 
         <item
             android:id="@+id/nav_solicitudes"
@@ -37,8 +39,13 @@
             android:title="Lista Alumnos" />
 
         <item
-            android:id="@+id/nav_trabajo"
-            android:icon="@drawable/icon_trabajo"
+            android:id="@+id/nav_hacienda"
+            android:icon="@drawable/icon_banco"
+            android:title="Trimestrales y Anuales" />
+
+        <item
+            android:id="@+id/nav_practicasDisponibles"
+            android:icon="@drawable/ic_baseline_work_24"
             android:title="Trabajo" />
 
         <item
@@ -51,6 +58,16 @@
             android:icon="@drawable/ic_baseline_mensaje_24"
             android:title="Mensajes" />
 
+        <!-- <item
+     android:id="@+id/nav_empresa"
+     android:icon="@drawable/ic_baseline_empresa_center_24"
+     android:title="Ver Empresa" />
+ <item
+     android:id="@+id/nav_personal"
+     android:icon="@drawable/ic_baseline_personal_24"
+     android:title="Cuenta Personal" />
+-->
+
     </group>
 
 
@@ -62,7 +79,11 @@
                 <item
                     android:id="@+id/nav_perfil"
                     android:icon="@drawable/ic_baseline_person_24"
-                    android:title="Home" />
+                    android:title="Perfil" />
+                    <item
+                    android:id="@+id/nav_sueldo"
+                    android:icon="@drawable/ic_baseline_monetization_on_24"
+                    android:title="Modificar Sueldo" />
                 <item
                     android:id="@+id/nav_logout"
                     android:icon="@drawable/logout_icon"

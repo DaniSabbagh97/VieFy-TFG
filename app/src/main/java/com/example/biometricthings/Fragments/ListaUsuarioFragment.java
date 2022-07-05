@@ -14,6 +14,7 @@ import retrofit2.Response;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.example.biometricthings.Profesor.ListAdapterClases;
 import com.example.biometricthings.Profesor.ListAdapterListaAlumnos;
@@ -103,13 +104,17 @@ public class ListaUsuarioFragment extends Fragment {
         u.enqueue(new Callback<ArrayList<User>>() {
             @Override
             public void onResponse(Call<ArrayList<User>> call, Response<ArrayList<User>> response) {
-                uu = response.body();
+                if(response.body()!=null) {
+                    uu = response.body();
 
-                ListAdapterListaAlumnos listAdapterListaAlumnos = new ListAdapterListaAlumnos(uu, getActivity());
-                RecyclerView recyclerView = view.findViewById(R.id.rvListaAlumnos);
-                recyclerView.setHasFixedSize(true);
-                recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-                recyclerView.setAdapter(listAdapterListaAlumnos);
+                    ListAdapterListaAlumnos listAdapterListaAlumnos = new ListAdapterListaAlumnos(uu, getActivity());
+                    RecyclerView recyclerView = view.findViewById(R.id.rvListaAlumnos);
+                    recyclerView.setHasFixedSize(true);
+                    recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+                    recyclerView.setAdapter(listAdapterListaAlumnos);
+                }else{
+                    Toast.makeText(view.getContext(), "Aún no hay usuarios", Toast.LENGTH_SHORT).show();
+                }
             }
 
             @Override
@@ -124,7 +129,7 @@ public class ListaUsuarioFragment extends Fragment {
     }
 
     public String cargarPreferencias(){
-        SharedPreferences preferences = this.getActivity().getSharedPreferences("credenciales", Context.MODE_PRIVATE);
+        SharedPreferences preferences =  getActivity().getBaseContext().getSharedPreferences("credenciales", Context.MODE_PRIVATE);
 
         String tokenFinal = preferences.getString("token","No existe el token");
 

@@ -17,6 +17,8 @@
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:id="@+id/nav_view"
+        app:itemTextColor="#494949"
+        app:itemIconTint="#494949"
         android:background="@drawable/redondea_esquinas_blanco"
         app:headerLayout="@layout/header"
         app:menu="@menu/main_menu"

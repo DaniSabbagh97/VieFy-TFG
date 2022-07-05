@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Fragments.PerfilFragment">
+
+    <!-- TODO: Nombre de la Clase a la que perteneces -->
+    <!-- TODO: Nombre de tu profesor -->
+    <!-- TODO: Donde vives, lo que pagas todos los meses -->
+    <!-- TODO: Nombre de la Clase a la que perteneces -->
+    <!-- TODO: Nombre de tu profesor -->
+    <!-- TODO: Donde vives, lo que pagas todos los meses -->
+    <!-- TODO: Nombre de la Clase a la que perteneces -->
+    <!-- TODO: Nombre de tu profesor -->
+    <!-- TODO: Donde vives, lo que pagas todos los meses --><!-- TODO: Nombre de la Clase a la que perteneces -->
+    <!-- TODO: Nombre de tu profesor -->
+    <!-- TODO: Donde vives, lo que pagas todos los meses --><!-- TODO: Nombre de la Clase a la que perteneces -->
+    <!-- TODO: Nombre de tu profesor -->
+    <!-- TODO: Donde vives, lo que pagas todos los meses --><!-- TODO: Nombre de la Clase a la que perteneces -->
+    <!-- TODO: Nombre de tu profesor -->
+    <!-- TODO: Donde vives, lo que pagas todos los meses --><!-- TODO: Nombre de la Clase a la que perteneces -->
+    <!-- TODO: Nombre de tu profesor -->
+    <!-- TODO: Donde vives, lo que pagas todos los meses --><!-- TODO: Nombre de la Clase a la que perteneces -->
+    <!-- TODO: Nombre de tu profesor -->
+    <!-- TODO: Donde vives, lo que pagas todos los meses --><!-- TODO: Nombre de la Clase a la que perteneces -->
+    <!-- TODO: Nombre de tu profesor -->
+    <!-- TODO: Donde vives, lo que pagas todos los meses -->
+
+
+
+
+    <TextView
+        android:id="@+id/tvInfoPersonal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="75dp"
+        android:text="Información Personal "
+        android:textSize="24sp" />
+
+    <View
+        android:id="@+id/linea"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@+id/tvInfoPersonal"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp"
+        android:background="@android:color/darker_gray" />
+
+
+
+    <TextView
+        android:id="@+id/tvInfoClase"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/linea"
+        android:textSize="18sp"
+        android:layout_marginTop="20dp"
+        />
+
+    <TextView
+        android:id="@+id/tvProfesor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/tvInfoClase"
+        android:layout_marginTop="20dp"
+        />
+
+    <TextView
+        android:id="@+id/tvPropiedad"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/tvProfesor"
+        android:layout_marginTop="20dp"
+        />
+
+    <TextView
+        android:id="@+id/tvAlquiler"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/tvPropiedad"
+        android:layout_marginTop="20dp"
+        />
+</RelativeLayout>

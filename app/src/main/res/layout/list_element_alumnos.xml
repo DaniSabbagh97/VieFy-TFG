@@ -28,9 +28,11 @@
                 android:layout_alignParentLeft="true"
                 android:layout_centerVertical="true"
                 android:layout_gravity="center"
+                android:fontFamily="@font/alata"
                 app:srcCompat="@drawable/ic_baseline_ac_unit_24" />
             <LinearLayout
                 android:layout_width="wrap_content"
+                android:fontFamily="@font/alata"
                 android:layout_height="wrap_content"
                 android:layout_alignParentTop="true"
                 android:layout_marginStart="4dp"
@@ -42,6 +44,7 @@
 
                 <TextView
                     android:id="@+id/tvNombreApellidoAlumno"
+                    android:fontFamily="@font/alata"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="2dp"
@@ -50,11 +53,13 @@
                     android:textStyle="bold"/>
                 <TextView
                     android:id="@+id/tvTipoRol"
+                    android:fontFamily="@font/alata"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textSize="12sp"/>
                 <TextView
                     android:id="@+id/tvExpedienteAlumno"
+                    android:fontFamily="@font/alata"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textSize="12sp"/>
@@ -62,17 +67,35 @@
 
             </LinearLayout>
 
+<LinearLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:layout_alignParentRight="true">
 
-            <Button
-                android:id="@+id/btnVerAlumno"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentRight="true"
-                android:layout_marginTop="75dp"
-                android:layout_marginEnd="6dp"
-                android:layout_marginRight="6dp"
-                android:text="Ver" />
+    <Button
+        android:id="@+id/btnVerAlumno"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="75dp"
+        android:layout_marginEnd="6dp"
+        android:layout_marginRight="6dp"
+        android:fontFamily="@font/alata"
+        android:text="Ver" />
+    <Button
+        android:id="@+id/btnMultarAlumno"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="75dp"
+        android:layout_marginEnd="6dp"
+        android:layout_marginRight="6dp"
+        android:fontFamily="@font/alata"
+        android:text="Multar" />
+</LinearLayout>
 
 
         </RelativeLayout>

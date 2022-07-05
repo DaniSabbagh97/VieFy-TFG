@@ -13,7 +13,7 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="270dp"
-        android:text="¿Está seguro de que desea continuar?\nLos siguientes valores determinarán\nel funcionamiento de VueFy" />
+        android:text="¿Está seguro de que desea continuar?\nLos siguientes valores determinarán\nel funcionamiento de VieFy" />
 
     <LinearLayout
         android:layout_width="wrap_content"

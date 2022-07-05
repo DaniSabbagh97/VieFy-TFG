@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/cvPropiedades"
+    android:id="@+id/cvAntales"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:animateLayoutChanges="true"
@@ -21,12 +21,12 @@
             android:padding="3dp">
 
             <ImageView
-                android:id="@+id/ivImagen"
-                android:fontFamily="@font/alata"
+                android:id="@+id/ivImagenAlumnoAntales"
                 android:layout_width="160dp"
                 android:layout_height="120dp"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentLeft="true"
+                android:fontFamily="@font/alata"
                 android:layout_centerVertical="true"
                 android:layout_gravity="center"
                 android:paddingLeft="14dp"
@@ -34,58 +34,52 @@
                 app:srcCompat="@drawable/ic_baseline_ac_unit_24" />
             <LinearLayout
                 android:layout_width="wrap_content"
-
                 android:layout_height="wrap_content"
                 android:layout_alignParentTop="true"
+                android:fontFamily="@font/alata"
                 android:layout_marginStart="4dp"
                 android:layout_marginTop="2dp"
-                android:layout_toEndOf="@+id/ivImagen"
+                android:layout_toEndOf="@+id/ivImagenAlumnoAntales"
                 android:orientation="vertical"
                 android:layout_marginLeft="4dp"
-                android:layout_toRightOf="@id/ivImagen">
+                android:layout_toRightOf="@id/ivImagenAlumnoAntales">
 
-                    <TextView
-                        android:id="@+id/tvNombre"
-                        android:fontFamily="@font/alata"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="2dp"
-                        android:textColor="@color/black"
-                        android:textSize="18sp"
-                        android:textStyle="bold"/>
                 <TextView
-                    android:id="@+id/tvPrecio"
-                    android:fontFamily="@font/alata"
+                    android:id="@+id/tvNombreAlumno"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="2dp"
+                    android:fontFamily="@font/alata"
+                    android:textColor="@color/black"
+                    android:textSize="18sp"
+                    android:textStyle="bold"/>
+                <TextView
+                    android:id="@+id/tvTipoAntales"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/alata"
                     android:textSize="12sp"/>
                 <TextView
-                    android:id="@+id/tvHabitaciones"
-                    android:fontFamily="@font/alata"
+                    android:id="@+id/tvTipoRolJuego"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textSize="12sp"/>
-                <TextView
-                    android:id="@+id/tvMunicipio"
                     android:fontFamily="@font/alata"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
                     android:textSize="12sp"/>
 
             </LinearLayout>
 
 
             <Button
-                android:id="@+id/btnVer"
-                android:fontFamily="@font/alata"
+                android:id="@+id/btnCorregir"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentRight="true"
                 android:layout_marginTop="75dp"
+                android:fontFamily="@font/alata"
                 android:layout_marginEnd="6dp"
                 android:layout_marginRight="6dp"
-                android:text="Ver" />
+                android:text="Corregir" />
 
 
         </RelativeLayout>

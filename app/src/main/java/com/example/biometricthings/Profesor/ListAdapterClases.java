@@ -32,7 +32,6 @@ public class ListAdapterClases extends RecyclerView.Adapter<ListAdapterClases.Vi
     private int alumnos;
 
 
-
     public ListAdapterClases(List<Clase> mData, Context context) {
         this.mData = mData;
         this.context = context;

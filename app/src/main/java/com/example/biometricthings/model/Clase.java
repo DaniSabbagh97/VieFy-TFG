@@ -43,6 +43,8 @@ public class Clase {
         this.clave = clave;
     }
 
+
+
     public Clase(int id_clase, int numero_de_usos) {
         this.id_clase = id_clase;
         this.numero_de_usos = numero_de_usos;

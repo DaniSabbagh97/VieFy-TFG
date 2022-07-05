@@ -14,6 +14,7 @@ import retrofit2.Response;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.example.biometricthings.Profesor.ListAdapterListaAlumnos;
 import com.example.biometricthings.R;
@@ -95,20 +96,24 @@ public class SolicitudesTrabajoActivity extends Fragment {
             @Override
             public void onResponse(Call<Empresa> call, Response<Empresa> response) {
 
-
-                ee = response.body();
-                System.out.println(ee);
-                arr = ee.getSolicitudes();
+                if(response.body()!=null) {
+                    ee = response.body();
+                    System.out.println(ee);
+                    arr = ee.getSolicitudes();
 
                 /*for (Solicitud s : arr){
 
                 }*/
 
-                ListAdapterSolicitudes listAdapterSolicitudes = new ListAdapterSolicitudes(arr, getActivity());
-                RecyclerView recyclerView = view.findViewById(R.id.rvListaSolicitudes);
-                recyclerView.setHasFixedSize(true);
-                recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-                recyclerView.setAdapter(listAdapterSolicitudes);
+                    ListAdapterSolicitudes listAdapterSolicitudes = new ListAdapterSolicitudes(arr, getActivity());
+                    RecyclerView recyclerView = view.findViewById(R.id.rvListaSolicitudes);
+                    recyclerView.setHasFixedSize(true);
+                    recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+                    recyclerView.setAdapter(listAdapterSolicitudes);
+                }else{
+                    Toast.makeText(view.getContext(), "No hay solicitudes Aún", Toast.LENGTH_LONG).show();
+                }
+
 
             }
 

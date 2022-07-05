@@ -23,6 +23,7 @@
         android:id="@+id/tvClase"
         android:gravity="left"
         android:layout_width="match_parent"
+        android:fontFamily="@font/alata"
         android:layout_height="wrap_content"
         android:layout_margin="7dp"
         />
@@ -30,6 +31,7 @@
         android:id="@+id/tvAlumnos"
         android:gravity="left"
         android:layout_width="match_parent"
+        android:fontFamily="@font/alata"
         android:layout_height="wrap_content"
         android:layout_margin="7dp"
         />
@@ -38,6 +40,7 @@
         android:id="@+id/btnAcceder"
         android:layout_width="wrap_content"
         android:layout_gravity="center"
+        android:fontFamily="@font/alata"
         android:layout_height="wrap_content"
         android:layout_margin="7dp"
         android:text="Entrar a la Clase" />
