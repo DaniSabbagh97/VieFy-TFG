@@ -3,6 +3,7 @@ package com.example.biometricthings.remote;
 import com.example.biometricthings.model.Antales;
 import com.example.biometricthings.model.Anual;
 import com.example.biometricthings.model.Clase;
+import com.example.biometricthings.model.Compras;
 import com.example.biometricthings.model.Empresa;
 import com.example.biometricthings.model.Empresaa;
 import com.example.biometricthings.model.HistoricoCuentaParticulares;
@@ -131,6 +132,9 @@ public interface APIService {
 
  @HTTP(method = "GET", path = "http://192.168.1.10:8080/api/practicas/")
  Call<ArrayList<Practicas>> obtenerPracticas(@Header("Authorization") String token);//TODO CON TOKEN
+
+ @HTTP(method = "GET", path = "http://192.168.1.10:8080/api/compras/")
+ Call<ArrayList<Compras>> obtenerPracticasCompradas(@Header("Authorization") String token);//TODO CON TOKEN
 
  @HTTP(method = "POST", path = "http://192.168.1.10:8080/api/multas", hasBody = true)
  Call<Boolean> multa(@Body Multa m, @Header("Authorization") String token);//TODO CON TOKEN

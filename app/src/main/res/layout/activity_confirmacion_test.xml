@@ -11,6 +11,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
+        android:fontFamily="@font/alata"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="270dp"
         android:text="¿Está seguro de que desea continuar?\nLos siguientes valores determinarán\nel funcionamiento de VieFy" />
@@ -28,6 +29,7 @@
             android:id="@+id/btnSi"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/alata"
             android:layout_marginRight="25dp"
             android:text="Sí" />
 
@@ -35,6 +37,7 @@
             android:id="@+id/btnNo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/alata"
             android:layout_marginLeft="25dp"
             android:text="No" />
     </LinearLayout>

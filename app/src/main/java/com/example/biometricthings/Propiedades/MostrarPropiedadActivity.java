@@ -103,7 +103,7 @@ public class MostrarPropiedadActivity extends AppCompatActivity {
             String precioString = String.valueOf(precio);
             tvNombre.setText(nombre);
             tvDescripcion.setText(descripcion);
-            tvPrecio.setText(precioString);
+            tvPrecio.setText(precioString+" €");
 
 
 

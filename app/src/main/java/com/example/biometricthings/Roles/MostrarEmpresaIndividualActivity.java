@@ -27,7 +27,9 @@ import android.widget.Toast;
 import com.example.biometricthings.HomeActivity;
 import com.example.biometricthings.Image.Utils;
 import com.example.biometricthings.PDF.LoadPDFActivity;
+import com.example.biometricthings.Profesor.PrevisualizarPracticaActivity;
 import com.example.biometricthings.R;
+import com.example.biometricthings.model.PasarBytes;
 import com.example.biometricthings.model.Solicitud;
 import com.example.biometricthings.remote.APIService;
 import com.example.biometricthings.remote.RetroClass;
@@ -46,9 +48,12 @@ public class MostrarEmpresaIndividualActivity extends AppCompatActivity {
     private EditText etMensaje;
     private Button btnAdjuntarPDF;
     private Button btnEnviarSolicitud;
+    private Button btnPrevisualizar;
 
     private int SELECT_CV = 200;
     private int idUser;
+
+    private PasarBytes pb;
 
 
     private String nombre, slogan, anuncio, nombrePDF, mensaje, token;
@@ -69,6 +74,7 @@ public class MostrarEmpresaIndividualActivity extends AppCompatActivity {
         etMensaje = (EditText) findViewById(R.id.etMensaje);
         btnAdjuntarPDF = (Button) findViewById(R.id.btnAdjuntarPDF);
         btnEnviarSolicitud = (Button) findViewById(R.id.btnEnviarSolicitud);
+        btnPrevisualizar = (Button) findViewById(R.id.btnPrevisualizar);
 
         Bundle extras = getIntent().getExtras();
         if(extras!=null){
@@ -95,6 +101,19 @@ public class MostrarEmpresaIndividualActivity extends AppCompatActivity {
                             Manifest.permission.WRITE_EXTERNAL_STORAGE}, 200);
                 }
 
+
+            }
+        });
+
+        btnPrevisualizar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                pb = new PasarBytes(pdf);
+
+                Intent i = new Intent(view.getContext(), PrevisualizarPracticaActivity.class);
+                i.putExtra("pb",pb);
+                view.getContext().startActivity(i);
 
             }
         });
@@ -149,8 +168,9 @@ public class MostrarEmpresaIndividualActivity extends AppCompatActivity {
                     try {
 
                         pdf = save(selectedUri);
-                        Toast.makeText(this, "Imagen Seleccionada Correctamente", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(this, "PDF Seleccionado Correctamente", Toast.LENGTH_SHORT).show();
                         tvAdjunto.setText("Archivo Adjuntado: "+nombrePDF);
+                        btnPrevisualizar.setEnabled(true);
 
 
 

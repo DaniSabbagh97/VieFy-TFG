@@ -13,6 +13,7 @@
         android:layout_width="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_alignParentTop="true"
+        android:fontFamily="@font/alata"
         android:layout_height="wrap_content"
         android:text="Debes Introducir el código de profesor para continuar." />
     <TextView
@@ -20,11 +21,13 @@
         android:layout_width="wrap_content"
         android:layout_below="@id/tvPregunta"
         android:layout_centerHorizontal="true"
+        android:fontFamily="@font/alata"
         android:layout_height="wrap_content"
         android:text="Si se introduce un código incorrecto" />
 
     <TextView
         android:id="@+id/tvPregunta3"
+        android:fontFamily="@font/alata"
         android:layout_width="wrap_content"
         android:layout_below="@id/tvPregunta2"
         android:layout_centerHorizontal="true"
@@ -36,17 +39,19 @@
         android:id="@+id/etCodProfesor"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="25dp"
-        android:layout_centerHorizontal="true"
         android:layout_below="@id/tvPregunta3"
-        android:inputType="textPersonName"
-        android:hint="Código Profesor" />
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="25dp"
+        android:fontFamily="@font/alata"
+        android:hint="Código Profesor"
+        android:inputType="textPassword" />
 
 
     <Button
         android:id="@+id/btnComprobar"
         android:layout_centerHorizontal="true"
         android:layout_width="wrap_content"
+        android:fontFamily="@font/alata"
         android:layout_height="wrap_content"
         android:layout_below="@+id/etCodProfesor"
         android:layout_marginTop="25dp"

@@ -9,11 +9,12 @@
 
     <TextView
         android:id="@+id/tvTitulo"
+
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="64dp"
         android:layout_marginTop="40dp"
-        android:fontFamily="serif"
+        android:fontFamily="@font/alata"
         android:gravity="center"
         android:text="Empresas con plazas"
         android:textSize="28dp"

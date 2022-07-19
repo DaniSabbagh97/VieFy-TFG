@@ -19,6 +19,7 @@
     <TextView
         android:id="@+id/tvPrueba"
         android:layout_width="wrap_content"
+        android:fontFamily="@font/alata"
         android:layout_height="wrap_content"
         android:textColor="#F0F0F0"
         android:textSize="14sp"

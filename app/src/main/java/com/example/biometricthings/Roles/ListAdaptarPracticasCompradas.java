@@ -1,50 +1,29 @@
 package com.example.biometricthings.Roles;
 
-
 import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.example.biometricthings.HomeActivity;
 import com.example.biometricthings.Profesor.PrevisualizarPracticaActivity;
 import com.example.biometricthings.R;
-import com.example.biometricthings.model.Clase;
+import com.example.biometricthings.model.Compras;
 import com.example.biometricthings.model.PasarBytes;
 import com.example.biometricthings.model.Practicas;
-import com.example.biometricthings.model.SolicitudAceptada;
-import com.example.biometricthings.remote.APIService;
-import com.example.biometricthings.remote.RetroClass;
 
 import java.util.List;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AlertDialog;
 import androidx.recyclerview.widget.RecyclerView;
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 
-public class ListAdapterPracticas extends RecyclerView.Adapter<ListAdapterPracticas.ViewHolder> {
-    private List<Practicas> mData;
+public class ListAdaptarPracticasCompradas extends RecyclerView.Adapter<ListAdaptarPracticasCompradas.ViewHolder> {
+    private List<Compras> mData;
     private Context context;
-    private String nombre;
-    private int valorTotal, beneficio;
-    private PasarBytes pb;
 
-    byte[] pdf;
-    private AlertDialog.Builder dialogBuilder;
-    private AlertDialog dialog;
-    private Button btnSi, btnNo;
-    private TextView tvInfo;
-
-
-    public ListAdapterPracticas(List<Practicas> mData, Context context) {
+    public ListAdaptarPracticasCompradas(List<Compras> mData, Context context) {
         this.mData = mData;
         this.context = context;
     }
@@ -54,18 +33,18 @@ public class ListAdapterPracticas extends RecyclerView.Adapter<ListAdapterPracti
 
     @NonNull
     @Override
-    public ListAdapterPracticas.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int position) {
-        View view= LayoutInflater.from(context).inflate(R.layout.list_element_practicas, parent, false);
+    public ListAdaptarPracticasCompradas.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int position) {
+        View view= LayoutInflater.from(context).inflate(R.layout.list_element_compras, parent, false);
 
-        return new ListAdapterPracticas.ViewHolder(view);
+        return new ListAdaptarPracticasCompradas.ViewHolder(view);
     }
     public class ViewHolder extends RecyclerView.ViewHolder{
-        TextView tvNombrePractica, tvCoste, tvBeneficio;
-        Button btnComprar, btnVerPDF;
+        /*TextView tvNombrePractica, tvCoste, tvBeneficio;
+        Button btnComprar, btnVerPDF;*/
 
         ViewHolder(View itemView){
             super(itemView);
-            tvNombrePractica = itemView.findViewById(R.id.tvNombrePractica);
+            /*tvNombrePractica = itemView.findViewById(R.id.tvNombrePractica);
             tvCoste = itemView.findViewById(R.id.tvCoste);
             tvBeneficio = itemView.findViewById(R.id.tvBeneficio);
             btnComprar = itemView.findViewById(R.id.btnComprar);
@@ -87,8 +66,8 @@ public class ListAdapterPracticas extends RecyclerView.Adapter<ListAdapterPracti
                     i.putExtra("pb",pb);
                     view.getContext().startActivity(i);
                 }
-            });
-//TODO TOCAR AQUÍ PARA ENVIAR A LA BBDD LOS DATOS DE LA COMPRA
+            });*/
+
             /*btnAcceder.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -116,17 +95,17 @@ public class ListAdapterPracticas extends RecyclerView.Adapter<ListAdapterPracti
 
         }
 
-        void bindData(final Practicas item){
+        void bindData(final Compras item){
 
         }
 
 
     }
     @Override
-    public void onBindViewHolder(final ListAdapterPracticas.ViewHolder holder, final int position) {
+    public void onBindViewHolder(final ListAdaptarPracticasCompradas.ViewHolder holder, final int position) {
         holder.bindData(mData.get(position));
 
-        nombre = mData.get(position).getNombrePractica();
+       /* nombre = mData.get(position).getNombrePractica();
         valorTotal = mData.get(position).getValorTotal();
         beneficio = mData.get(position).getBeneficio();
 
@@ -135,73 +114,11 @@ public class ListAdapterPracticas extends RecyclerView.Adapter<ListAdapterPracti
         holder.tvNombrePractica.setText(nombre);
         holder.tvBeneficio.setText("Beneficio: "+beneficio+" €");
         holder.tvCoste.setText("Coste "+ valorTotal+" €");
-
-
-
-
-    }
-    public void setItems(List<Practicas> items){ mData = items; }
-
-
-    public void createNewDialogAceptar(View v){
-        dialogBuilder = new AlertDialog.Builder(v.getContext());
-        LayoutInflater li = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        final View popUpView = li.inflate(R.layout.popup_confirmacion_propiedad, null);
-        tvInfo = (TextView) popUpView.findViewById(R.id.tvInfo);
-
-        btnSi = (Button) popUpView.findViewById(R.id.btnSi);
-        btnNo = (Button) popUpView.findViewById(R.id.btnNo);
-
-        tvInfo.setText("¿Estás Seguro de Comprar la Actividad?");
-
-        dialogBuilder.setView(popUpView);
-        dialog = dialogBuilder.create();
-        dialog.show();
-
-        btnSi.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View view) {
-
-//TODO COMPRAR LA PRACTICA
-             /*   salarioInt = Integer.parseInt((etSalario.getText().toString().trim()));
-
-                sa = new SolicitudAceptada(id,salarioInt);
-
-                final APIService apiService = RetroClass.getAPIService();
-
-                Call<Boolean> si = apiService.contratarAsalariado(sa,token);
-                si.enqueue(new Callback<Boolean>() {
-                    @Override
-                    public void onResponse(Call<Boolean> call, Response<Boolean> response) {
-
-
-                        if(response.body()){
-                            Intent i = new Intent(v.getContext(), HomeActivity.class);
-                            v.getContext().startActivity(i);
-                            Toast.makeText(context, "Contratado!!", Toast.LENGTH_SHORT).show();
-                        }
-
-                    }
-
-                    @Override
-                    public void onFailure(Call<Boolean> call, Throwable t) {
-                        System.out.println(t.getMessage());
-
-                    }
-                });
 */
 
-            }
-        });
 
-        btnNo.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                dialog.dismiss();
-            }
-        });
+
     }
-
+    public void setItems(List<Compras> items){ mData = items; }
 
 }

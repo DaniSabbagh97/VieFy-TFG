@@ -19,6 +19,7 @@
     <TextView
         android:id="@+id/tvRegistrarse"
         android:layout_width="300dp"
+        android:fontFamily="@font/alata"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
@@ -41,6 +42,7 @@
             android:layout_width="200dp"
             android:layout_height="wrap_content"
             android:layout_below="@+id/ivPerfil"
+            android:fontFamily="@font/alata"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="15dp"
             android:text="Seleccionar Foto" />
@@ -48,6 +50,7 @@
         <EditText
             android:id="@+id/etMail"
             android:layout_width="300dp"
+            android:fontFamily="@font/alata"
             android:layout_height="wrap_content"
             android:layout_below="@+id/btnPonerFoto"
             android:layout_centerHorizontal="true"
@@ -58,6 +61,7 @@
     <EditText
         android:id="@+id/etNombre"
         android:layout_width="300dp"
+        android:fontFamily="@font/alata"
         android:layout_height="wrap_content"
         android:layout_below="@+id/etMail"
         android:layout_centerHorizontal="true"
@@ -67,6 +71,7 @@
 
     <EditText
         android:id="@+id/etApellido"
+        android:fontFamily="@font/alata"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
@@ -77,6 +82,7 @@
 
         <EditText
             android:id="@+id/etTelefono"
+            android:fontFamily="@font/alata"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:layout_below="@+id/etApellido"
@@ -87,6 +93,7 @@
 
     <EditText
         android:id="@+id/etNumExpediente"
+        android:fontFamily="@font/alata"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_below="@+id/etTelefono"
@@ -100,6 +107,7 @@
 
     <EditText
         android:id="@+id/etContrasenia1"
+        android:fontFamily="@font/alata"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_below="@+id/etNumExpediente"
@@ -111,6 +119,7 @@
 
     <EditText
         android:id="@+id/etContrasenia2"
+        android:fontFamily="@font/alata"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_below="@+id/etContrasenia1"
@@ -122,6 +131,7 @@
     <Button
         android:id="@+id/btnRegistrarse"
         android:layout_width="200dp"
+        android:fontFamily="@font/alata"
         android:layout_height="wrap_content"
         android:layout_below="@+id/etContrasenia2"
         android:layout_centerHorizontal="true"
@@ -132,6 +142,7 @@
         android:id="@+id/llChecks"
         android:orientation="vertical"
         android:layout_centerHorizontal="true"
+        android:fontFamily="@font/alata"
         android:layout_below="@+id/btnRegistrarse"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
@@ -140,6 +151,7 @@
             android:layout_width="wrap_content"
             android:textSize="10sp"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/alata"
             android:onClick="onCheckboxClicked"
             android:text="Soy Profesor"
 
@@ -148,6 +160,7 @@
             android:id="@+id/cbPrivacidad"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/alata"
             android:onClick="onCheckboxClicked"
             android:textSize="10sp"
             android:text="Acepto los terminos de Servicio y la Política de privacidad" />

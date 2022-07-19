@@ -25,69 +25,95 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical" >
-    <com.smarteist.autoimageslider.SliderView
-        android:id="@+id/slider"
-        android:layout_width="match_parent"
-        android:layout_height="150dp"
-        android:layout_alignParentTop="true"
-        android:layout_margin="25dp"
-        app:sliderAnimationDuration="600"
-        app:sliderAutoCycleDirection="back_and_forth"
-        app:sliderIndicatorAnimationDuration="600"
-        app:sliderIndicatorEnabled="true"
-        app:sliderIndicatorGravity="center_horizontal|bottom"
-        app:sliderIndicatorMargin="15dp"
-        app:sliderIndicatorOrientation="horizontal"
-        app:sliderIndicatorPadding="3dp"
-        app:sliderIndicatorRadius="2dp"
-        app:sliderIndicatorSelectedColor="#5A5A5A"
-        app:sliderIndicatorUnselectedColor="#FFF"
-        app:sliderScrollTimeInSec="1" />
+            android:orientation="vertical">
+
+            <com.smarteist.autoimageslider.SliderView
+                android:id="@+id/slider"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="25dp"
+                android:layout_marginTop="25dp"
+                android:layout_marginEnd="25dp"
+                android:layout_marginBottom="25dp"
+                app:sliderAnimationDuration="600"
+                app:sliderAutoCycleDirection="back_and_forth"
+                app:sliderIndicatorAnimationDuration="600"
+                app:sliderIndicatorEnabled="true"
+                app:sliderIndicatorGravity="center_horizontal|bottom"
+                app:sliderIndicatorMargin="15dp"
+                app:sliderIndicatorOrientation="horizontal"
+                app:sliderIndicatorPadding="3dp"
+                app:sliderIndicatorRadius="2dp"
+                app:sliderIndicatorSelectedColor="#FFF"
+                app:sliderIndicatorUnselectedColor="#5A5A5A"
+                app:sliderScrollTimeInSec="1" />
 
 
+            <TextView
+                android:id="@+id/tvNombre"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/slider"
+                android:layout_centerInParent="true"
+                android:layout_marginTop="50dp"
+                android:padding="25dp"
+                android:fontFamily="@font/alata"
+                android:justificationMode="inter_word"/>
 
-    <TextView
-        android:id="@+id/tvNombre"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/slider"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="50dp" />
-
-    <TextView
-        android:id="@+id/tvDescripcion"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/tvNombre"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="50dp" />
+            <TextView
+                android:id="@+id/tvDescripcion"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tvNombre"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/alata"
+                android:justificationMode="inter_word"
+                android:padding="25dp"
+                android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. In felis lectus, ullamcorper at metus quis, pulvinar varius nisi. Maecenas eu malesuada purus. Sed tristique vehicula augue sit amet euismod. Sed faucibus feugiat risus non viverra. Donec ac maximus risus. Nullam dignissim quam eget ipsum hendrerit imperdiet. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Interdum et malesuada fames ac ante ipsum primis in faucibus. Nam sed sollicitudin dui. Sed commodo erat ut mi consequat, quis dictum erat auctor. Nunc quis eros volutpat, malesuada ex non, posuere massa. Nulla risus elit,"
+                android:textSize="15sp" />
 
     <TextView
         android:id="@+id/tvPrecio"
+        android:fontFamily="@font/alata"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/tvDescripcion"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="50dp"/>
+        android:justificationMode="inter_word"
+        android:padding="25dp"
+        android:layout_marginTop="25dp"/>
 
-        <Button
-                android:id="@+id/btnAtras"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+            <LinearLayout
+                android:id="@+id/llBotoness"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:padding="25dp"
+                android:layout_marginBottom="100dp"
                 android:layout_below="@id/tvPrecio"
+                android:orientation="horizontal">
+            <Button
+                android:id="@+id/btnAtras"
+                android:layout_width="150dp"
+                android:layout_marginRight="10dp"
+                android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
+
+                android:fontFamily="@font/alata"
                 android:text="Atras" />
             <Button
+                android:layout_marginLeft="10dp"
+                android:fontFamily="@font/alata"
                 android:id="@+id/btnSeleccionar"
-                android:layout_width="wrap_content"
+                android:layout_width="150dp"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/btnAtras"
                 android:layout_centerHorizontal="true"
                 android:text="Seleccionar" />
-
+        </LinearLayout>
 
         </LinearLayout>
+
 
     </ScrollView>
 

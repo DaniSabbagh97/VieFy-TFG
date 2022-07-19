@@ -10,6 +10,7 @@
         android:id="@+id/tvTituloSalario"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/alata"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="100dp"
@@ -20,6 +21,7 @@
     <TextView
         android:id="@+id/tvTituloSalario2"
         android:layout_width="wrap_content"
+        android:fontFamily="@font/alata"
         android:layout_height="wrap_content"
         android:layout_below="@+id/tvTituloSalario"
         android:layout_centerHorizontal="true"
@@ -31,6 +33,7 @@
         android:id="@+id/etEstablecerSueldo"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/alata"
         android:layout_below="@+id/tvTituloSalario2"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="50dp"
@@ -38,6 +41,7 @@
 
     <Button
         android:id="@+id/btnModificar"
+        android:fontFamily="@font/alata"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:layout_below="@+id/etEstablecerSueldo"
@@ -49,6 +53,7 @@
         android:id="@+id/btnGuardar"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/alata"
         android:layout_centerHorizontal="true"
         android:layout_below="@+id/btnModificar"
         android:layout_marginTop="50dp"

@@ -7,64 +7,77 @@
         <item
             android:id="@+id/nav_principal"
             android:icon="@drawable/icon_home"
+            android:fontFamily="@font/alata"
             android:title="Principal" />
 
         <item
             android:id="@+id/nav_entregaPracticas"
+            android:fontFamily="@font/alata"
             android:icon="@drawable/ic_baseline_bookmark_24"
             android:title="Entregar Prácticas" />
 
         <item
             android:id="@+id/nav_cambiarClase"
+            android:fontFamily="@font/alata"
             android:icon="@drawable/ic_baseline_change_circle_24"
             android:title="Cambiar Clase" />
 
         <item
             android:id="@+id/nav_practicasCompradas"
+            android:fontFamily="@font/alata"
             android:icon="@drawable/ic_baseline_work_24"
             android:title="Prácticas Adquiridas" />
         <item
             android:id="@+id/nav_trimestral"
+            android:fontFamily="@font/alata"
             android:icon="@drawable/icon_banco"
             android:title="Trimestral" />
 
         <item
             android:id="@+id/nav_anual"
+            android:fontFamily="@font/alata"
             android:icon="@drawable/icon_banco"
             android:title="Anual" />
 
         <item
             android:id="@+id/nav_solicitudes"
+            android:fontFamily="@font/alata"
             android:icon="@drawable/ic_baseline_mensaje_24"
             android:title="Solicitudes" />
 
         <item
             android:id="@+id/nav_listaAlumnos"
+            android:fontFamily="@font/alata"
             android:icon="@drawable/ic_baseline_search_24"
             android:title="Lista Alumnos" />
 
         <item
             android:id="@+id/nav_hacienda"
+            android:fontFamily="@font/alata"
             android:icon="@drawable/icon_banco"
             android:title="Trimestrales y Anuales" />
 
         <item
             android:id="@+id/nav_practicasDisponibles"
+            android:fontFamily="@font/alata"
             android:icon="@drawable/ic_baseline_work_24"
             android:title="Prácticas Disponibles" />
 
         <item
             android:id="@+id/nav_practicas"
+            android:fontFamily="@font/alata"
             android:icon="@drawable/ic_baseline_bookmark_24"
             android:title="Crear Práctica" />
 
         <item
             android:id="@+id/nav_corregirPracticas"
+            android:fontFamily="@font/alata"
             android:icon="@drawable/ic_corregir"
             android:title="Corregir Prácticas" />
 
         <item
             android:id="@+id/nav_mensajes"
+            android:fontFamily="@font/alata"
             android:icon="@drawable/ic_baseline_mensaje_24"
             android:title="Notificaciones" />
 
@@ -88,14 +101,17 @@
                 <group android:checkableBehavior="single">
                 <item
                     android:id="@+id/nav_perfil"
+                    android:fontFamily="@font/alata"
                     android:icon="@drawable/ic_baseline_person_24"
                     android:title="Perfil" />
                     <item
                     android:id="@+id/nav_sueldo"
+                    android:fontFamily="@font/alata"
                     android:icon="@drawable/ic_baseline_monetization_on_24"
                     android:title="Modificar Sueldo" />
                 <item
                     android:id="@+id/nav_logout"
+                    android:fontFamily="@font/alata"
                     android:icon="@drawable/logout_icon"
                     android:title="Cerrar Sesión" />
 
@@ -113,6 +129,7 @@
             <item
                 android:id="@+id/nav_aboutUs"
                 android:title="About Us"
+                android:fontFamily="@font/alata"
                 android:icon="@drawable/aboutus"/>
 
             </group>

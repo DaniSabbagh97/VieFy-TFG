@@ -10,6 +10,7 @@
         android:id="@+id/tvLogIn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/alata"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="100dp"
@@ -20,6 +21,7 @@
         android:id="@+id/etUserMail"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/alata"
         android:layout_below="@+id/tvLogIn"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="100dp"
@@ -28,6 +30,7 @@
 
     <EditText
         android:id="@+id/etUserPassword"
+        android:fontFamily="@font/alata"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_below="@id/etUserMail"
@@ -40,6 +43,7 @@
     <TextView
         android:id="@+id/tvRegistro"
         android:layout_width="300dp"
+        android:fontFamily="@font/alata"
         android:layout_height="wrap_content"
         android:layout_below="@id/etUserPassword"
         android:layout_centerHorizontal="true"
@@ -54,6 +58,7 @@
         android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:layout_below="@id/tvRegistro"
+        android:fontFamily="@font/alata"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="75dp"
         android:text="Login"

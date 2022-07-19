@@ -13,6 +13,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.example.biometricthings.HomeActivity;
 import com.example.biometricthings.Profesor.HaciendaActivity;
@@ -73,16 +74,26 @@ public class ListaPracticasDisponibles extends AppCompatActivity {
         p.enqueue(new Callback<ArrayList<Practicas>>() {
             @Override
             public void onResponse(Call<ArrayList<Practicas>> call, Response<ArrayList<Practicas>> response) {
-                pp = response.body();
 
-                System.out.println(pp);
-                System.out.println("PUUUUUUUUUUUUUUUUUU6");
+                if(response.code()==200){
+                    if(response.body()!=null){
+                        pp = response.body();
 
-                ListAdapterPracticas listAdapterPracticas = new ListAdapterPracticas(pp, ListaPracticasDisponibles.this);
-                RecyclerView recyclerView = findViewById(R.id.rvPracticas);
-                recyclerView.setHasFixedSize(true);
-                recyclerView.setLayoutManager(new LinearLayoutManager(ListaPracticasDisponibles.this));
-                recyclerView.setAdapter(listAdapterPracticas);
+                        System.out.println(pp);
+                        System.out.println("PUUUUUUUUUUUUUUUUUU6");
+
+                        ListAdapterPracticas listAdapterPracticas = new ListAdapterPracticas(pp, ListaPracticasDisponibles.this);
+                        RecyclerView recyclerView = findViewById(R.id.rvPracticas);
+                        recyclerView.setHasFixedSize(true);
+                        recyclerView.setLayoutManager(new LinearLayoutManager(ListaPracticasDisponibles.this));
+                        recyclerView.setAdapter(listAdapterPracticas);
+
+                    }else{
+                        Toast.makeText(ListaPracticasDisponibles.this, "Intentelo más tarde...", Toast.LENGTH_SHORT).show();
+                    }
+                }else{
+                    Toast.makeText(ListaPracticasDisponibles.this, "El servidor envío una respuesta de: "+response.code()+" ", Toast.LENGTH_SHORT).show();
+                }
 
             }
 

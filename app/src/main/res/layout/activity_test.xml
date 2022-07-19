@@ -24,6 +24,7 @@
                 <TextView
                     android:id="@+id/tvPregunta1"
                     android:layout_width="match_parent"
+                    android:fontFamily="@font/alata"
                     android:layout_height="match_parent"
                     android:layout_margin="7dp"
                     android:layout_marginTop="25dp"
@@ -41,6 +42,7 @@
                     android:id="@+id/tvB2"
                     android:layout_width="280dp"
                     android:layout_marginRight="25dp"
+                    android:fontFamily="@font/alata"
                     android:layout_height="match_parent"
                     android:gravity="center_vertical"
                     android:paddingLeft="10dp"
@@ -48,6 +50,7 @@
                 <EditText
                     android:id="@+id/etB2"
                     android:digits="1234"
+                    android:fontFamily="@font/alata"
                     android:maxLength="1"
                     android:layout_width="34dp"
                     android:layout_height="match_parent"
@@ -70,6 +73,7 @@
                 <TextView
                     android:id="@+id/tvB3"
                     android:layout_width="280dp"
+                    android:fontFamily="@font/alata"
                     android:layout_marginRight="25dp"
                     android:layout_height="match_parent"
                     android:gravity="center_vertical"
@@ -80,6 +84,7 @@
                     android:id="@+id/etB3"
                     android:layout_width="34dp"
                     android:layout_height="match_parent"
+                    android:fontFamily="@font/alata"
                     android:paddingRight="5dp"
                     android:paddingLeft="5dp"
                     android:textSize="23dp"
@@ -102,6 +107,7 @@
                     android:id="@+id/tvB4"
                     android:layout_width="280dp"
                     android:layout_marginRight="25dp"
+                    android:fontFamily="@font/alata"
                     android:layout_height="match_parent"
                     android:gravity="center_vertical"
                     android:paddingLeft="10dp"
@@ -112,6 +118,7 @@
                     android:layout_height="match_parent"
                     android:paddingRight="5dp"
                     android:paddingLeft="5dp"
+                    android:fontFamily="@font/alata"
                     android:textSize="23dp"
                     android:maxLength="1"
                     android:inputType="number"
@@ -131,6 +138,7 @@
                 <TextView
                     android:id="@+id/tvB5"
                     android:layout_width="280dp"
+                    android:fontFamily="@font/alata"
                     android:layout_marginRight="25dp"
                     android:layout_height="match_parent"
                     
@@ -143,6 +151,7 @@
                     android:layout_height="match_parent"
                     android:paddingRight="5dp"
                     android:paddingLeft="5dp"
+                    android:fontFamily="@font/alata"
                     android:textSize="23dp"
                     android:maxLength="1"
                     android:inputType="number"
@@ -166,6 +175,7 @@
                     <TextView
                         android:id="@+id/tvPregunta2"
                         android:layout_width="match_parent"
+                        android:fontFamily="@font/alata"
                         android:layout_height="match_parent"
                         android:layout_margin="7dp"
                         android:layout_marginTop="25dp"
@@ -184,6 +194,7 @@
                         android:layout_width="280dp"
                     android:layout_marginRight="25dp"
                         android:layout_height="match_parent"
+                        android:fontFamily="@font/alata"
                         android:gravity="center_vertical"
                         android:paddingLeft="10dp"
                         android:text="Tu nivel económico. Es decir, tus ingresos debidos a tu trabajo." />
@@ -191,6 +202,7 @@
                         android:id="@+id/etC2"
                         android:layout_width="34dp"
                         android:layout_height="match_parent"
+                        android:fontFamily="@font/alata"
                         android:paddingRight="5dp"
                         android:paddingLeft="5dp"
                         android:textSize="23dp"
@@ -213,6 +225,7 @@
                     <TextView
                         android:id="@+id/tvC3"
                         android:layout_width="280dp"
+                        android:fontFamily="@font/alata"
                     android:layout_marginRight="25dp"
                         android:layout_height="match_parent"
                         android:gravity="center_vertical"
@@ -223,6 +236,7 @@
                         android:layout_width="34dp"
                         android:layout_height="match_parent"
                         android:paddingRight="5dp"
+                        android:fontFamily="@font/alata"
                         android:paddingLeft="5dp"
                         android:maxLength="1"
                         android:textSize="23dp"
@@ -243,7 +257,8 @@
                     <TextView
                         android:id="@+id/tvC4"
                         android:layout_width="280dp"
-                    android:layout_marginRight="25dp"
+                        android:layout_marginRight="25dp"
+                        android:fontFamily="@font/alata"
                         android:layout_height="match_parent"
                         android:gravity="center_vertical"
                         android:paddingLeft="10dp"
@@ -254,12 +269,13 @@
                         android:layout_height="match_parent"
                         android:paddingRight="5dp"
                         android:paddingLeft="5dp"
+                        android:fontFamily="@font/alata"
                         android:textSize="23dp"
                         android:maxLength="1"
                         android:inputType="number"
                         android:background="@drawable/edit_text_background"
                         android:layout_margin="1dp"
-                    android:textAlignment="center"
+                         android:textAlignment="center"
                         android:hint="" />
 
 
@@ -275,6 +291,7 @@
                         android:layout_width="280dp"
                     android:layout_marginRight="25dp"
                         android:layout_height="match_parent"
+                        android:fontFamily="@font/alata"
                         android:gravity="center_vertical"
                         android:paddingLeft="10dp"
                         android:text="Tu trabajo. Lo que te gustará tu trabajo y las cosas que querrás hacer en él." />
@@ -283,6 +300,7 @@
                         android:layout_width="34dp"
                         android:layout_height="match_parent"
                         android:paddingRight="5dp"
+                        android:fontFamily="@font/alata"
                         android:paddingLeft="5dp"
                         android:textSize="23dp"
                         android:maxLength="1"
@@ -309,6 +327,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_margin="7dp"
+                        android:fontFamily="@font/alata"
                         android:layout_marginTop="25dp"
                         android:text="3-Reparta 10 puntos sobre los siguientes aspectos de acuerdo a como te sientes actualmente:"
 
@@ -324,6 +343,7 @@
                         android:id="@+id/tvB8"
                         android:layout_width="280dp"
                     android:layout_marginRight="25dp"
+                        android:fontFamily="@font/alata"
                         android:layout_height="match_parent"
                         android:gravity="center_vertical"
                         android:paddingLeft="10dp"
@@ -332,6 +352,7 @@
                         android:id="@+id/etB8"
                         android:layout_width="34dp"
                         android:layout_height="match_parent"
+                        android:fontFamily="@font/alata"
                         android:paddingRight="5dp"
                         android:paddingLeft="5dp"
                         android:textSize="23dp"
@@ -353,6 +374,7 @@
                     <TextView
                         android:id="@+id/tvB9"
                         android:layout_width="280dp"
+                        android:fontFamily="@font/alata"
                     android:layout_marginRight="25dp"
                         android:layout_height="match_parent"
                         android:gravity="center_vertical"
@@ -362,6 +384,7 @@
                         android:id="@+id/etB9"
                         android:layout_width="34dp"
                         android:layout_height="match_parent"
+                        android:fontFamily="@font/alata"
                         android:paddingRight="5dp"
                         android:paddingLeft="5dp"
                         android:textSize="23dp"
@@ -369,7 +392,7 @@
                         android:inputType="number"
                         android:background="@drawable/edit_text_background"
                         android:layout_margin="1dp"
-                    android:textAlignment="center"
+                        android:textAlignment="center"
                         android:hint="" />
 
 
@@ -383,8 +406,9 @@
                     <TextView
                         android:id="@+id/tvB10"
                         android:layout_width="280dp"
-                    android:layout_marginRight="25dp"
+                        android:layout_marginRight="25dp"
                         android:layout_height="match_parent"
+                        android:fontFamily="@font/alata"
                         android:gravity="center_vertical"
                         android:paddingLeft="10dp"
                         android:text="Tu estado anímico. La manera en que afrontas el día. Las ganas que tienes de hacer cosas" />
@@ -392,6 +416,7 @@
                         android:id="@+id/etB10"
                         android:layout_width="34dp"
                         android:layout_height="match_parent"
+                        android:fontFamily="@font/alata"
                         android:paddingRight="5dp"
                         android:paddingLeft="5dp"
                         android:textSize="23dp"
@@ -413,7 +438,8 @@
                     <TextView
                         android:id="@+id/tvB11"
                         android:layout_width="280dp"
-                    android:layout_marginRight="25dp"
+                        android:layout_marginRight="25dp"
+                        android:fontFamily="@font/alata"
                         android:layout_height="match_parent"
                         android:gravity="center_vertical"
                         android:paddingLeft="10dp"
@@ -423,6 +449,7 @@
                         android:layout_width="34dp"
                         android:layout_height="match_parent"
                         android:paddingRight="5dp"
+                        android:fontFamily="@font/alata"
                         android:paddingLeft="5dp"
                         android:textSize="23dp"
                         android:inputType="number"
@@ -443,6 +470,7 @@
             <TextView
                 android:id="@+id/tvPregunta4"
                 android:layout_width="match_parent"
+                android:fontFamily="@font/alata"
                 android:layout_height="wrap_content"
                 android:layout_margin="7dp"
                 android:layout_marginTop="25dp"
@@ -456,16 +484,19 @@
                 <RadioButton
                     android:id="@+id/rbEmpresario"
                     android:layout_width="match_parent"
+                    android:fontFamily="@font/alata"
                     android:layout_height="wrap_content"
                     android:text="Tener tu propia empresa." />
                 <RadioButton
                     android:id="@+id/rbAsalariado"
                     android:layout_width="match_parent"
+                    android:fontFamily="@font/alata"
                     android:layout_height="wrap_content"
                     android:text="Trabajar para una empresa" />
                 <RadioButton
                     android:id="@+id/rbAutonomo"
                     android:layout_width="match_parent"
+                    android:fontFamily="@font/alata"
                     android:layout_height="wrap_content"
                     android:text="Ser autónomo" />
             </RadioGroup>
@@ -478,6 +509,7 @@
                     android:id="@+id/tvPregunta5"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/alata"
                     android:layout_margin="7dp"
                     android:layout_marginTop="25dp"
                     android:text="5-¿Como te gustaría que fuera tu estado civil?"
@@ -489,16 +521,19 @@
 
                     <RadioButton
                         android:id="@+id/rbSolteroPareja"
+                        android:fontFamily="@font/alata"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Soltero con pareja" />
                     <RadioButton
                         android:id="@+id/rbSolteroSinPareja"
+                        android:fontFamily="@font/alata"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Soltero sin pareja" />
                     <RadioButton
                         android:id="@+id/rbCasado"
+                        android:fontFamily="@font/alata"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Casado" />
@@ -513,6 +548,7 @@
                     android:id="@+id/tvPregunta6"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/alata"
                     android:layout_margin="7dp"
                     android:layout_marginTop="25dp"
                     android:text="6-¿Te gustaría tener hijos?"
@@ -524,11 +560,13 @@
 
                     <RadioButton
                         android:id="@+id/rbSi"
+                        android:fontFamily="@font/alata"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Sí" />
                     <RadioButton
                         android:id="@+id/rbNo"
+                        android:fontFamily="@font/alata"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="No" />
@@ -544,6 +582,7 @@
 
             <Button
                 android:id="@+id/btnEnviar"
+                android:fontFamily="@font/alata"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Enviar" />

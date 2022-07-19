@@ -44,12 +44,17 @@ public class PropiedadesActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_propiedades);
         tvPropiedades = (TextView) findViewById(R.id.tvPropiedades);
+
         Bundle extras = getIntent().getExtras();
-        f = extras.getInt("key");
-        idUser = extras.getInt("idUser");
-        if(extras.getString("empresa")!=null){
-            nombreEmpresa = extras.getString("empresa");
+        if(extras!=null){
+
+            f = extras.getInt("key");
+            idUser = extras.getInt("idUser");
+            if(extras.getString("empresa")!=null){
+                nombreEmpresa = extras.getString("empresa");
+            }
         }
+
         if(f==1){
             init();
             tvPropiedades.setText("Seleccione una vivienda: ");

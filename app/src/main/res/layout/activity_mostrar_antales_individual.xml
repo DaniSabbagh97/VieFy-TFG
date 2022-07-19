@@ -31,12 +31,14 @@
 
                     <TextView
                         android:layout_width="wrap_content"
+                        android:fontFamily="@font/alata"
                         android:layout_height="wrap_content"
                         android:text="Saldo: " />
 
 
                     <TextView
                         android:id="@+id/tvSaldoPorAlumno"
+                        android:fontFamily="@font/alata"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" />
 
@@ -51,10 +53,12 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:fontFamily="@font/alata"
                         android:text="Saldo Real: " />
 
                     <TextView
                         android:id="@+id/tvSaldoReal"
+                        android:fontFamily="@font/alata"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" />
 
@@ -69,11 +73,13 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:fontFamily="@font/alata"
                         android:text="Beneficio: " />
 
                     <TextView
                         android:id="@+id/tvBeneficioPorAlumno"
                         android:layout_width="wrap_content"
+                        android:fontFamily="@font/alata"
                         android:layout_height="wrap_content" />
 
 
@@ -86,11 +92,13 @@
 
                     <TextView
                         android:layout_width="wrap_content"
+                        android:fontFamily="@font/alata"
                         android:layout_height="wrap_content"
                         android:text="Beneficio Real: " />
 
                     <TextView
                         android:id="@+id/tvBeneficioReal"
+                        android:fontFamily="@font/alata"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" />
 
@@ -108,12 +116,14 @@
 
                 <Button
                     android:id="@+id/btnCorrecto"
+                    android:fontFamily="@font/alata"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Correcto" />
 
                 <Button
                     android:id="@+id/btnMultar"
+                    android:fontFamily="@font/alata"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Multar" />
@@ -127,6 +137,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/tvRolJuegoAlumno"
                 android:layout_centerHorizontal="true"
+                android:fontFamily="@font/alata"
                 android:layout_marginTop="25dp"
                 android:text="Los cálculos del alumno son los siguientes: "
                 android:textSize="18sp" />
@@ -135,6 +146,7 @@
                 android:id="@+id/tvTipoAntal"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/alata"
                 android:layout_below="@+id/tvInformacionEntrega"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="25dp"
@@ -144,6 +156,7 @@
                 android:id="@+id/tvTituloHacienda"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/alata"
                 android:layout_alignParentTop="true"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="25dp"
@@ -154,6 +167,7 @@
                 android:id="@+id/tvMensajeAlumno"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/alata"
                 android:layout_below="@+id/ll"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="25dp"
@@ -164,6 +178,7 @@
                 android:id="@+id/tvRolJuegoAlumno"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/alata"
                 android:layout_below="@+id/tvNombreApellidos"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="25dp"
@@ -173,6 +188,7 @@
             <TextView
                 android:id="@+id/tvNombreApellidos"
                 android:layout_width="wrap_content"
+                android:fontFamily="@font/alata"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/ivAlumno"
                 android:layout_centerHorizontal="true"

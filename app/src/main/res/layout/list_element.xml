@@ -22,7 +22,7 @@
 
             <ImageView
                 android:id="@+id/ivImagen"
-                android:fontFamily="@font/alata"
+
                 android:layout_width="160dp"
                 android:layout_height="120dp"
                 android:layout_alignParentStart="true"

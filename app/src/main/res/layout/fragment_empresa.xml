@@ -12,6 +12,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
         android:layout_marginTop="75dp"
+        android:fontFamily="@font/alata"
         android:text="Información de Tú Empresa: "
         android:textSize="24sp" />
 
@@ -30,6 +31,7 @@
         android:id="@+id/tvInfoClase"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/alata"
         android:layout_below="@+id/linea"
         android:layout_marginLeft="50dp"
 
@@ -41,6 +43,7 @@
         android:id="@+id/tvProfesor"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/alata"
         android:layout_below="@+id/tvInfoClase"
         android:layout_marginLeft="50dp"
         android:layout_marginTop="20dp"
@@ -49,6 +52,7 @@
 
     <TextView
         android:id="@+id/tvPropiedad"
+        android:fontFamily="@font/alata"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/tvProfesor"
@@ -62,6 +66,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/tvPropiedad"
+        android:fontFamily="@font/alata"
         android:layout_marginLeft="50dp"
         android:layout_marginTop="20dp"
         android:text="Asalariado 2: Carlos Gomez"
@@ -70,6 +75,7 @@
         android:id="@+id/tvAlquiler2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/alata"
         android:layout_marginLeft="50dp"
         android:layout_below="@+id/tvAlquiler"
         android:textSize="24sp"
@@ -80,6 +86,7 @@
     <TextView
         android:id="@+id/tvAlquiler3"
         android:layout_width="wrap_content"
+        android:fontFamily="@font/alata"
         android:layout_height="wrap_content"
         android:layout_below="@+id/tvAlquiler2"
         android:layout_marginLeft="50dp"
@@ -92,6 +99,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/tvAlquiler3"
+        android:fontFamily="@font/alata"
         android:layout_marginLeft="50dp"
         android:layout_marginTop="20dp"
         android:text="Nómina Mensual: 1700€"

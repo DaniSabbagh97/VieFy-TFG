@@ -9,23 +9,27 @@
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
         android:hint="Name"
+        android:fontFamily="@font/alata"
         android:id="@+id/etName"/>
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
+        android:fontFamily="@font/alata"
         android:hint="Email"
         android:id="@+id/etEmail"/>
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
+        android:fontFamily="@font/alata"
         android:hint="password"
         android:id="@+id/etPassword"/>
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="4dp"
+        android:fontFamily="@font/alata"
         android:text="Sign up"
         android:id="@+id/btnSignUp"/>
 
