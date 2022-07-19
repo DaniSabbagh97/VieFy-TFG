@@ -27,8 +27,10 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import com.example.biometricthings.HomeActivity;
 import com.example.biometricthings.Image.Utils;
 import com.example.biometricthings.PDF.LoadPDFActivity;
+import com.example.biometricthings.Profesor.SubidaPracticas;
 import com.example.biometricthings.R;
 import com.example.biometricthings.model.Practicas;
 import com.example.biometricthings.remote.APIService;
@@ -50,6 +52,7 @@ public class EntregaPracticasActivity extends AppCompatActivity {
     private String nombrePractica, mensajePractica;
 
     private Button btnEnviarPractica;
+    private Button btnAtrasEP;
     private Button btnAdjuntarPDF;
     private byte[] inputData;
     private String token;
@@ -72,6 +75,7 @@ public class EntregaPracticasActivity extends AppCompatActivity {
 
         btnEnviarPractica = (Button) findViewById(R.id.btnEnviarPractica);
         btnAdjuntarPDF = (Button) findViewById(R.id.btnAdjuntarPDF);
+        btnAtrasEP = (Button) findViewById(R.id.btnAtrasEP);
         arrPracticas = new ArrayList<>();
         pp = new ArrayList<>();
         /*String[] plants = new String[]{
@@ -150,7 +154,14 @@ public class EntregaPracticasActivity extends AppCompatActivity {
         });
 
 
-
+        btnAtrasEP.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(EntregaPracticasActivity.this, HomeActivity.class);
+                startActivity(i);
+                finish();
+            }
+        });
 
 
 

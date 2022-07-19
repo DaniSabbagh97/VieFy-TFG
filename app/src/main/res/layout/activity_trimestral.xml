@@ -91,15 +91,25 @@
         android:hint="Beneficio"
         android:inputType="textPersonName" />
 
-    <Button
-        android:id="@+id/btnEnviarTrimestral"
-        android:layout_width="150dp"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/alata"
-        android:layout_below="@+id/etBeneficioTrimestral"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="45dp"
-        android:text="Enviar" />
+            <Button
+                android:id="@+id/btnEnviarTrimestral"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/etBeneficioTrimestral"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="45dp"
+                android:fontFamily="@font/alata"
+                android:text="Enviar" />
+
+            <Button
+                android:id="@+id/btnAtrasT"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/btnEnviarTrimestral"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="15dp"
+                android:fontFamily="@font/alata"
+                android:text="Atrás" />
 
         </RelativeLayout>
     </ScrollView>

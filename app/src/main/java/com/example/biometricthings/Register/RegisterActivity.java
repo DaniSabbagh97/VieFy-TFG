@@ -15,6 +15,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Base64;
 import android.view.View;
 import android.widget.Button;
@@ -113,81 +114,84 @@ public class RegisterActivity extends AppCompatActivity {
                 telf = etTelefono.getText().toString().trim();
                 psw = etContrasenia.getText().toString().trim();
                 psw2 = etConfirmaContrasenia.getText().toString().trim();
-                numExp = Integer.parseInt(etNumExpediente.getText().toString().trim());
-
-
-
-                final APIService apiService = RetroClass.getAPIService();
-                if(isProfe){
-                    isProfeInt=1;
-                    rol = "Profesor";
+                if(!TextUtils.isEmpty(etNumExpediente.getText().toString())) {
+                    numExp = Integer.parseInt(etNumExpediente.getText().toString().trim());
                 }else{
-                    isProfeInt=0;
-                    rol = "Alumno";
+                    Toast.makeText(RegisterActivity.this, "El número de expediente es imprescindible...", Toast.LENGTH_SHORT).show();
                 }
 
 
-                //FIXME PETA AQUÍ
-                //imagenString = new String(fotoSubir);
-                //fotoSubir = decodificador(selectedImage);
-                /*try {
-                    InputStream iStream = getContentResolver().openInputStream(selectedImage);
-                    inputData = Utils.getBytes(iStream);
-                }catch (Exception e){
-                    System.out.println(e);
+                if(!nombre.isEmpty() && !mail.isEmpty() && !apellido.isEmpty() && !telf.isEmpty() && !psw.isEmpty() && !psw2.isEmpty() && !(TextUtils.isEmpty(etNumExpediente.getText().toString())) && selectedImage!=null){
+                    if(psw.equals(psw2)){
+                        if(psw.length()>=6){
 
-                }*/
-                if(acceptPrivacity && selectedImage!=null){
+                            final APIService apiService = RetroClass.getAPIService();
+                            if(isProfe){
+                                isProfeInt=1;
+                                rol = "Profesor";
+                            }else{
+                                isProfeInt=0;
+                                rol = "Alumno";
+                            }
 
-                User u = new User(numExp, nombre, apellido, mail, telf, psw, isProfeInt, rol, encodedImage);
-                Call<Integer> registro = apiService.registerUser(u);
-                registro.enqueue(new Callback<Integer>() {
-                    @Override
-                    public void onResponse(Call<Integer> call, Response<Integer> response) {
-                        if(response!=null){
-                            //finished = response.body();
-                            //System.out.println("aaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
-                            idUserObtained = response.body();//FIXME PETA PORQUE HACE DEMASIADO
-                            System.out.println("PPPPPPPPPPPPPPPPPP");
-                            System.out.println(idUserObtained);
-                            if(idUserObtained>0){
+                            if(acceptPrivacity){
 
-                                    if(isProfeInt==1){
-                                        Intent i = new Intent(RegisterActivity.this, ConfirmacionProfesorActivity.class);
-                                        i.putExtra("id", idUserObtained);
-                                        i.putExtra("mail", u.getEmail());
-                                        startActivity(i);
-                                        finish();
-                                    }else {
-                                        Intent i = new Intent(RegisterActivity.this, LogInActivity.class);//TODO CAMBIAR AL LOGIN PARA QUE INICIE SESION
-                                        // i.putExtra("idUserObtained",idUserObtained);
-                                        i.putExtra("mail", u.getEmail());
-                                        startActivity(i);
-                                        finish();
+                                User u = new User(numExp, nombre, apellido, mail, telf, psw, isProfeInt, rol, encodedImage);
+                                Call<Integer> registro = apiService.registerUser(u);
+                                registro.enqueue(new Callback<Integer>() {
+                                    @Override
+                                    public void onResponse(Call<Integer> call, Response<Integer> response) {
+                                        if(response!=null){
+                                            //finished = response.body();
+                                            //System.out.println("aaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
+                                            idUserObtained = response.body();//FIXME PETA PORQUE HACE DEMASIADO
+                                            System.out.println("PPPPPPPPPPPPPPPPPP");
+                                            System.out.println(idUserObtained);
+                                            if(idUserObtained>0){
+
+                                                if(isProfeInt==1){
+                                                    Intent i = new Intent(RegisterActivity.this, ConfirmacionProfesorActivity.class);
+                                                    i.putExtra("id", idUserObtained);
+                                                    i.putExtra("mail", u.getEmail());
+                                                    startActivity(i);
+                                                    finish();
+                                                }else {
+                                                    Intent i = new Intent(RegisterActivity.this, LogInActivity.class);//TODO CAMBIAR AL LOGIN PARA QUE INICIE SESION
+                                                    // i.putExtra("idUserObtained",idUserObtained);
+                                                    i.putExtra("mail", u.getEmail());
+                                                    startActivity(i);
+                                                    finish();
+                                                }
+
+                                            }else{
+                                                Toast.makeText(RegisterActivity.this, "No se pudo realizar el registro.", Toast.LENGTH_SHORT).show();
+                                            }
+
+                                        }else{
+                                            Toast.makeText(RegisterActivity.this, "Error en la Base de Datos", Toast.LENGTH_SHORT).show();
+                                        }
                                     }
 
+                                    @Override
+                                    public void onFailure(Call<Integer> call, Throwable t) {
+
+                                        Toast.makeText(RegisterActivity.this, "La base de datos no respondió.", Toast.LENGTH_SHORT).show();
+
+                                    }
+                                });
                             }else{
-                                Toast.makeText(RegisterActivity.this, "No se pudo realizar el registro.", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(RegisterActivity.this, "Debes Aceptar la Política de Privacidad o seleccionar una imagen", Toast.LENGTH_SHORT).show();
                             }
 
                         }else{
-                            Toast.makeText(RegisterActivity.this, "Error en la Base de Datos", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(RegisterActivity.this, "La contraseña debe ser superior a 6 caracteres o números", Toast.LENGTH_SHORT).show();
                         }
+                    }else{
+                        Toast.makeText(RegisterActivity.this, "Las contraseñas deben coincidir...", Toast.LENGTH_SHORT).show();
                     }
-
-                    @Override
-                    public void onFailure(Call<Integer> call, Throwable t) {
-                        
-                        Toast.makeText(RegisterActivity.this, "La base de datos no respondió.", Toast.LENGTH_SHORT).show();
-
-                    }
-                });
                 }else{
-                    Toast.makeText(RegisterActivity.this, "Debes Aceptar la Política de Privacidad o seleccionar una imagen", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(RegisterActivity.this, "Debe rellenar todos los campos...", Toast.LENGTH_SHORT).show();
                 }
-                
-
-
 
             }
         });

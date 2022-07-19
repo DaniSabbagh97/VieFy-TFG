@@ -114,5 +114,15 @@
         android:fontFamily="@font/alata"
         android:textSize="14sp"/>
 
+    <Button
+        android:id="@+id/btnAtrasEP"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:fontFamily="@font/alata"
+        android:layout_below="@+id/tvNombreArchivo"
+        android:layout_marginTop="150dp"
+        android:text="Atrás"/>
+
 
 </RelativeLayout>

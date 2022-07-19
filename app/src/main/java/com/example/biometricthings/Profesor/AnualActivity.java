@@ -30,6 +30,7 @@ public class AnualActivity extends AppCompatActivity {
     private EditText etBeneficioAnual;
 
     private Button btnEnviarAnual;
+    private Button btnAtrasA;
 
     private String mensajeAnual;
     private String token;
@@ -47,8 +48,18 @@ public class AnualActivity extends AppCompatActivity {
         etBeneficioAnual = (EditText) findViewById(R.id.etBeneficioAnual);
 
         btnEnviarAnual = (Button) findViewById(R.id.btnEnviarAnual);
+        btnAtrasA = (Button) findViewById(R.id.btnAtrasA);
 
         token = cargarPreferencias();
+
+        btnAtrasA.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(AnualActivity.this, HomeActivity.class);
+                startActivity(i);
+                finish();
+            }
+        });
 
         btnEnviarAnual.setOnClickListener(new View.OnClickListener() {
             @Override

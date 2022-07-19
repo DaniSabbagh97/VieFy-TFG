@@ -79,7 +79,6 @@ public class LogInActivity extends AppCompatActivity {
                 i.putExtra("mail", mail);
                 startActivity(i);
 
-                finish();
             }
         });
 

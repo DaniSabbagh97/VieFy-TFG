@@ -7,16 +7,16 @@
     tools:context=".Fragments.ProfileFragment">
 
 
-
     <TextView
         android:id="@+id/tvPerfil"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
+        android:fontFamily="@font/alata"
         android:layout_marginTop="70dp"
         android:text="Perfil"
-        android:textSize="50dp"/>
+        android:textSize="50dp" />
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/ivPerfilPerfil"
@@ -24,40 +24,49 @@
         android:layout_height="120dp"
         android:layout_below="@id/tvPerfil"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="30dp" />
+        android:layout_marginTop="60dp" />
 
     <TextView
         android:id="@+id/tvNombre"
+        android:fontFamily="@font/alata"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/ivPerfilPerfil"
-        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="50dp"
+        android:textSize="20sp"
         android:layout_marginTop="25dp" />
 
     <TextView
         android:id="@+id/tvApellido"
+        android:fontFamily="@font/alata"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/tvNombre"
-        android:layout_centerHorizontal="true"
+        android:textSize="20sp"
+        android:layout_marginLeft="50dp"
         android:layout_marginTop="35dp" />
 
     <TextView
         android:id="@+id/tvEmail"
+        android:fontFamily="@font/alata"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textSize="20sp"
         android:layout_below="@+id/tvApellido"
-        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="50dp"
         android:layout_marginTop="35dp" />
 
     <Button
         android:id="@+id/btnBtn"
+        android:fontFamily="@font/alata"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Click"
+        android:textSize="20sp"
         android:layout_below="@+id/tvEmail"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="45dp"/>
+        android:layout_marginTop="45dp"
+        android:enabled="false"
+        android:text="Modificar" />
 
 
 

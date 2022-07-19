@@ -11,6 +11,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.airbnb.lottie.LottieAnimationView;
 import com.example.biometricthings.BiometricsActivity;
@@ -61,9 +62,14 @@ public class SplashArtActivity extends AppCompatActivity {
                     u.enqueue(new Callback<User>() {
                         @Override
                         public void onResponse(Call<User> call, Response<User> response) {
-                            if(response.body()!=null){
+                           //boolean a = response.errorBody();
+
+
+                            if(response.code() == 200){
                                 user = response.body();
                                 rol = user.getRol();
+                                System.out.println("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
+                                System.out.println(rol);
                                 if(rol.equals("Profesor")){
                                     Intent i = new Intent(SplashArtActivity.this, SeleccionaClaseActivity.class);//LogInActivity
                                     startActivity(i);
@@ -75,12 +81,19 @@ public class SplashArtActivity extends AppCompatActivity {
                                     finish();
                                 }
 
+                            }else{
+                                Toast.makeText(SplashArtActivity.this, "Debe iniciar sesión de nuevo", Toast.LENGTH_SHORT).show();
+                                Intent i = new Intent(SplashArtActivity.this, LogInActivity.class);
+                                startActivity(i);
+                                finish();
                             }
 
                         }
 
                         @Override
                         public void onFailure(Call<User> call, Throwable t) {
+                            System.out.println("aaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
+                            System.out.println(t.getMessage());
 
                         }
                     });

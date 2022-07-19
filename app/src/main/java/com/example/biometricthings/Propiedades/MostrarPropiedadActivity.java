@@ -207,6 +207,7 @@ public class MostrarPropiedadActivity extends AppCompatActivity {
                     i.putExtra("idProp", prop.getId_propiedades());//TODO ENVIAR MÁS DATOS
                     i.putExtra("precio", precio);//TODO ENVIAR MÁS DATOS
                     startActivity(i);
+                    finish();
                 }
 
 

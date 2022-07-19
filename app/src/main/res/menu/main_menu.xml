@@ -18,6 +18,11 @@
             android:id="@+id/nav_cambiarClase"
             android:icon="@drawable/ic_baseline_change_circle_24"
             android:title="Cambiar Clase" />
+
+        <item
+            android:id="@+id/nav_practicasCompradas"
+            android:icon="@drawable/ic_baseline_work_24"
+            android:title="Prácticas Adquiridas" />
         <item
             android:id="@+id/nav_trimestral"
             android:icon="@drawable/icon_banco"
@@ -46,17 +51,22 @@
         <item
             android:id="@+id/nav_practicasDisponibles"
             android:icon="@drawable/ic_baseline_work_24"
-            android:title="Trabajo" />
+            android:title="Prácticas Disponibles" />
 
         <item
             android:id="@+id/nav_practicas"
             android:icon="@drawable/ic_baseline_bookmark_24"
-            android:title="Prácticas" />
+            android:title="Crear Práctica" />
+
+        <item
+            android:id="@+id/nav_corregirPracticas"
+            android:icon="@drawable/ic_corregir"
+            android:title="Corregir Prácticas" />
 
         <item
             android:id="@+id/nav_mensajes"
             android:icon="@drawable/ic_baseline_mensaje_24"
-            android:title="Mensajes" />
+            android:title="Notificaciones" />
 
         <!-- <item
      android:id="@+id/nav_empresa"
@@ -101,9 +111,9 @@
         <menu>
             <group android:checkableBehavior="single">
             <item
-                android:id="@+id/nav_otro2"
+                android:id="@+id/nav_aboutUs"
                 android:title="About Us"
-                android:icon="@drawable/ic_baseline_ac_unit_24"/>
+                android:icon="@drawable/aboutus"/>
 
             </group>
 

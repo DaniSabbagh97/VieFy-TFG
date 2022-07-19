@@ -101,6 +101,7 @@ public class ProfileFragment extends Fragment {
         tvEmail = (TextView) view.findViewById(R.id.tvEmail);
         tvApellido = (TextView) view.findViewById(R.id.tvApellido);
         btnBtn = (Button) view.findViewById(R.id.btnBtn);
+        btnBtn.setVisibility(View.INVISIBLE);
         ivPerfilPerfil = (ImageView) view.findViewById(R.id.ivPerfilPerfil);
 
         String token2 = cargarPreferencias();
@@ -117,9 +118,9 @@ public class ProfileFragment extends Fragment {
             public void onResponse(Call<User> call, Response<User> response) {
                 if(user!=null) {
                     user = response.body();
-                    tvNombre.setText(user.getNombre());
-                    tvEmail.setText(user.getEmail());
-                    tvApellido.setText(user.getapellidos());
+                    tvNombre.setText("Nombre: "+user.getNombre() + " " + user.getapellidos());
+                    tvEmail.setText("Email: "+user.getEmail());
+                    tvApellido.setText("Teléfono: "+user.getTelefono());
 
                     imagenRecibida = user.getImagen();
 

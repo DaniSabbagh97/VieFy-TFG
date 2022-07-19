@@ -167,23 +167,24 @@
             android:drawablePadding="10dp"
             android:layout_marginBottom="10dp"
             android:drawableLeft="@drawable/ic_baseline_bookmark_24"/>
-       <Button
-           android:id="@+id/btnModificar"
-           android:layout_width="match_parent"
-           android:layout_height="wrap_content"
-           android:text="Modificar"
-           android:fontFamily="@font/alata"
-           android:backgroundTint="#54B89C"
-           android:layout_marginTop="15dp"/>
-        <Button
-            android:id="@+id/btnGuardar"
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etFelicidad"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:padding="20dp"
             android:enabled="false"
-            android:text="Guardar"
+            android:hint="Felicidad Actual"
+            android:drawablePadding="10dp"
+            android:layout_marginBottom="10dp"
+            android:drawableLeft="@drawable/ic_baseline_happy_black"/>
+        <Button
+            android:id="@+id/btnAtrass"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Atrás"
             android:fontFamily="@font/alata"
             android:backgroundTint="#54B89C"
-            android:layout_marginTop="15dp"/>
+            android:layout_marginTop="5dp"/>
 
 
 

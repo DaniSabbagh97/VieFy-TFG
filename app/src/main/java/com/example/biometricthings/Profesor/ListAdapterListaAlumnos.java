@@ -4,6 +4,7 @@ package com.example.biometricthings.Profesor;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.util.Base64;
@@ -21,6 +22,7 @@ import com.example.biometricthings.Propiedades.ListAdapter;
 import com.example.biometricthings.Propiedades.MostrarPropiedadActivity;
 import com.example.biometricthings.R;
 import com.example.biometricthings.model.Clase;
+import com.example.biometricthings.model.Multa;
 import com.example.biometricthings.model.Propiedades;
 import com.example.biometricthings.model.SolicitudAceptada;
 import com.example.biometricthings.model.User;
@@ -49,6 +51,8 @@ public class ListAdapterListaAlumnos extends RecyclerView.Adapter<ListAdapterLis
     private String expedienteString;
     private String motivo;
     private int multa;
+    private Multa m;
+    private String token;
 
     //private int alumnos;
 
@@ -103,7 +107,9 @@ public class ListAdapterListaAlumnos extends RecyclerView.Adapter<ListAdapterLis
                     i.putExtra("rol", mData.get(getAdapterPosition()).getRol_juego());
                     i.putExtra("expediente", mData.get(getAdapterPosition()).getExpediente());
                     i.putExtra("correo", mData.get(getAdapterPosition()).getEmail());
-                    i.putExtra("img", mData.get(getAdapterPosition()).getImagen());
+                   /* System.out.println("OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO");
+                    System.out.println(mData.get(getAdapterPosition()).getImagen());
+                    i.putExtra("img", mData.get(getAdapterPosition()).getImagen());*/
                     i.putExtra("saldo", mData.get(getAdapterPosition()).getSaldoActual());
                     i.putExtra("idEmpresa", mData.get(getAdapterPosition()).getId_empresa());
 
@@ -121,10 +127,7 @@ public class ListAdapterListaAlumnos extends RecyclerView.Adapter<ListAdapterLis
                 @Override
                 public void onClick(View view) {
 
-                    createNewDialogAceptar(itemView,
-                            mData.get(getAdapterPosition()).getRol_juego(),
-                            mData.get(getAdapterPosition()).getId_user(),
-                            mData.get(getAdapterPosition()).getId_empresa());
+                    createNewDialogAceptar(itemView, mData.get(getAdapterPosition()).getId_user());
 
                 }
             });
@@ -193,7 +196,7 @@ public class ListAdapterListaAlumnos extends RecyclerView.Adapter<ListAdapterLis
     public void setItems(List<User> items){ mData = items; }
 
 
-    public void createNewDialogAceptar(View v, String rolUsuario, int idUser, int idEmpresa){//TODO POSIBLEMENTE TENGA QUE RECIBIR EL ID_USER O ID_EMPRESA
+    public void createNewDialogAceptar(View v, int idUser){//TODO POSIBLEMENTE TENGA QUE RECIBIR EL ID_USER O ID_EMPRESA
         dialogBuilder = new AlertDialog.Builder(v.getContext());
         LayoutInflater li = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         final View popUpView = li.inflate(R.layout.popup_multa, null);
@@ -217,38 +220,26 @@ public class ListAdapterListaAlumnos extends RecyclerView.Adapter<ListAdapterLis
             @Override
             public void onClick(View view) {
 
+                token = cargarPreferencias();
+
                 motivo = etMotivoMulta.getText().toString().trim();
                 multa = Integer.parseInt(etMulta.getText().toString().trim());
 
-                if(rolUsuario.equals("Empresario")){
+                m = new Multa(idUser, motivo, multa);
 
-                    //TODO MULTAR EN LA CUENTA DE EMPRESA (HistoricoCuentaEmpresa)
+                final APIService apiService = RetroClass.getAPIService();
 
-                }else if(rolUsuario.equals("Asalariado")){
-
-                    //TODO MULTAR EN LA CUENTA PERSONAL (HistoricoCuentaParticulares)
-
-                }else if(rolUsuario.equals("Autonomo")){
-
-                    //TODO MULTAR EN LA CUENTA PERSONAL (HistoricoCuentaParticulares)
-
-                }
-
-
-
-
-                /*final APIService apiService = RetroClass.getAPIService();
-
-                Call<Boolean> si = apiService.contratarAsalariado(sa,token);
+                Call<Boolean> si = apiService.multa(m,token);
                 si.enqueue(new Callback<Boolean>() {
                     @Override
                     public void onResponse(Call<Boolean> call, Response<Boolean> response) {
 
-
-                        if(response.body()){
-                            Intent i = new Intent(v.getContext(), HomeActivity.class);
-                            v.getContext().startActivity(i);
-                            Toast.makeText(context, "Contratado!!", Toast.LENGTH_SHORT).show();
+                        System.out.println(response.code());
+                        if(response.body()!=null){
+                            dialog.dismiss();
+                            Toast.makeText(context, "Multa Realizada...", Toast.LENGTH_SHORT).show();
+                        }else{
+                            Toast.makeText(context, "Intentelo de nuevo más tarde", Toast.LENGTH_SHORT).show();
                         }
 
                     }
@@ -258,7 +249,7 @@ public class ListAdapterListaAlumnos extends RecyclerView.Adapter<ListAdapterLis
                         System.out.println(t.getMessage());
 
                     }
-                });*/
+                });
 
 
             }
@@ -270,6 +261,16 @@ public class ListAdapterListaAlumnos extends RecyclerView.Adapter<ListAdapterLis
                 dialog.dismiss();
             }
         });
+    }
+
+    public String cargarPreferencias(){
+        SharedPreferences preferences = context.getSharedPreferences("credenciales", Context.MODE_PRIVATE);
+
+        String tokenFinal = preferences.getString("token","No existe el token");
+
+        return tokenFinal;
+
+
     }
 
 

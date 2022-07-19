@@ -7,6 +7,7 @@ import com.example.biometricthings.model.Empresa;
 import com.example.biometricthings.model.Empresaa;
 import com.example.biometricthings.model.HistoricoCuentaParticulares;
 import com.example.biometricthings.model.JWTToken;
+import com.example.biometricthings.model.Multa;
 import com.example.biometricthings.model.Practicas;
 import com.example.biometricthings.model.Propiedades;
 import com.example.biometricthings.model.Solicitud;
@@ -131,7 +132,11 @@ public interface APIService {
  @HTTP(method = "GET", path = "http://192.168.1.10:8080/api/practicas/")
  Call<ArrayList<Practicas>> obtenerPracticas(@Header("Authorization") String token);//TODO CON TOKEN
 
+ @HTTP(method = "POST", path = "http://192.168.1.10:8080/api/multas", hasBody = true)
+ Call<Boolean> multa(@Body Multa m, @Header("Authorization") String token);//TODO CON TOKEN
 
+ @HTTP(method = "POST", path = "http://192.168.1.10:8080/api/users/getImagenPerfil", hasBody = true)
+ Call<User> getImagenPerfil(@Body User u);
 
 
 //TODO TIENE QUE BUSCAR EL ID DE LAS EMPRESAS QUE ESTÉN EN SU CLASE

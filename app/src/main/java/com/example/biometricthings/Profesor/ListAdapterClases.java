@@ -2,6 +2,7 @@ package com.example.biometricthings.Profesor;
 
 
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
@@ -29,6 +30,7 @@ public class ListAdapterClases extends RecyclerView.Adapter<ListAdapterClases.Vi
     private List<Clase> mData;
     private Context context;
     private String clase;
+    private String clave;
     private int alumnos;
 
 
@@ -48,13 +50,14 @@ public class ListAdapterClases extends RecyclerView.Adapter<ListAdapterClases.Vi
         return new ListAdapterClases.ViewHolder(view);
     }
     public class ViewHolder extends RecyclerView.ViewHolder{
-        TextView tvClase,tvAlumno;
+        TextView tvClase,tvAlumno, tvClave;
         Button btnAcceder;
 
         ViewHolder(View itemView){
             super(itemView);
             tvClase = itemView.findViewById(R.id.tvClase);
             tvAlumno = itemView.findViewById(R.id.tvAlumnos);
+            tvClave = itemView.findViewById(R.id.tvClave);
             btnAcceder = itemView.findViewById(R.id.btnAcceder);
             btnAcceder.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -62,6 +65,7 @@ public class ListAdapterClases extends RecyclerView.Adapter<ListAdapterClases.Vi
                     Intent i = new Intent(view.getContext(), HomeActivity.class);
                     i.putExtra("idClase", mData.get(getAdapterPosition()).getId_clase());
                     view.getContext().startActivity(i);
+                    ((Activity)context).finish();
                 }
             });
 
@@ -104,11 +108,13 @@ public class ListAdapterClases extends RecyclerView.Adapter<ListAdapterClases.Vi
 
         clase = mData.get(position).getNombre();
         alumnos = mData.get(position).getNumero_de_usos();
+        clave = mData.get(position).getClave();
 
 
 
         holder.tvClase.setText(clase);
-        holder.tvAlumno.setText(alumnos+"");
+        holder.tvAlumno.setText("Huecos Disponibles: "+alumnos+"");
+        holder.tvClave.setText("Clave para acceder: "+clave);
 
 
 

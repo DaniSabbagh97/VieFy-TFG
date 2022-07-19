@@ -26,6 +26,77 @@
         android:layout_marginBottom="20dp"
         android:background="@android:color/darker_gray" />
 
+    <TextView
+        android:id="@+id/tvInfoClase"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/linea"
+        android:layout_marginLeft="50dp"
+
+        android:layout_marginTop="70dp"
+        android:text="Viefy Life Simulator S.L"
+        android:textSize="24sp" />
+
+    <TextView
+        android:id="@+id/tvProfesor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvInfoClase"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="20dp"
+        android:text="Gerente: Marta Robles"
+        android:textSize="24sp" />
+
+    <TextView
+        android:id="@+id/tvPropiedad"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvProfesor"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="20dp"
+        android:text="Asalariado 1: Carlos Martín"
+        android:textSize="24sp" />
+
+    <TextView
+        android:id="@+id/tvAlquiler"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvPropiedad"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="20dp"
+        android:text="Asalariado 2: Carlos Gomez"
+        android:textSize="24sp" />
+    <TextView
+        android:id="@+id/tvAlquiler2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="50dp"
+        android:layout_below="@+id/tvAlquiler"
+        android:textSize="24sp"
+        android:text="Asalariado 3: María Fuentes"
+        android:layout_marginTop="20dp"
+        />
+
+    <TextView
+        android:id="@+id/tvAlquiler3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvAlquiler2"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="20dp"
+        android:text="Asalariado 4: Nicolás Ríos"
+        android:textSize="24sp" />
+
+    <TextView
+        android:id="@+id/tvAlquiler4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvAlquiler3"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="20dp"
+        android:text="Nómina Mensual: 1700€"
+        android:textSize="24sp" />
+
 
 
 

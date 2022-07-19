@@ -27,6 +27,7 @@ public class TrimestralActivity extends AppCompatActivity {
     private EditText etBeneficioTrimestral;
 
     private Button btnEnviarTrimestral;
+    private Button btnAtrasT;
 
     private String mensaje;
     private String token;
@@ -47,8 +48,18 @@ public class TrimestralActivity extends AppCompatActivity {
         etBeneficioTrimestral = (EditText) findViewById(R.id.etBeneficioTrimestral);
 
         btnEnviarTrimestral = (Button) findViewById(R.id.btnEnviarTrimestral);
+        btnAtrasT = (Button) findViewById(R.id.btnAtrasT);
 
         token = cargarPreferencias();
+
+        btnAtrasT.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(TrimestralActivity.this, HomeActivity.class);
+                startActivity(i);
+                finish();
+            }
+        });
 
 
         btnEnviarTrimestral.setOnClickListener(new View.OnClickListener() {

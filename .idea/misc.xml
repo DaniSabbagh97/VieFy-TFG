@@ -64,12 +64,13 @@
         <entry key="..\:/BiometricThings/app/src/main/res/layout/activity_test.xml" value="0.15708812260536398" />
         <entry key="..\:/BiometricThings/app/src/main/res/layout/activity_trimestral.xml" value="0.1875" />
         <entry key="..\:/BiometricThings/app/src/main/res/layout/activity_unete_empresa.xml" value="0.225" />
-        <entry key="..\:/BiometricThings/app/src/main/res/layout/fragment_empresa.xml" value="0.24444444444444444" />
+        <entry key="..\:/BiometricThings/app/src/main/res/layout/fragment_about_us.xml" value="0.1" />
+        <entry key="..\:/BiometricThings/app/src/main/res/layout/fragment_empresa.xml" value="0.22274881516587677" />
         <entry key="..\:/BiometricThings/app/src/main/res/layout/fragment_home.xml" value="0.35260416666666666" />
         <entry key="..\:/BiometricThings/app/src/main/res/layout/fragment_lista_usuario.xml" value="0.30416666666666664" />
         <entry key="..\:/BiometricThings/app/src/main/res/layout/fragment_perfil.xml" value="0.23402777777777778" />
         <entry key="..\:/BiometricThings/app/src/main/res/layout/fragment_practicas_profesor.xml" value="0.22894736842105262" />
-        <entry key="..\:/BiometricThings/app/src/main/res/layout/fragment_profile.xml" value="0.36666666666666664" />
+        <entry key="..\:/BiometricThings/app/src/main/res/layout/fragment_profile.xml" value="0.1" />
         <entry key="..\:/BiometricThings/app/src/main/res/layout/fragment_salario_empresario.xml" value="0.24444444444444444" />
         <entry key="..\:/BiometricThings/app/src/main/res/layout/fragment_solicitudes_trabajo_activity.xml" value="0.24444444444444444" />
         <entry key="..\:/BiometricThings/app/src/main/res/layout/header.xml" value="0.1" />
@@ -77,7 +78,7 @@
         <entry key="..\:/BiometricThings/app/src/main/res/layout/list_elementLocales.xml" value="0.23333333333333334" />
         <entry key="..\:/BiometricThings/app/src/main/res/layout/list_element_alumnos.xml" value="0.22" />
         <entry key="..\:/BiometricThings/app/src/main/res/layout/list_element_antales.xml" value="0.24444444444444444" />
-        <entry key="..\:/BiometricThings/app/src/main/res/layout/list_element_clases.xml" value="0.36666666666666664" />
+        <entry key="..\:/BiometricThings/app/src/main/res/layout/list_element_clases.xml" value="0.1" />
         <entry key="..\:/BiometricThings/app/src/main/res/layout/list_element_empresas.xml" value="0.29635416666666664" />
         <entry key="..\:/BiometricThings/app/src/main/res/layout/list_element_locales.xml" value="0.1" />
         <entry key="..\:/BiometricThings/app/src/main/res/layout/list_element_practicas.xml" value="0.33" />
@@ -90,7 +91,7 @@
         <entry key="..\:/BiometricThings/app/src/main/res/layout/slider_layout.xml" value="0.31197916666666664" />
         <entry key="..\:/BiometricThings/app/src/main/res/layout/toolbar.xml" value="0.36666666666666664" />
         <entry key="..\:/BiometricThings/app/src/main/res/menu/bottom_nav.xml" value="0.1" />
-        <entry key="..\:/BiometricThings/app/src/main/res/menu/main_menu.xml" value="0.1" />
+        <entry key="..\:/BiometricThings/app/src/main/res/menu/main_menu.xml" value="0.22" />
         <entry key="..\:/BiometricThings/app/src/main/res/mipmap-anydpi-v26/ic_open_book.xml" value="0.3215" />
         <entry key="..\:/BiometricThings/app/src/main/res/mipmap-anydpi-v26/ic_open_book_round.xml" value="0.3215" />
       </map>

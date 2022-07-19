@@ -43,6 +43,7 @@ import com.example.biometricthings.Profesor.SubidaPracticas;
 import com.example.biometricthings.Profesor.TrimestralActivity;
 import com.example.biometricthings.Roles.EntregaPracticasActivity;
 import com.example.biometricthings.Roles.ListaPracticasDisponibles;
+import com.example.biometricthings.Roles.PracticasCompradasActivity;
 import com.example.biometricthings.SplashArt.SplashArtActivity;
 import com.example.biometricthings.model.User;
 import com.example.biometricthings.remote.APIService;
@@ -55,6 +56,8 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
     ProfileFragment profileFragment = new ProfileFragment();
     PerfilFragment perfilFragment = new PerfilFragment();
     EmpresaFragment empresaFragment = new EmpresaFragment();
+
+    AboutUsFragment aboutUsFragment = new AboutUsFragment();
 
     ListaUsuarioFragment listaUsuarioFragment = new ListaUsuarioFragment();
     PracticasProfesorFragment practicasProfesorFragment = new PracticasProfesorFragment();
@@ -110,14 +113,19 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         chipNavigationBar = findViewById(R.id.chipBottomBar);
         bottomMenu();
         loadFragment(profileFragment);
-       /* System.out.println("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
-        System.out.println(chipNavigationBar.getSelectedItemId());
-        System.out.println("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");*/
-        chipNavigationBar.setItemSelected(2131362287, true);
+        //System.out.println("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
+        //System.out.println(chipNavigationBar.getSelectedItemId());
+        //System.out.println("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
+        //chipNavigationBar.setItemSelected(2131362287, true);
 
         //chipNavigationBar.setItemSelected(R.id.chipBottomBar, true);
 
-
+        ivUserPerfil.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                loadFragment(profileFragment);
+            }
+        });
 
         String token2 = cargarPreferencias();
 
@@ -133,9 +141,9 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
             public void onResponse(Call<User> call, Response<User> response) {
                 if (response.body() != null){
                     user = response.body();
-                System.out.println(response.body());
+               /* System.out.println(response.body());
                 System.out.println("bbbbbbbbbbbbbbbbb");
-                System.out.println(user.getNombre());
+                System.out.println(user.getNombre());*/
                 imagenRecibida = user.getImagen();
 
                 byte[] bytes = Base64.decode(imagenRecibida, Base64.DEFAULT);
@@ -160,6 +168,9 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
                     menu.findItem(R.id.nav_solicitudes).setVisible(false);
                     menu.findItem(R.id.nav_anual).setVisible(false);
                     menu.findItem(R.id.nav_entregaPracticas).setVisible(false);
+                    menu.findItem(R.id.nav_sueldo).setVisible(false);
+                    menu.findItem(R.id.nav_practicasCompradas).setVisible(false);
+
 
                 } else if (isProfesor == 0) {
 
@@ -170,6 +181,8 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
                     menu.findItem(R.id.nav_mensajes).setVisible(false);
                     menu.findItem(R.id.nav_hacienda).setVisible(false);
                     menu.findItem(R.id.nav_principal).setVisible(false);
+                    menu.findItem(R.id.nav_corregirPracticas).setVisible(false);
+
 
                     if (rol.equals("Empresario")) {
                         //  TODO MENÚ DE EMPRESARIO
@@ -183,6 +196,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
                         menu.findItem(R.id.nav_trimestral).setVisible(false);
                         menu.findItem(R.id.nav_entregaPracticas).setVisible(false);
                         menu.findItem(R.id.nav_practicasDisponibles).setVisible(false);
+                        menu.findItem(R.id.nav_sueldo).setVisible(false);
 
 
                     } else if (rol.equals("Autonomo")) {
@@ -227,16 +241,58 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
             public void onItemSelected(int i) {
                 switch (i){
                     case R.id.profileFragment:
-                        System.out.println("AAAAAAAAAAAA");
-                        System.out.println(i);
+
+                        if (isProfesor == 1) {
+
+                            //TODO ES PROFESOR
+
+                        } else if (isProfesor == 0) {
+
+                            //TODO NO ES PROFESOR
+
+                                if (rol.equals("Empresario")) {
+
+                                //TODO EMPRESARIO
+
+                                } else if (rol.equals("Asalariado")) {
+
+                                //TODO ASALARIADO
+
+                            } else if (rol.equals("Autonomo")) {
+
+                                //TODO AUTONOMO
+                            }
+
+                        }
+
                         loadFragment(perfilFragment);
                         break;
                     case R.id.empresaFragment:
+
+                        if (isProfesor == 1) {
+
+                            //TODO ES PROFESOR
+
+                        } else if (isProfesor == 0) {
+
+                            //TODO NO ES PROFESOR
+
+                            if (rol.equals("Empresario")) {
+
+                                //TODO EMPRESARIO
+
+                            } else if (rol.equals("Asalariado")) {
+
+                                //TODO ASALARIADO
+
+                            } else if (rol.equals("Autonomo")) {
+
+                                //TODO AUTONOMO
+                            }
+
+
+                        }
                         loadFragment(empresaFragment);
-                        /*Bundle bundle = new Bundle();
-                        bundle.putInt("rolJuego", "idClase");
-                        empresaFragment.setArguments(bundle);*/
-                        break;
 
 
 
@@ -308,6 +364,12 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
                 /*Intent i = new Intent(HomeActivity.this, ReadPDFActivity.class);
                 startActivity(i);*/
                 break;
+
+
+            case R.id.nav_aboutUs:
+                    loadFragment(aboutUsFragment);
+
+                    break;
             case R.id.nav_listaAlumnos:
                 loadFragment(listaUsuarioFragment);
                 Bundle bundle = new Bundle();
@@ -365,6 +427,12 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
 
                 startActivity(i7);
                 break;
+            case R.id.nav_practicasCompradas:
+                Intent i9 = new Intent(HomeActivity.this, PracticasCompradasActivity.class);
+                i9.putExtra("idClase", idClase);
+
+                startActivity(i9);
+                break;
             case R.id.nav_practicasDisponibles:
                 Intent i8 = new Intent(HomeActivity.this, ListaPracticasDisponibles.class);
                 i8.putExtra("idClase", idClase);
@@ -373,6 +441,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
                 break;
             case R.id.nav_perfil:
                 loadFragment(profileFragment);
+                chipNavigationBar.setItemSelected(0, true);
                 break;
 
             case R.id.nav_sueldo:

@@ -51,41 +51,25 @@
         android:background="@android:color/darker_gray" />
 
 
-
     <TextView
         android:id="@+id/tvInfoClase"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
         android:layout_below="@+id/linea"
-        android:textSize="18sp"
-        android:layout_marginTop="20dp"
-        />
+        android:layout_marginLeft="50dp"
+        
+        android:layout_marginTop="180dp"
+        android:text="Clase: Variable Compleja"
+        android:textSize="24sp" />
 
     <TextView
         android:id="@+id/tvProfesor"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
         android:layout_below="@+id/tvInfoClase"
+        android:layout_marginLeft="50dp"
         android:layout_marginTop="20dp"
-        />
+        android:text="Profesor: Alberto Aijón"
+        android:textSize="24sp" />
 
-    <TextView
-        android:id="@+id/tvPropiedad"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@+id/tvProfesor"
-        android:layout_marginTop="20dp"
-        />
-
-    <TextView
-        android:id="@+id/tvAlquiler"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@+id/tvPropiedad"
-        android:layout_marginTop="20dp"
-        />
 </RelativeLayout>
