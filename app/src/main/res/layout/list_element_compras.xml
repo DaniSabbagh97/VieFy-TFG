@@ -1,6 +1,56 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-                <!--TODO HACER-->
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:animateLayoutChanges="true"
+    app:cardCornerRadius="20dp"
+    app:cardElevation="4dp"
+    app:cardUseCompatPadding="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:animateLayoutChanges="true"
+        android:orientation="vertical"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginLeft="4dp">
+
+
+        <TextView
+            android:id="@+id/tvNombrePractica"
+            android:gravity="left"
+            android:layout_width="match_parent"
+            android:fontFamily="@font/alata"
+            android:layout_height="wrap_content"
+            android:layout_margin="7dp"
+            />
+        <TextView
+            android:id="@+id/tvCostePractica"
+            android:gravity="left"
+            android:layout_width="match_parent"
+            android:fontFamily="@font/alata"
+            android:layout_height="wrap_content"
+            android:layout_margin="7dp"
+            />
+        <TextView
+            android:id="@+id/tvBeneficioPractica"
+            android:gravity="left"
+            android:layout_width="match_parent"
+            android:fontFamily="@font/alata"
+            android:layout_height="wrap_content"
+            android:layout_margin="7dp"
+            />
+
+        <Button
+            android:id="@+id/btnVerPractica"
+            android:layout_width="wrap_content"
+            android:layout_gravity="center"
+            android:fontFamily="@font/alata"
+            android:layout_height="wrap_content"
+            android:layout_margin="7dp"
+            android:text="Ver Práctica" />
+    </LinearLayout>
 </androidx.cardview.widget.CardView>

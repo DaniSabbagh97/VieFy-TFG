@@ -4,6 +4,7 @@ import com.example.biometricthings.model.Antales;
 import com.example.biometricthings.model.Anual;
 import com.example.biometricthings.model.Clase;
 import com.example.biometricthings.model.Compras;
+import com.example.biometricthings.model.Correcion;
 import com.example.biometricthings.model.Empresa;
 import com.example.biometricthings.model.Empresaa;
 import com.example.biometricthings.model.HistoricoCuentaParticulares;
@@ -17,6 +18,7 @@ import com.example.biometricthings.model.Test;
 import com.example.biometricthings.model.TestResult;
 import com.example.biometricthings.model.Trimestral;
 import com.example.biometricthings.model.User;
+import com.example.biometricthings.model.idClase;
 
 
 import java.util.ArrayList;
@@ -139,8 +141,41 @@ public interface APIService {
  @HTTP(method = "POST", path = "http://192.168.1.10:8080/api/multas", hasBody = true)
  Call<Boolean> multa(@Body Multa m, @Header("Authorization") String token);//TODO CON TOKEN
 
+ @HTTP(method = "POST", path = "http://192.168.1.10:8080/api/compras", hasBody = true)
+ Call<Boolean> crearCompra(@Body Practicas p, @Header("Authorization") String token);//TODO CON TOKEN
+
  @HTTP(method = "POST", path = "http://192.168.1.10:8080/api/users/getImagenPerfil", hasBody = true)
  Call<User> getImagenPerfil(@Body User u);
+
+
+ @HTTP(method = "POST", path = "http://192.168.1.10:8080/api/compras/corregir", hasBody = true)
+ Call<Boolean> corregirPractica(@Body Correcion c, @Header("Authorization") String token);//TODO CON TOKEN
+
+
+/**
+ *
+ *
+ *
+ *
+ *
+ *
+ *TODO compra.entrega para obtener la practica entregada
+ *TODO compra.practica.pdf para obtener el pdf de la practica
+ *
+ *
+ *
+ *
+ *
+ *
+**/
+//TODO AQUI SE OBTIENEN LAS ENTREGAS DE UNA CLASE PARA QUE EL PROFESOR LAS CORRIJA
+@HTTP(method = "POST", path = "http://192.168.1.10:8080/api/compras/entregas", hasBody = true)
+Call<ArrayList<Compras>> obtenerPracticasEntregadas(@Body idClase id, @Header("Authorization") String token);//TODO CON TOKEN
+
+
+//TODO AQUI SE ENTREGA LA PRACTICA
+ @HTTP(method = "POST", path = "http://192.168.1.10:8080/api/compras/entrega", hasBody = true)
+ Call<Boolean> entregarPractica(@Body Practicas p, @Header("Authorization") String token);//TODO CON TOKEN
 
 
 //TODO TIENE QUE BUSCAR EL ID DE LAS EMPRESAS QUE ESTÉN EN SU CLASE

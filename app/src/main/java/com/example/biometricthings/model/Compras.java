@@ -2,34 +2,26 @@ package com.example.biometricthings.model;
 
 public class Compras {
 
-    private int id_compras;
+    private int id_compra;
     private Empresa empresa;
-    private Practicas practicas;
-
-    public Compras(int id_compras, Empresa empresa, Practicas practicas) {
-        this.id_compras = id_compras;
-        this.empresa = empresa;
-        this.practicas = practicas;
-    }
-
-    public Compras(Empresa empresa, Practicas practicas) {
-        this.empresa = empresa;
-        this.practicas = practicas;
-    }
+    private Practicas practica;
+    private byte[] entrega;
+    private int id_clase;
+    private float nota;
 
     public Compras(int id_compras) {
-        this.id_compras = id_compras;
+        this.id_compra = id_compra;
     }
 
     public Compras() {
     }
 
-    public int getId_compras() {
-        return id_compras;
+    public int getId_compra() {
+        return id_compra;
     }
 
-    public void setId_compras(int id_compras) {
-        this.id_compras = id_compras;
+    public void setId_compra(int id_compra) {
+        this.id_compra = id_compra;
     }
 
     public Empresa getEmpresa() {
@@ -40,11 +32,35 @@ public class Compras {
         this.empresa = empresa;
     }
 
-    public Practicas getPracticas() {
-        return practicas;
+    public Practicas getPractica() {
+        return practica;
     }
 
-    public void setPracticas(Practicas practicas) {
-        this.practicas = practicas;
+    public void setPractica(Practicas practica) {
+        this.practica = practica;
+    }
+
+    public byte[] getEntrega() {
+        return entrega;
+    }
+
+    public void setEntrega(byte[] entrega) {
+        this.entrega = entrega;
+    }
+
+    public int getId_clase() {
+        return id_clase;
+    }
+
+    public void setId_clase(int id_clase) {
+        this.id_clase = id_clase;
+    }
+
+    public float getNota() {
+        return nota;
+    }
+
+    public void setNota(float nota) {
+        this.nota = nota;
     }
 }

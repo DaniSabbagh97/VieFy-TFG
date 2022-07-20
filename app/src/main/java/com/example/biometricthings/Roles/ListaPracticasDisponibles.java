@@ -80,7 +80,7 @@ public class ListaPracticasDisponibles extends AppCompatActivity {
                         pp = response.body();
 
                         System.out.println(pp);
-                        System.out.println("PUUUUUUUUUUUUUUUUUU6");
+                        System.out.println("PUUUUUUUUUUUU54UUUUUU6");
 
                         ListAdapterPracticas listAdapterPracticas = new ListAdapterPracticas(pp, ListaPracticasDisponibles.this);
                         RecyclerView recyclerView = findViewById(R.id.rvPracticas);

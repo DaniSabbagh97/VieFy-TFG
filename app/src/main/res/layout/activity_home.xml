@@ -75,7 +75,7 @@
         app:labelVisibilityMode="selected"
         style="@style/BottomNavigation"/>-->
 
-    <com.ismaeldivita.chipnavigation.ChipNavigationBar
+   <!-- <com.ismaeldivita.chipnavigation.ChipNavigationBar
         android:id="@+id/chipBottomBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -91,7 +91,7 @@
         app:cnb_orientationMode="horizontal"
         app:cnb_radius="8dp"
         app:cnb_unselectedColor="@color/black" />
-
+-->
 </RelativeLayout>
 </androidx.drawerlayout.widget.DrawerLayout>
 

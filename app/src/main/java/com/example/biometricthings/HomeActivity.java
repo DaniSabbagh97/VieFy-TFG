@@ -37,11 +37,13 @@ import com.example.biometricthings.Fragments.SalarioEmpresarioFragment;
 import com.example.biometricthings.Fragments.SolicitudesTrabajoActivity;
 import com.example.biometricthings.Fragments.WorkFragment;
 import com.example.biometricthings.Profesor.AnualActivity;
+import com.example.biometricthings.Profesor.CorregirPracticasActivity;
 import com.example.biometricthings.Profesor.HaciendaActivity;
 import com.example.biometricthings.Profesor.SeleccionaClaseActivity;
 import com.example.biometricthings.Profesor.SubidaPracticas;
 import com.example.biometricthings.Profesor.TrimestralActivity;
 import com.example.biometricthings.Roles.EntregaPracticasActivity;
+import com.example.biometricthings.Roles.ListaPracticasCompradas;
 import com.example.biometricthings.Roles.ListaPracticasDisponibles;
 import com.example.biometricthings.Roles.PracticasCompradasActivity;
 import com.example.biometricthings.SplashArt.SplashArtActivity;
@@ -110,8 +112,8 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
 
         //BottomNavigationView navigation = findViewById(R.id.bottom_nav);
         //navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
-        chipNavigationBar = findViewById(R.id.chipBottomBar);
-        bottomMenu();
+            //chipNavigationBar = findViewById(R.id.chipBottomBar);
+       // bottomMenu();
         loadFragment(profileFragment);
         //System.out.println("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
         //System.out.println(chipNavigationBar.getSelectedItemId());
@@ -178,7 +180,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
                     menu.findItem(R.id.nav_listaAlumnos).setVisible(false);
                     menu.findItem(R.id.nav_practicas).setVisible(false);
                     menu.findItem(R.id.nav_cambiarClase).setVisible(false);
-                    menu.findItem(R.id.nav_mensajes).setVisible(false);
+                    //menu.findItem(R.id.nav_mensajes).setVisible(false);
                     menu.findItem(R.id.nav_hacienda).setVisible(false);
                     menu.findItem(R.id.nav_principal).setVisible(false);
                     menu.findItem(R.id.nav_corregirPracticas).setVisible(false);
@@ -234,7 +236,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
 
     }
 
-    private void bottomMenu() {
+  /*  private void bottomMenu() {
 
         chipNavigationBar.setOnItemSelectedListener(new ChipNavigationBar.OnItemSelectedListener() {
             @Override
@@ -300,7 +302,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
                 }
             }
         });
-    }
+    }*/
 
     @Override
     public void onBackPressed() {
@@ -428,7 +430,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
                 startActivity(i7);
                 break;
             case R.id.nav_practicasCompradas:
-                Intent i9 = new Intent(HomeActivity.this, PracticasCompradasActivity.class);
+                Intent i9 = new Intent(HomeActivity.this, ListaPracticasCompradas.class);
                 i9.putExtra("idClase", idClase);
 
                 startActivity(i9);
@@ -438,6 +440,12 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
                 i8.putExtra("idClase", idClase);
 
                 startActivity(i8);
+                break;
+            case R.id.nav_corregirPracticas:
+                Intent i10 = new Intent(HomeActivity.this, CorregirPracticasActivity.class);
+                i10.putExtra("idClase", idClase);
+
+                startActivity(i10);
                 break;
             case R.id.nav_perfil:
                 loadFragment(profileFragment);

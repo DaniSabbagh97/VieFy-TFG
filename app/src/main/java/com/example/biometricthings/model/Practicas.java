@@ -10,6 +10,7 @@ public class Practicas {
     private int id_clase;
     private int id_profesor;
     private byte[] pdf;
+    private byte[] entrega;
     private int nota;
     private int beneficio;
 
@@ -25,6 +26,9 @@ public class Practicas {
         this.beneficio = beneficio;
     }
 
+    public Practicas(int id_practica) {
+        this.id_practica = id_practica;
+    }
 
     public Practicas(String nombrePractica, int numEjercicios, int valorTotal, String fechaEntrega, int id_clase, byte[] pdf, int beneficio) {
         this.nombrePractica = nombrePractica;
@@ -37,6 +41,12 @@ public class Practicas {
     }
 
     public Practicas() {
+    }
+
+    public Practicas(int id_practica, String nombrePractica, byte[] entrega) {
+        this.id_practica = id_practica;
+        this.nombrePractica = nombrePractica;
+        this.entrega = entrega;
     }
 
     public int getId_practica() {
@@ -117,5 +127,13 @@ public class Practicas {
 
     public void setBeneficio(int beneficio) {
         this.beneficio = beneficio;
+    }
+
+    public byte[] getEntrega() {
+        return entrega;
+    }
+
+    public void setEntrega(byte[] entrega) {
+        this.entrega = entrega;
     }
 }

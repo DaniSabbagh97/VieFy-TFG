@@ -26,6 +26,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.biometricthings.HomeActivity;
 import com.example.biometricthings.Image.Utils;
@@ -38,6 +39,8 @@ import com.example.biometricthings.remote.RetroClass;
 
 import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class EntregaPracticasActivity extends AppCompatActivity {
 
@@ -57,6 +60,9 @@ public class EntregaPracticasActivity extends AppCompatActivity {
     private byte[] inputData;
     private String token;
     private String nombrePDF;
+    private int idPractica;
+
+    private Practicas practicas;
 
     private int SELECT_FILE = 200;
 
@@ -78,6 +84,8 @@ public class EntregaPracticasActivity extends AppCompatActivity {
         btnAtrasEP = (Button) findViewById(R.id.btnAtrasEP);
         arrPracticas = new ArrayList<>();
         pp = new ArrayList<>();
+        ArrayList<HashMap<String, Integer>> listaPracticas = new ArrayList<HashMap<String, Integer>>();
+        HashMap<String, Integer> hm = new HashMap<String, Integer>();
         /*String[] plants = new String[]{
                 "Select an item...",
                 "California sycamore",
@@ -108,7 +116,16 @@ public class EntregaPracticasActivity extends AppCompatActivity {
                 System.out.println(pp);
                 for (Practicas p : pp){
                     arrPracticas.add(p.getNombrePractica());
+                    System.out.println("AAAAAAAAAAAAAAAAAAAAAAAAA");
+                    System.out.println(p.getId_practica());
+                    hm.put(p.getNombrePractica(), p.getId_practica());
+                    //listaPracticas.add(hm);
+                    //TODO HACER que pille el id de la practica asociado al nombre
+
                 }
+
+
+
 
                 final ArrayAdapter<String> adapter = new ArrayAdapter<String>(EntregaPracticasActivity.this, androidx.appcompat.R.layout.support_simple_spinner_dropdown_item,arrPracticas){
                     @Override
@@ -182,11 +199,53 @@ public class EntregaPracticasActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                nombrePractica = etNombrePractica.getText().toString().trim();
+                //nombrePractica = etNombrePractica.getText().toString().trim();
+                nombrePractica = spNombrePractica.getSelectedItem().toString();
                 mensajePractica = etMensajeAlProfe.getText().toString().trim();
+                idPractica = hm.get(nombrePractica);
+
+
+                practicas = new Practicas(idPractica, nombrePractica, inputData);
+
+                final APIService apiService = RetroClass.getAPIService();
+
+                Call<Boolean> p = apiService.entregarPractica(practicas, token);
+
+                p.enqueue(new Callback<Boolean>() {
+                    @Override
+                    public void onResponse(Call<Boolean> call, Response<Boolean> response) {
+
+                        if(response.code()==200){
+                            if(response.body()!=null){
+                                if(response.body()){
+                                    Intent i = new Intent(EntregaPracticasActivity.this, HomeActivity.class);
+                                    startActivity(i);
+                                    finish();
+                                }else{
+                                    Toast.makeText(EntregaPracticasActivity.this, "No se ha podido entregar la practica", Toast.LENGTH_SHORT).show();
+                                }
+
+                            }else{
+                                Toast.makeText(EntregaPracticasActivity.this, "Intentelo más tarde...", Toast.LENGTH_SHORT).show();
+                            }
+                        }else{
+                            Toast.makeText(EntregaPracticasActivity.this, "El servidor envío una respuesta de: "+response.code()+" ", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(Call<Boolean> call, Throwable t) {
+
+                    }
+                });
+
+
+                //inputdata es el pdf
 
 
                 //TODO ENVIAR A LA BBDD LA PRÁCTICA PARA QUE LA CORRIJA EL PROFESOR
+        //todo pdfEntregado subir la practica un onbjeto practica
+
 
 
             }

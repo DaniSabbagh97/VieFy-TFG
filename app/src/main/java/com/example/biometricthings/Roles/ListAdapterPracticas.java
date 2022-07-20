@@ -3,6 +3,7 @@ package com.example.biometricthings.Roles;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,6 +16,7 @@ import com.example.biometricthings.HomeActivity;
 import com.example.biometricthings.Profesor.PrevisualizarPracticaActivity;
 import com.example.biometricthings.R;
 import com.example.biometricthings.model.Clase;
+import com.example.biometricthings.model.Compras;
 import com.example.biometricthings.model.PasarBytes;
 import com.example.biometricthings.model.Practicas;
 import com.example.biometricthings.model.SolicitudAceptada;
@@ -34,6 +36,7 @@ public class ListAdapterPracticas extends RecyclerView.Adapter<ListAdapterPracti
     private List<Practicas> mData;
     private Context context;
     private String nombre;
+    private String token;
     private int valorTotal, beneficio;
     private PasarBytes pb;
 
@@ -42,6 +45,7 @@ public class ListAdapterPracticas extends RecyclerView.Adapter<ListAdapterPracti
     private AlertDialog dialog;
     private Button btnSi, btnNo;
     private TextView tvInfo;
+    private Practicas practicas;
 
 
     public ListAdapterPracticas(List<Practicas> mData, Context context) {
@@ -73,8 +77,8 @@ public class ListAdapterPracticas extends RecyclerView.Adapter<ListAdapterPracti
             btnComprar.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-
-                    createNewDialogAceptar(itemView);
+                    int id_practica = mData.get(getAdapterPosition()).getId_practica();
+                    createNewDialogAceptar(itemView, id_practica);
                 }
             });
             btnVerPDF.setOnClickListener(new View.OnClickListener() {
@@ -143,7 +147,7 @@ public class ListAdapterPracticas extends RecyclerView.Adapter<ListAdapterPracti
     public void setItems(List<Practicas> items){ mData = items; }
 
 
-    public void createNewDialogAceptar(View v){
+    public void createNewDialogAceptar(View v, int id){
         dialogBuilder = new AlertDialog.Builder(v.getContext());
         LayoutInflater li = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         final View popUpView = li.inflate(R.layout.popup_confirmacion_propiedad, null);
@@ -153,7 +157,7 @@ public class ListAdapterPracticas extends RecyclerView.Adapter<ListAdapterPracti
         btnNo = (Button) popUpView.findViewById(R.id.btnNo);
 
         tvInfo.setText("¿Estás Seguro de Comprar la Actividad?");
-
+        token = cargarPreferencias();
         dialogBuilder.setView(popUpView);
         dialog = dialogBuilder.create();
         dialog.show();
@@ -162,6 +166,37 @@ public class ListAdapterPracticas extends RecyclerView.Adapter<ListAdapterPracti
 
             @Override
             public void onClick(View view) {
+
+                practicas = new Practicas(id);
+
+                final APIService apiService = RetroClass.getAPIService();
+                Call<Boolean> p = apiService.crearCompra(practicas,token);
+
+                p.enqueue(new Callback<Boolean>() {
+                    @Override
+                    public void onResponse(Call<Boolean> call, Response<Boolean> response) {
+                        if(response.code()==200){
+                            if(response.body()!=null){
+                                if(response.body()){
+                                    dialog.dismiss();
+                                }else{
+                                    Toast.makeText(context, "No tienes suficiente dinero para comprar la práctica o ya la compraste", Toast.LENGTH_SHORT).show();
+                                }
+
+
+                            }else{
+                                Toast.makeText(view.getContext(), "Intentelo más tarde...", Toast.LENGTH_SHORT).show();
+                            }
+                        }else{
+                            Toast.makeText(view.getContext(), "El servidor envío una respuesta de: "+response.code()+" ", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(Call<Boolean> call, Throwable t) {
+
+                    }
+                });
 
 //TODO COMPRAR LA PRACTICA
              /*   salarioInt = Integer.parseInt((etSalario.getText().toString().trim()));
@@ -201,6 +236,16 @@ public class ListAdapterPracticas extends RecyclerView.Adapter<ListAdapterPracti
                 dialog.dismiss();
             }
         });
+    }
+
+    public String cargarPreferencias(){
+        SharedPreferences preferences = context.getSharedPreferences("credenciales", Context.MODE_PRIVATE);
+
+        String tokenFinal = preferences.getString("token","No existe el token");
+
+        return tokenFinal;
+
+
     }
 
 

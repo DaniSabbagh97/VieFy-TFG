@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="7dp"
+    >
+
+    <TextView
+        android:id="@+id/tvInfo"
+        android:layout_width="match_parent"
+        android:fontFamily="@font/alata"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="60dp"
+        android:gravity="center"
+
+        />
+
+    <EditText
+        android:id="@+id/etNota"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvInfo"
+        android:layout_centerHorizontal="true"
+        android:fontFamily="@font/alata"
+        android:hint="Nota del 1 al 10"
+        android:inputType="textPersonName" />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/etNota"
+        android:layout_marginTop="40dp"
+        android:layout_marginBottom="20dp"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btnSi"
+            android:layout_width="130dp"
+            android:fontFamily="@font/alata"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="15dp"
+            android:text="Aceptar" />
+
+        <Button
+            android:id="@+id/btnNo"
+            android:layout_width="130dp"
+            android:fontFamily="@font/alata"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:text="Cancelar" />
+    </LinearLayout>
+
+
+
+
+</RelativeLayout>

@@ -1,4 +1,4 @@
-package com.example.biometricthings.Roles;
+package com.example.biometricthings.Profesor;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -17,38 +17,48 @@ import android.widget.Toast;
 
 import com.example.biometricthings.HomeActivity;
 import com.example.biometricthings.R;
+import com.example.biometricthings.Roles.ListAdaptarPracticasCompradas;
+import com.example.biometricthings.Roles.ListAdapterPracticasCorregir;
+import com.example.biometricthings.Roles.ListaPracticasCompradas;
 import com.example.biometricthings.model.Compras;
-import com.example.biometricthings.model.Practicas;
+import com.example.biometricthings.model.idClase;
 import com.example.biometricthings.remote.APIService;
 import com.example.biometricthings.remote.RetroClass;
 
 import java.util.ArrayList;
 
-public class ListaPracticasCompradas extends AppCompatActivity {
+public class CorregirPracticasActivity extends AppCompatActivity {
 
     private ArrayList<Compras> cc;
     private String token;
-    private Button btnAtrasC;
+    private Button btnAtrasPC;
+    private int clase;
+    private idClase id;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_lista_practicas_compradas);
+        setContentView(R.layout.activity_corregir_practicas);
 
-        btnAtrasC = (Button) findViewById(R.id.btnAtrasC);
+
+        btnAtrasPC = (Button) findViewById(R.id.btnAtrasPC);
+
+        Bundle extras = getIntent().getExtras();
+        if(extras!=null) {
+            clase = extras.getInt("idClase");
+        }
 
         token = cargarPreferencias();
-
-        btnAtrasC.setOnClickListener(new View.OnClickListener() {
+        btnAtrasPC.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(ListaPracticasCompradas.this, HomeActivity.class);
+                Intent i = new Intent(CorregirPracticasActivity.this, HomeActivity.class);
                 startActivity(i);
                 finish();
             }
         });
 
-        init();
+        init(clase);
     }
 
     public String cargarPreferencias(){
@@ -61,11 +71,13 @@ public class ListaPracticasCompradas extends AppCompatActivity {
 
     }
 
-    public void init(){
+    public void init(int idc){
+
+        id = new idClase(idc);
 
         final APIService apiService = RetroClass.getAPIService();
 
-        Call<ArrayList<Compras>> c = apiService.obtenerPracticasCompradas(token);
+        Call<ArrayList<Compras>> c = apiService.obtenerPracticasEntregadas(id, token);
 
         c.enqueue(new Callback<ArrayList<Compras>>() {
             @Override
@@ -78,16 +90,16 @@ public class ListaPracticasCompradas extends AppCompatActivity {
                         System.out.println(cc);
                         System.out.println("PUUUUUUUUU54UUUUUUUUU6");
 
-                        ListAdaptarPracticasCompradas listAdaptarPracticasCompradas = new ListAdaptarPracticasCompradas(cc, ListaPracticasCompradas.this);
-                        RecyclerView recyclerView = findViewById(R.id.rvCompras);
+                        ListAdapterPracticasCorregir listAdapterPracticasCorregir = new ListAdapterPracticasCorregir(cc, CorregirPracticasActivity.this);
+                        RecyclerView recyclerView = findViewById(R.id.rvPracticasCorregir);
                         recyclerView.setHasFixedSize(true);
-                        recyclerView.setLayoutManager(new LinearLayoutManager(ListaPracticasCompradas.this));
-                        recyclerView.setAdapter(listAdaptarPracticasCompradas);
+                        recyclerView.setLayoutManager(new LinearLayoutManager(CorregirPracticasActivity.this));
+                        recyclerView.setAdapter(listAdapterPracticasCorregir);
                     }else{
-                        Toast.makeText(ListaPracticasCompradas.this, "Intentelo más tarde...", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(CorregirPracticasActivity.this, "Intentelo más tarde...", Toast.LENGTH_SHORT).show();
                     }
                 }else{
-                    Toast.makeText(ListaPracticasCompradas.this, "El servidor envío una respuesta de: "+response.code()+" ", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(CorregirPracticasActivity.this, "El servidor envío una respuesta de: "+response.code()+" ", Toast.LENGTH_SHORT).show();
                 }
 
 

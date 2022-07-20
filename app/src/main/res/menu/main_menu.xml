@@ -75,11 +75,7 @@
             android:icon="@drawable/ic_corregir"
             android:title="Corregir Prácticas" />
 
-        <item
-            android:id="@+id/nav_mensajes"
-            android:fontFamily="@font/alata"
-            android:icon="@drawable/ic_baseline_mensaje_24"
-            android:title="Notificaciones" />
+
 
         <!-- <item
      android:id="@+id/nav_empresa"
