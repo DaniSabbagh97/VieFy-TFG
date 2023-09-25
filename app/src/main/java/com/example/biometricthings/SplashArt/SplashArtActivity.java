@@ -39,6 +39,7 @@ public class SplashArtActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash_art);
+       // limpiarPreferencias();
 
         iv = findViewById(R.id.iv);
         lottie = findViewById(R.id.lottie);
@@ -66,8 +67,10 @@ public class SplashArtActivity extends AppCompatActivity {
 
 
                             if(response.code() == 200){
+
                                 user = response.body();
                                 rol = user.getRol();
+                               // rol = "Profesor";
                                 System.out.println("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
                                 System.out.println(rol);
                                 if(rol.equals("Profesor")){
@@ -137,6 +140,17 @@ public class SplashArtActivity extends AppCompatActivity {
 
         return tokenFinal;
 
+
+    }
+
+    public void limpiarPreferencias(){
+
+        SharedPreferences preferences = getSharedPreferences("credenciales", Context.MODE_PRIVATE);
+
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.putString("token","NO");
+        editor.putInt("idUser",0);
+        editor.commit();
 
     }
 }

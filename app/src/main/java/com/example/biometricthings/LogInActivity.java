@@ -18,6 +18,7 @@ import android.widget.Toast;
 
 import com.example.biometricthings.Profesor.SeleccionaClaseActivity;
 import com.example.biometricthings.Propiedades.PropiedadesActivity;
+import com.example.biometricthings.PruebasLoeches.MainActivity;
 import com.example.biometricthings.Register.EntrarClaseActivity;
 import com.example.biometricthings.Register.RegisterActivity;
 import com.example.biometricthings.Test.TestActivity;
@@ -37,6 +38,7 @@ public class LogInActivity extends AppCompatActivity {
 
     private EditText etUserMail,etUserPassword;
     private Button senddata;
+    private Button btnRv;
     private TextView tvRegistro;
     private TokenManager tokenManager;
 
@@ -66,6 +68,7 @@ public class LogInActivity extends AppCompatActivity {
         content.setSpan(new UnderlineSpan(), 0, content.length(), 0);
         tvRegistro.setText(content);
         senddata = (Button) findViewById(R.id.senddata);
+        btnRv = (Button) findViewById(R.id.btnRv);
         System.out.println("YYYYYYYYYYYYYYYYYYYYYYYY");
         System.out.println(mail);
         etUserMail.setText(mail);
@@ -79,6 +82,14 @@ public class LogInActivity extends AppCompatActivity {
                 i.putExtra("mail", mail);
                 startActivity(i);
 
+            }
+        });
+
+        btnRv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(LogInActivity.this, MainActivity.class);
+                startActivity(i);
             }
         });
 
